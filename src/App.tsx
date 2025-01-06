@@ -1,15 +1,13 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import Header from "./components/layout/Header";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="text-3xl font-bold underline decoration-slate-100 text-regal-blue">
-          Hello world!
-        </h1>
-      </header>
+    <div className="App relative">
+      <AppRoutes />
     </div>
   );
 }

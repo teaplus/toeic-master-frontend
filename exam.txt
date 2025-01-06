@@ -1,0 +1,81 @@
+Dự án này yêu cầu sinh viên phát triển một trang web luyện thi TOEIC trực tuyến, giúp người dùng nâng cao kỹ năng làm bài thông qua các bài thi mô phỏng, bài tập và phân tích kết quả chi tiết. Hệ thống sẽ được xây dựng trên nền tảng NestJS nhằm đảm bảo tính hiệu suất, bảo mật và khả năng mở rộng, đáp ứng nhu cầu học tập của người dùng ở các cấp độ khác nhau.
+
+Yêu cầu công nghệ:
+
+• Ngôn ngữ lập trình: TypeScript với NestJS framework
+
+• Cơ sở dữ liệu: MongoDB hoặc PostgreSQL (lựa chọn tùy thuộc vào bài toán)
+
+• Giao diện người dùng (frontend): Angular hoặc React
+
+• Authentication & Authorization: JWT (JSON Web Tokens), OAuth2
+
+• API RESTful: Xây dựng API để xử lý các yêu cầu liên quan đến bài thi, quản lý nội dung và người dùng
+
+• Triển khai: Docker, CI/CD pipelines để đảm bảo quy trình phát triển nhanh chóng và nhất quán
+
+ 
+
+Mục tiêu phát triển:
+
+Sinh viên sẽ xây dựng một hệ thống trang web luyện thi TOEIC với các tính năng chính bao gồm:
+
+ 1. Quản lý tài khoản người dùng:
+
+• Cho phép người dùng đăng ký, đăng nhập và quản lý thông tin cá nhân.
+
+• Chức năng xác thực tài khoản qua email, hỗ trợ khôi phục mật khẩu.
+
+2. Hệ thống luyện thi TOEIC mô phỏng:
+
+• Cung cấp các bài thi TOEIC mô phỏng với đầy đủ các phần thi như Listening, Reading.
+
+• Hệ thống chấm điểm tự động và phân tích kết quả chi tiết ngay sau khi hoàn thành bài thi.
+
+3. Bài tập nâng cao kỹ năng:
+
+• Các bài tập luyện tập chuyên sâu theo từng phần thi (Listening, Reading) và theo các dạng câu hỏi phổ biến trong đề thi TOEIC.
+
+• Người dùng có thể làm lại các bài tập và theo dõi quá trình tiến bộ.
+
+4. Lưu trữ kết quả và phân tích tiến độ:
+
+• Hệ thống lưu trữ lịch sử các bài thi của người dùng và đưa ra phân tích tiến độ qua từng bài thi.
+
+• Biểu đồ trực quan hóa kết quả, giúp người dùng nhận biết được sự cải thiện của mình.
+
+5. Gợi ý và cá nhân hóa bài thi:
+
+• Gợi ý các bài thi mô phỏng hoặc bài tập luyện tập dựa trên điểm số và khả năng của người dùng.
+
+• Các bài tập và bài thi sẽ được cá nhân hóa để phù hợp với trình độ của từng người học.
+
+6. Dashboard quản trị viên:
+
+• Quản trị viên có quyền tạo, chỉnh sửa, và quản lý các bài thi mô phỏng.
+
+• Thống kê số lượng người dùng, bài thi hoàn thành, và báo cáo chi tiết về hiệu suất người dùng.
+
+Đầu ra dự kiến:
+
+ 1. Website hoàn chỉnh: Một trang web có giao diện thân thiện, dễ sử dụng, cung cấp đầy đủ các chức năng luyện thi TOEIC và chấm điểm tự động.
+
+2. API RESTful: Hệ thống API rõ ràng, bảo mật và hiệu quả để hỗ trợ các chức năng liên quan đến bài thi và quản lý người dùng.
+
+3. Quản lý dữ liệu người dùng: Cơ sở dữ liệu chứa thông tin người dùng, lịch sử các bài thi và kết quả được lưu trữ một cách chặt chẽ và có khả năng trích xuất để phân tích.
+
+4. Phân tích tiến độ học tập: Người học có thể xem lịch sử luyện thi và biểu đồ tiến độ của họ thông qua các bảng điều khiển chi tiết.
+
+ 
+
+Tiêu chí đánh giá:
+
+ 1. Tính năng đầy đủ: Các tính năng được yêu cầu phải được triển khai đầy đủ và hoạt động đúng chức năng.
+
+2. Hiệu suất và tối ưu hóa: Ứng dụng phải xử lý hiệu quả, đặc biệt trong việc quản lý số lượng lớn bài thi và người dùng.
+
+3. Giao diện người dùng: Giao diện đẹp mắt, dễ sử dụng và thân thiện với người dùng, đảm bảo tính tương thích trên nhiều thiết bị.
+
+4. Bảo mật: Hệ thống phải đảm bảo tính bảo mật cao, đặc biệt trong việc bảo vệ thông tin cá nhân của người dùng và dữ liệu thi cử.
+
+5. Phân tích dữ liệu: Hệ thống cần cung cấp chức năng phân tích hiệu quả tiến độ của người dùng và hỗ trợ quản trị viên trong việc quản lý nội dung.

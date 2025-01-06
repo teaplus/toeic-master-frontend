@@ -1,0 +1,12 @@
+.part {
+    flex: auto;
+    width: 100%;
+    height: fit-content;
+    border-radius: 4px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px;
+}
+
+.question {
+    width: 100%;
+}

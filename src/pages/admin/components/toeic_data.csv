@@ -1,0 +1,1985 @@
+number,group,image,audio,passage,question_text,o1,o2,o3,o4,correct,img_url,audio_url
+,part_1_1,part_1_1.jpg,part_1_1.mp3,,,A man is putting up a tent,A man is holding a piece of wood,A man is changing a tire,A man is clearing off a picnic table.,B,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_1_1.jpg,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_1_1.mp3
+,part_1_2,part_1_2.jpg,part_1_2.mp3,,,Some people are carrying suitcases,Some people are waiting in a lobby,Some people are putting on jackets.,Some people are entering a hotel,B,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_1_2.jpg,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_1_2.mp3
+,part_1_3,part_1_3.jpg,part_1_3.mp3,,,A bag has been placed on the floor.,The woman is putting a note on the bulletin board.,A newspaper has been spread out on the carpet.,The woman is arranging pillows on a sofa,A,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_1_3.jpg,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_1_3.mp3
+,part_1_4,part_1_4.jpg,part_1_4.mp3,,,A desk is covered with papers,Some chairs are stacked in a corner.,Two computers are set up next to each other.,The office is being painted,C,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_1_4.jpg,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_1_4.mp3
+,part_1_5,part_1_5.jpg,part_1_5.mp3,,,Some vehicles are parked in a garage,Some trees are being planted on a street,A ladder is lying on the ground,A streetlamp is being repaired,D,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_1_5.jpg,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_1_5.mp3
+,part_1_6,part_1_6.jpg,part_1_6.mp3,,,Some cyclists are riding past a building,Some scaffolding has been erected against a stone wall.,A woman is walking under an archway,Some bicycles have been parked along a railing.,D,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_1_6.jpg,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_1_6.mp3
+7,part_2_1,,part_2_1.mp3,,,Two window seats.,The travel agency.,"No, not until next November.",,C,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_1.mp3
+8,part_2_2,,part_2_2.mp3,,,He picked it up this morning,That's all right; I don't want any.,A floral arrangement,,A,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_2.mp3
+9,part_2_3,,part_2_3.mp3,,,Don't forget to sign up.,The invitations have already been sent out.,I attended that meeting,,B,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_3.mp3
+10,part_2_4,,part_2_4.mp3,,,I'll just use a ladder.,The shipping was free.,His office is upstairs.,,A,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_4.mp3
+11,part_2_5,,part_2_5.mp3,,,On the third floor.,A pool of five applicants,Someone from the London branch,,C,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_5.mp3
+12,part_2_6,,part_2_6.mp3,,,"No, he didn't pay for it.",The keys are in the supply drawer.,"I did, but there's been a delay.",,C,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_6.mp3
+13,part_2_7,,part_2_7.mp3,,,I'm walking today.,A one-way ticket,It's on Thirty-Fourth Street,,A,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_7.mp3
+14,part_2_8,,part_2_8.mp3,,,A graph showing sales projections.,I did enjoy the internship,I hadn't thought of that!,,C,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_8.mp3
+15,part_2_9,,part_2_9.mp3,,,There's a building directory behind you,It's mostly industrial machine parts.,"Yes, that's where we're located",,A,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_9.mp3
+16,part_2_10,,part_2_10.mp3,,,The new design is very popular,We're open until seven o'clock,You're welcome to fill out an application,,C,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_10.mp3
+17,part_2_11,,part_2_11.mp3,,,I signed up for them online.,Usually fifteen percent off.,"No, the mail hasn't arrived",,A,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_11.mp3
+18,part_2_12,,part_2_12.mp3,,,A driver's license,"Sorry, I don't know any other routes.",They'll be away for a few days.,,B,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_12.mp3
+19,part_2_13,,part_2_13.mp3,,,Next week works for me.,A well-known economist.,"Oh, I didn't think you could make it.",,C,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_13.mp3
+20,part_2_14,,part_2_14.mp3,,,Another focus group,They weren't what we expected.,To reschedule a launch date.,,B,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_14.mp3
+21,part_2_15,,part_2_15.mp3,,,"Go ahead, take some.",Was I supposed to?,"Yes, I have that one already.",,B,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_15.mp3
+22,part_2_16,,part_2_16.mp3,,,A two-year coniract,She'll certainly be missed.,We already booked it.,,B,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_16.mp3
+23,part_2_17,,part_2_17.mp3,,,From ten to eleven,That's what he said,The meeting invitation has the details,,C,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_17.mp3
+24,part_2_18,,part_2_18.mp3,,,They're in the report,Almost fifty people were in attendance,I'm working the night shift all week,,C,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_18.mp3
+25,part_2_19,,part_2_19.mp3,,,The career center opens at noon.,Take a right at the next corner.,"Yes, it was an incredible experience",,C,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_19.mp3
+26,part_2_20,,part_2_20.mp3,,,Not until two o'clock,"Oh, isn't it allowed?",At the top of the stairs,,B,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_20.mp3
+27,part_2_21,,part_2_21.mp3,,,Conference room C.,"Yes, yesterday after lunch","Sure, I'm happy to give an update",,C,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_21.mp3
+28,part_2_22,,part_2_22.mp3,,,I plan to watch that show today.,About twenty-five kilometers.,"Sorry, it's been a very busy day.",,C,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_22.mp3
+29,part_2_23,,part_2_23.mp3,,,Don't tell me it's broken again.,Twelve copies on colored paper.,"No, my office is on the main floor",,A,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_23.mp3
+30,part_2_24,,part_2_24.mp3,,,Have they been approved?,The Compton Hotel,Four hundred seventy dollars,,A,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_24.mp3
+31,part_2_25,,part_2_25.mp3,,,It was a moving story.,In front of the theater.,"Sure, that's very kind of you.",,C,,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_2_25.mp3
+32,part_3_32_34,part_3_32_34.png,part_3_32_34.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""504"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image24.png"" width=""500""/>
+</p>
+</div>",Where is the conversation taking place?,At a park,At a museum,At a theater,At a car dealership,B,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_32_34.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_3_32_34.mp3
+33,part_3_32_34,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""504"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image24.png"" width=""500""/>
+</p>
+</div>",Why does the woman apologize?,An office is about to close.,An event has been canceled,Some tickets are unavailable.,Some prices have increased,C,,
+34,part_3_32_34,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""504"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image24.png"" width=""500""/>
+</p>
+</div>",What does the man say he will do next?,Phone a friend,Register a complaint,Go to a different location,Sign up for a membership,D,,
+35,part_3_35_37,part_3_35_37.png,part_3_35_37.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""533"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image25.png"" width=""503""/>
+</p>
+</div>","Why does the man say, ""I'm waiting for the
+                            department budget proposal""?",To request a document from the woman,To ask for a deadline extension,To inform the woman about a scheduling change,To explain why he cannot make a decision,A,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_35_37.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_3_35_37.mp3
+36,part_3_35_37,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""533"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image25.png"" width=""503""/>
+</p>
+</div>","What does the woman say about an office supplies
+                            estimate?",It was already approved,It contained some mistakes,It was misplaced.,It is higher than expected,D,,
+37,part_3_35_37,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""533"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image25.png"" width=""503""/>
+</p>
+</div>",What will the man discuss at a meeting?,Product quality testing,Candidates for a job,Contracts with vendors,Design modifications,C,,
+38,part_3_38_40,part_3_38_40.png,part_3_38_40.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""532"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image26.png"" width=""501""/>
+</p>
+</div>",What is the woman coordinating?,A company banquet,A grand opening,A new-hire orientation,A yearly budget meeting,C,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_38_40.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_3_38_40.mp3
+39,part_3_38_40,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""532"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image26.png"" width=""501""/>
+</p>
+</div>",Where do the speakers most likely work?,At an insurance company,At a department store,At a business school,At a bank,D,,
+40,part_3_38_40,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""532"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image26.png"" width=""501""/>
+</p>
+</div>",What does the woman offer to do?,Find another presenter,Confirm an order,Book a venue,Prepare a contract,A,,
+41,part_3_41_43,part_3_41_43.png,part_3_41_43.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""514"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image27.png"" width=""504""/>
+</p>
+</div>",What is the conversation mainly about?,Organizing a training session,Preparing for a business exposition,Finding a guest speaker for a convention,Creating an employee handbook,B,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_41_43.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_3_41_43.mp3
+42,part_3_41_43,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""514"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image27.png"" width=""504""/>
+</p>
+</div>",What does the man suggest doing?,Printing a large sign,Revising a timetable,Sending out invitations,Making a pamphlet,D,,
+43,part_3_41_43,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""514"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image27.png"" width=""504""/>
+</p>
+</div>",What does Susan say she is concerned about?,An approaching deadline,An incomplete order,A canceled reservation,A dissatisfied client,A,,
+44,part_3_44_46,part_3_44_46.png,part_3_44_46.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""402"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image28.png"" width=""507""/>
+</p>
+</div>",What does the woman ask the man about?,The model number of a product,The availability of colors,The price of an item,The location of a store,C,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_44_46.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_3_44_46.mp3
+45,part_3_44_46,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""402"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image28.png"" width=""507""/>
+</p>
+</div>","Why does the woman say, ""these sandals look
+                            great""?",To convince a friend to buy shoes,To show interest in making a purchase,To compliment a coworker,To express disagreement,B,,
+46,part_3_44_46,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""402"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image28.png"" width=""507""/>
+</p>
+</div>",What does the man say he will do?,Print a receipt,Provide a coupon code,Find a brand name,Check a Web site,D,,
+47,part_3_47_49,part_3_47_49.png,part_3_47_49.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""408"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image29.png"" width=""501""/>
+</p>
+</div>",Where do the speakers most likely work?,In a bakery,In an appliance store,At a warehouse,At a construction site,A,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_47_49.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_3_47_49.mp3
+48,part_3_47_49,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""408"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image29.png"" width=""501""/>
+</p>
+</div>",What problem does the man mention?,An employee was late to work.,A machine was not working properly.,A shipment was lost.,A customer was not satisfied.,B,,
+49,part_3_47_49,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""408"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image29.png"" width=""501""/>
+</p>
+</div>",What will happen at noon?,A repair person will arrive,A display will be set up,A business will close.,An order will be delivered.,D,,
+50,part_3_50_52,part_3_50_52.png,part_3_50_52.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""423"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image30.png"" width=""506""/>
+</p>
+</div>",What problem does the woman mention?,Customer complaints have increased.,Bad weather has been predicted,Parking in the area is expensive,The sales forecast is delayed,B,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_50_52.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_3_50_52.mp3
+51,part_3_50_52,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""423"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image30.png"" width=""506""/>
+</p>
+</div>","What does the man say he will decide
+                            tomorrow?",Whether the store will remain closed,Whether additional employees should be hired,When he will launch a new ad campaign,When he will meet with investors,A,,
+52,part_3_50_52,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""423"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image30.png"" width=""506""/>
+</p>
+</div>","What does the woman offer to help the man
+                            with?",Organizing a workshop,Making a work schedule,Contacting employees,Calling a consultant,C,,
+53,part_3_53_55,part_3_53_55_1.png part_3_53_55_2.png,part_3_53_55.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""268"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image31.png"" width=""498""/>
+</p>
+<p>
+<img height=""270"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image32.png"" width=""496""/>
+</p>
+</div>",Where is the conversation taking place?,In a hotel,In an airport,At a rental car company,At a travel agency,B,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_53_55_1.png https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_53_55_2.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_3_53_55.mp3
+54,part_3_53_55,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""268"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image31.png"" width=""498""/>
+</p>
+<p>
+<img height=""270"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image32.png"" width=""496""/>
+</p>
+</div>","According to the woman, wnat will the men
+                            receive?",A parking pass,A travel guidebook,A rental upgrade,A discount voucher,D,,
+55,part_3_53_55,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""268"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image31.png"" width=""498""/>
+</p>
+<p>
+<img height=""270"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image32.png"" width=""496""/>
+</p>
+</div>",What will the men most likely do next?,Return to their workplace,Change their hotel reservation,Give a presentation,Eat at a restaurant,D,,
+56,part_3_56_58,part_3_56_58_1.png part_3_56_58_2.png,part_3_56_58.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""369"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image33.png"" width=""499""/>
+</p>
+<p>
+<img height=""172"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image34.png"" width=""501""/>
+</p>
+</div>",Why is the man calling?,To check the status of an order,To provide an updated phone number,To schedule a repair,To inquire about a bill,A,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_56_58_1.png https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_56_58_2.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_3_56_58.mp3
+57,part_3_56_58,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""369"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image33.png"" width=""499""/>
+</p>
+<p>
+<img height=""172"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image34.png"" width=""501""/>
+</p>
+</div>",What problem does the woman mention?,An invoice is missing,A credit card payment was not received,An address was incorrect,A product is no longer in stock,C,,
+58,part_3_56_58,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""369"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image33.png"" width=""499""/>
+</p>
+<p>
+<img height=""172"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image34.png"" width=""501""/>
+</p>
+</div>",What does the woman offer to do?,Talk to a supervisor,Provide a refund,Change a password,Add product insurance,B,,
+59,part_3_59_61,part_3_59_61_1.png part_3_59_61_2.png,part_3_59_61.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""287"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image35.png"" width=""503""/>
+</p>
+<p>
+<img height=""265"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image36.png"" width=""500""/>
+</p>
+</div>",Where most likely are the speakers?,In a car repair shop,In a bank,In a parking garage,In a computer store,C,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_59_61_1.png https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_59_61_2.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_3_59_61.mp3
+60,part_3_59_61,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""287"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image35.png"" width=""503""/>
+</p>
+<p>
+<img height=""265"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image36.png"" width=""500""/>
+</p>
+</div>",What does the man decide to do?,Return at a later time,Withdraw money from a cash machine,Call a customer service number,Make a payment online,D,,
+61,part_3_59_61,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""287"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image35.png"" width=""503""/>
+</p>
+<p>
+<img height=""265"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image36.png"" width=""500""/>
+</p>
+</div>",What will be sent to the man?,An account statement,An appointment time,A confirmation number,A warranty offer,C,,
+62,part_3_62_64,part_3_62_64_1.jpg part_3_62_64_2.png,part_3_62_64.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""478"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image37.png"" width=""511""/>
+</p>
+</div>",Who most likely is the man?,An author,A teacher,A store clerk,A delivery person,C,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_62_64_1.jpg https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_62_64_2.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_3_62_64.mp3
+63,part_3_62_64,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""478"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image37.png"" width=""511""/>
+</p>
+</div>","What does the woman say she heard about the
+                            book?",It will provide opportunities for discussion.,It is the first book in a series.,It has been a best seller for many months,It is difficult for children to understand.,A,,
+64,part_3_62_64,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""478"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image37.png"" width=""511""/>
+</p>
+</div>","Look at the graphic. In which section is the book
+                            that the woman is looking for?",Nonfiction,Young Adult,Travel,Fiction,D,,
+65,part_3_65_67,part_3_65_67_1.jpg part_3_65_67_2.png,part_3_65_67.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""546"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image40.png"" width=""462""/>
+</p>
+</div>",What event is taking place?,A training session,A job interview,A management meeting,An award ceremony,A,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_65_67_1.jpg https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_65_67_2.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_3_65_67.mp3
+66,part_3_65_67,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""546"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image40.png"" width=""462""/>
+</p>
+</div>",What does the man ask about?,Experiment results,Alternative power sources,Additional order requests,Different model types,B,,
+67,part_3_65_67,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""546"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image40.png"" width=""462""/>
+</p>
+</div>","Look at the graphic. According to the woman, how
+                            many bars will be displayed when the battery should
+                            be replaced?",Three bars,Three bars,One bar,Zero bars,C,,
+68,part_3_68_70,part_3_68_70_1.jpg part_3_68_70_2.png part_3_68_70_3.png,part_3_68_70.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""512"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image38.png"" width=""506""/>
+</p>
+<p>
+<img height=""101"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image39.png"" width=""497""/>
+</p>
+</div>",Who most likely is the man?,A financial advisor,A food critic,An editor,A chef,D,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_68_70_1.jpg https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_68_70_2.png https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_3_68_70_3.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_3_68_70.mp3
+69,part_3_68_70,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""512"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image38.png"" width=""506""/>
+</p>
+<p>
+<img height=""101"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image39.png"" width=""497""/>
+</p>
+</div>","Look at the graphic. What area does the woman want
+                            the restaurant to improve in?",Atmosphere,Prices,Customer service,Menu options,C,,
+70,part_3_68_70,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""512"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image38.png"" width=""506""/>
+</p>
+<p>
+<img height=""101"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image39.png"" width=""497""/>
+</p>
+</div>",What does the man recommend doing?,Renovating a building,Asking employees for suggestions,Offering cooking classes,Providing food samples,B,,
+71,part_4_71_73,part_4_71_73.png,part_4_71_73.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""373"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image41.png"" width=""502""/>
+</p>
+</div>",What is the main topic of the broadcast?,A weather report,A traffic update,A celebrity interview,An international news story,B,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_4_71_73.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_4_71_73.mp3
+72,part_4_71_73,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""373"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image41.png"" width=""502""/>
+</p>
+</div>","According to the speaker, what will begin
+                            today?",A conference,A seasonal market,A sports tournament,A concert series,C,,
+73,part_4_71_73,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""373"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image41.png"" width=""502""/>
+</p>
+</div>","What does the speaker suggest that listeners
+                            do?",Arrive early,Purchase tickets online,Bring warm clothes,Take public transportation,D,,
+74,part_4_74_76,part_4_74_76.png,part_4_74_76.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""466"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image42.png"" width=""513""/>
+</p>
+</div>",Where is the announcement taking place?,At a shopping mall,At a ski resort,At a design company headquarters,At a sports stadium,A,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_4_74_76.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_4_74_76.mp3
+75,part_4_74_76,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""466"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image42.png"" width=""513""/>
+</p>
+</div>","What does the speaker say will happen immediately
+                            after today's event?",A famous athlete will speak,A contract will be signed,Trainers will provide consultations,Attendees will fill out a survey.,C,,
+76,part_4_74_76,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""466"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image42.png"" width=""513""/>
+</p>
+</div>",What does the speaker say about Olympiad?,It is now officially open,It is giving away free tickets,It has won an award,It has undergone a merger,A,,
+77,part_4_77_79,part_4_77_79.png,part_4_77_79.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""381"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image51.png"" width=""509""/>
+</p>
+</div>",What business is the speaker calling?,A doctor's office,A car repair shop,A transportation service,An employment agency,C,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_4_77_79.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_4_77_79.mp3
+78,part_4_77_79,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""381"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image51.png"" width=""509""/>
+</p>
+</div>",Why did the speaker take a taxi?,Her car broke down.,Her bus never came.,She was concerned about parking,She was late for a party.,B,,
+79,part_4_77_79,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""381"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image51.png"" width=""509""/>
+</p>
+</div>",What would the speaker like to know?,When a business will open,How much a repair will cost,How to get to an event,Whether a schedule has changed,D,,
+80,part_4_80_82,part_4_80_82.png,part_4_80_82.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""404"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image44.png"" width=""505""/>
+</p>
+</div>",Who most likely is the speaker?,An accountant,A travel agent,A computer technician,A hiring manager,D,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_4_80_82.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_4_80_82.mp3
+81,part_4_80_82,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""404"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image44.png"" width=""505""/>
+</p>
+</div>","What does the speaker mean when she says, ""the
+                            deadline to submit was May 15""?",She missed a good job opportunity,She needs to verify some details,She must move forward with a task,She forgot to notify a colleague,C,,
+82,part_4_80_82,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""404"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image44.png"" width=""505""/>
+</p>
+</div>","According to the speaker, what will happen next
+                            week?",A budget will be reviewed,Interviews will begin,Airfares will increase,A system upgrade will occur,B,,
+83,part_4_83_85,part_4_83_85.png,part_4_83_85.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""371"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image45.png"" width=""500""/>
+</p>
+</div>",What did the Newville Times recently do?,It printed advertisements in color,It reduced the subscription fee,It announced award winners,It merged with another newspaper,C,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_4_83_85.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_4_83_85.mp3
+84,part_4_83_85,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""371"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image45.png"" width=""500""/>
+</p>
+</div>","What does the speaker imply when he says,",A branch location will be built.,Competition for customers will increase.,More people will move to the area.,Road traffic will worsen.,B,,
+85,part_4_83_85,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""371"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image45.png"" width=""500""/>
+</p>
+</div>",What has the business bought recently?,Vehicles,Cleaning equipment,Office furniture,Computers,A,,
+86,part_4_86_88,part_4_86_88.png,part_4_86_88.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""445"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image46.png"" width=""505""/>
+</p>
+</div>",What is Connectivity 3.0?,A videoconferencing application,A new brand of smartphone,A store security system,An Internet service provider,A,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_4_86_88.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_4_86_88.mp3
+87,part_4_86_88,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""445"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image46.png"" width=""505""/>
+</p>
+</div>","What does the speaker mean when he says, ""Aren't
+                            there better ways to use your time""?",A staff member should join a team,Other systems are not as efficient,Employees need more training,Business hours should be shortened,A,,
+88,part_4_86_88,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""445"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image46.png"" width=""505""/>
+</p>
+</div>","What does the speaker say listeners can do on a Web
+                            site?",View a demonstration,Sign up for updates,Register a product,Make a purchase,A,,
+89,part_4_89_91,part_4_89_91.png,part_4_89_91.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""435"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image47.png"" width=""513""/>
+</p>
+</div>","According to the speaker, what will be changing at
+                            the company?",How customer complaints are handled,How purchase orders are submitted,How workers' hours are scheduled,How merchandise is tracked,D,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_4_89_91.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_4_89_91.mp3
+90,part_4_89_91,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""435"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image47.png"" width=""513""/>
+</p>
+</div>","What will the company be able to do for
+                            customers?",Lower prices,Offer more products,Reduce delivery times,Extend store hours,C,,
+91,part_4_89_91,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""435"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image47.png"" width=""513""/>
+</p>
+</div>",What will Ms. Han be doing?,Testing equipment,Training employees,Conducting a survey,Checking inventory,B,,
+92,part_4_92_94,part_4_92_94.png,part_4_92_94.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""439"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image48.png"" width=""507""/>
+</p>
+</div>",Who most likely is the speaker?,An architect,A contractor,A real estate agent,A financial consultant,C,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_4_92_94.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_4_92_94.mp3
+93,part_4_92_94,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""439"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image48.png"" width=""507""/>
+</p>
+</div>",What does the speaker say is a problem?,Some staff have not been trained,An office is difficult to find,A project might not be completed on time,A price is higher than requested,D,,
+94,part_4_92_94,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""439"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image48.png"" width=""507""/>
+</p>
+</div>",What does the speaker ask the listener to do?,Return the call promptly,Review a document carefully,Submit a deposit,Provide a reference,A,,
+95,part_4_95_97,part_4_95_97_1.jpg part_4_95_97_2.png,part_4_95_97.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""371"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image49.png"" width=""507""/>
+</p>
+</div>","Look at the graphic. Which ice-cream flavor will be
+                            discounted this week?",Pecan,Mocha,Peach,Fudge,C,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_4_95_97_1.jpg https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_4_95_97_2.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_4_95_97.mp3
+96,part_4_95_97,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""371"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image49.png"" width=""507""/>
+</p>
+</div>",Why does the speaker thank Tomas?,He developed new ice-cream flavors,He submitted an order.,He worked extra hours,He proposed a sales promotion,D,,
+97,part_4_95_97,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""371"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image49.png"" width=""507""/>
+</p>
+</div>","What does the speaker remind the listeners to
+                            do?",Sign up for a task,Put away supplies,Count customer votes,Make some suggestions,D,,
+98,part_4_98_100,part_4_98_100_1.jpg part_4_98_100_2.png,part_4_98_100.mp3,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""476"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image50.png"" width=""505""/>
+</p>
+</div>",Where does the speaker most likely work?,At a financial institution,At a lighting fixture store,At a utility company,At a library,C,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_4_98_100_1.jpg https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_4_98_100_2.png,https://my-toeic-bucket.s3.amazonaws.com/test_1/audio/part_4_98_100.mp3
+99,part_4_98_100,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""476"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image50.png"" width=""505""/>
+</p>
+</div>","Look at the graphic. How much is the listener's
+                            late fee?",$7.50 ,$15.00 ,$22.50 ,$30.00 ,B,,
+100,part_4_98_100,,,"<div class=""alert alert-warning answer_content"">
+<p>
+<img height=""476"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image50.png"" width=""505""/>
+</p>
+</div>","What must the listener provide to sign up for a
+                            service?",Some contact information,Some payment details,An invoice number,An identification card,B,,
+101,part_5_1,,,"<div class=""alert alert-warning"">
+<p>
+                          Should the customer believe that the  proposed color
+                          scheme is not _____, the interior designer can make
+                          adjustment.
+                        </p>
+</div>","Should the customer believe that the  proposed color
+                          scheme is not _____, the interior designer can make
+                          adjustment.",attract,attractive,attracted,attractively,B,,
+101,part_5_2,,,"<div class=""alert alert-warning"">
+<p>
+                          For Friday's dinner reservation, please_____the number
+                          of seats from eight to ten guests
+                        </p>
+</div>","For Friday's dinner reservation, please_____the number
+                          of seats from eight to ten guests",increase,reflect,merge,invite,A,,
+101,part_5_3,,,"<div class=""alert alert-warning"">
+<p>
+                          Mr.Brandt asked for the banner to be hung _____ the
+                          exterior wall of the building. 
+                        </p>
+</div>","Mr.Brandt asked for the banner to be hung _____ the
+                          exterior wall of the building.",up,next,on,with,C,,
+101,part_5_4,,,"<div class=""alert alert-warning"">
+<p>
+                          In case you have problems with the device in the
+                          future, you should retain your newly _____ receipt.
+                        </p>
+</div>","In case you have problems with the device in the
+                          future, you should retain your newly _____ receipt.",expressed,predicted,issued ,approached ,C,,
+101,part_5_5,,,"<div class=""alert alert-warning"">
+<p>
+                          If the patient's nasal problem does not show signal of
+                          improvement _____ two days, he should visit the clinic
+                          again. 
+                        </p>
+</div>","If the patient's nasal problem does not show signal of
+                          improvement _____ two days, he should visit the clinic
+                          again.",because of,regarding,apart from,within ,D,,
+101,part_5_6,,,"<div class=""alert alert-warning"">
+<p>
+                          Those giving demonstrations at the department store
+                          _____ explained the product's features and benefits.
+                        </p>
+</div>","Those giving demonstrations at the department store
+                          _____ explained the product's features and benefits.",enthusiasm,enthusiast,enthusiastically,enthusiastic,C,,
+101,part_5_7,,,"<div class=""alert alert-warning"">
+<p>
+                          Because its lastest exhibit is highly valuable, the
+                          Gabe Gallery took more precautions than it _____ did
+                          in the past. 
+                        </p>
+</div>","Because its lastest exhibit is highly valuable, the
+                          Gabe Gallery took more precautions than it _____ did
+                          in the past.",ever,yet,such,much,A,,
+101,part_5_8,,,"<div class=""alert alert-warning"">
+<p>
+                          _____ making structural changes to a house must first
+                          apply for a building permit. 
+                        </p>
+</div>","_____ making structural changes to a house must first
+                          apply for a building permit.",Our,Who,Them,Anyone,D,,
+101,part_5_9,,,"<div class=""alert alert-warning"">
+<p>
+                          Employees who attend the workshop on improving
+                          communication skills will be given a certificate of
+                          _____ by the instructor. 
+                        </p>
+</div>","Employees who attend the workshop on improving
+                          communication skills will be given a certificate of
+                          _____ by the instructor.",achieved ,achieving,achieve,achievement,D,,
+101,part_5_10,,,"<div class=""alert alert-warning"">
+<p>
+                          _____ its distinguished faculty in the science
+                          department, the university has state-of-the-art
+                          laboratory facilities. 
+                        </p>
+</div>","_____ its distinguished faculty in the science
+                          department, the university has state-of-the-art
+                          laboratory facilities.",In addition to ,Otherwise,As well,Hardly ever,A,,
+101,part_5_11,,,"<div class=""alert alert-warning"">
+<p>
+                          The donations received from the fundraiser ______
+                          among the charity's three locations equally. 
+                        </p>
+</div>","The donations received from the fundraiser ______
+                          among the charity's three locations equally.",have divided ,is being divided ,are dividing,will be divided,D,,
+101,part_5_12,,,"<div class=""alert alert-warning"">
+<p>
+                          _____ the building's age, the ventilation system must
+                          be up-to-date with all safety codes. 
+                        </p>
+</div>","_____ the building's age, the ventilation system must
+                          be up-to-date with all safety codes.",Instead of ,Toward,Regardless of ,Since,C,,
+101,part_5_13,,,"<div class=""alert alert-warning"">
+<p>
+                          The train delays on the Trenton line were cause by a
+                          _____ error at one of the stations.
+                        </p>
+</div>","The train delays on the Trenton line were cause by a
+                          _____ error at one of the stations.",proceed,proceeded,procedural,procedurally,C,,
+101,part_5_14,,,"<div class=""alert alert-warning"">
+<p>
+                          As we expect to receive hundreds of applications for
+                          the position, please _____ your resume to two pages. 
+                        </p>
+</div>","As we expect to receive hundreds of applications for
+                          the position, please _____ your resume to two pages.",limit,follow,refrain,unfold,A,,
+101,part_5_15,,,"<div class=""alert alert-warning"">
+<p>
+                          The lecturer _____ on the country's struggle for
+                          independence when he gives his talk. 
+                        </p>
+</div>","The lecturer _____ on the country's struggle for
+                          independence when he gives his talk.",has focused,is focused,will focus,focusing,C,,
+101,part_5_16,,,"<div class=""alert alert-warning"">
+<p>
+                          The welcome activity is an opportunity to improve
+                          communication _____ volunteers before the project
+                          begins.
+                        </p>
+</div>","The welcome activity is an opportunity to improve
+                          communication _____ volunteers before the project
+                          begins.",among,like,above,under,A,,
+101,part_5_17,,,"<div class=""alert alert-warning"">
+<p>
+                          The balconies connected to the rooms at the Orwell
+                          Hotel provide a _____ view of a private beach. 
+                        </p>
+</div>","The balconies connected to the rooms at the Orwell
+                          Hotel provide a _____ view of a private beach.",stunningly,stuns,stunning,stunned,C,,
+101,part_5_18,,,"<div class=""alert alert-warning"">
+<p>
+                          The travel agent's _____ of the ticket purchase was
+                          sent to the customer by e-mail as soon as the payment
+                          was made. 
+                        </p>
+</div>","The travel agent's _____ of the ticket purchase was
+                          sent to the customer by e-mail as soon as the payment
+                          was made.",extent,confirmation,awarerness,proposal ,B,,
+101,part_5_19,,,"<div class=""alert alert-warning"">
+<p>
+                          After examining the vehicle, the mechanic had _____
+                          identified the reason why the engine lost power. 
+                        </p>
+</div>","After examining the vehicle, the mechanic had _____
+                          identified the reason why the engine lost power.",corrections,correctly,correct,corrects,B,,
+101,part_5_20,,,"<div class=""alert alert-warning"">
+<p>
+                          Because of her hearing disability, Ms.Frasier will be
+                          _____ by a sign language expert so she can participate
+                          in the meeting. 
+                        </p>
+</div>","Because of her hearing disability, Ms.Frasier will be
+                          _____ by a sign language expert so she can participate
+                          in the meeting.",convinced,anticipated,accompanied,cautioned,C,,
+101,part_5_21,,,"<div class=""alert alert-warning"">
+<p>
+                          The project development team is partially responsible
+                          for the selection and _____ of potential building
+                          sites. 
+                        </p>
+</div>","The project development team is partially responsible
+                          for the selection and _____ of potential building
+                          sites.",appraisal,appraises,appraise,appraised ,A,,
+101,part_5_22,,,"<div class=""alert alert-warning"">
+<p>
+                          The easy-to-prepare meal packets come with all the
+                          ingredients necessary for an individual dinner _____
+                          boiling water. 
+                        </p>
+</div>","The easy-to-prepare meal packets come with all the
+                          ingredients necessary for an individual dinner _____
+                          boiling water.",except ,despite,elsewhere,past,A,,
+101,part_5_23,,,"<div class=""alert alert-warning"">
+<p>
+                          The education center provides training classes in key
+                          skills _____ that the unemployed can find jobs more
+                          easily. 
+                        </p>
+</div>","The education center provides training classes in key
+                          skills _____ that the unemployed can find jobs more
+                          easily.",so,ever,only,as,A,,
+101,part_5_24,,,"<div class=""alert alert-warning"">
+<p>
+                          The terms of the licensing agreement are quite ______
+                          and do not require legal experience to be understood. 
+                        </p>
+</div>","The terms of the licensing agreement are quite ______
+                          and do not require legal experience to be understood.",energetic,frequent,straightforward,accomplished,C,,
+101,part_5_25,,,"<div class=""alert alert-warning"">
+<p>
+                          The informational materials sent to conference
+                          attendees ______ the presentation schedule and social
+                          events. 
+                        </p>
+</div>","The informational materials sent to conference
+                          attendees ______ the presentation schedule and social
+                          events.",expand,solicit,allow ,outline,D,,
+101,part_5_26,,,"<div class=""alert alert-warning"">
+<p>
+                          You may have the merchandise sent directly to your
+                          home or pick it up in person at the store, _____ you
+                          prefer.
+                        </p>
+</div>","You may have the merchandise sent directly to your
+                          home or pick it up in person at the store, _____ you
+                          prefer.",oth,whichever,everybody,another,B,,
+101,part_5_27,,,"<div class=""alert alert-warning"">
+<p>
+                          ______ occurring substances are used in the vitamin
+                          supplement instead of chemicals.
+                        </p>
+</div>","______ occurring substances are used in the vitamin
+                          supplement instead of chemicals.",Naturally,Natural,Naturalize,Nature,A,,
+101,part_5_28,,,"<div class=""alert alert-warning"">
+<p>
+                          The bus driver used a side street rather than the main
+                          highway, ______ avoiding rush hour traffic.
+                        </p>
+</div>","The bus driver used a side street rather than the main
+                          highway, ______ avoiding rush hour traffic.",such as,than,unless,thereby,D,,
+101,part_5_29,,,"<div class=""alert alert-warning"">
+<p>
+                          The crew members _____ the main section of the
+                          building by the time the waste removal trucks arrive
+                          at 3:30.
+                        </p>
+</div>","The crew members _____ the main section of the
+                          building by the time the waste removal trucks arrive
+                          at 3:30.",demolish,will have demolished,demolished,had demolished ,B,,
+101,part_5_30,,,"<div class=""alert alert-warning"">
+<p>
+                          Should you find any manufacturing ______ in your
+                          ultra-high-definition television, contact the place of
+                          purchase as soon as possible.
+                        </p>
+</div>","Should you find any manufacturing ______ in your
+                          ultra-high-definition television, contact the place of
+                          purchase as soon as possible.",premises,defects,impacts,distractions,B,,
+131,part_6_131_134,,,"<div class=""alert alert-warning"">
+<p>
+                          Come visit Wild Water Parks, your summer destination
+                          for family and friends of all ages. We have kiddie
+                          pools, we have outdoor pools, we have indoor pools, we
+                          have waves, and we have _____ (131) water slides,
+                          including our Death Fall, the largest slide in the
+                          state. We have everything for everyone in _____ (132)
+                          group. Don't forget our delicious snack stands and
+                          restaurants. We also have gift shops and playgrounds.
+                          _____ (133) You can get tickets by calling 123-5555 or
+                          a season's pass for a _____ (134) of the price. Call
+                          now and experience the fun!
+                        </p>
+</div>","Come visit Wild Water Parks, your summer destination
+                          for family and friends of all ages. We have kiddie
+                          pools, we have outdoor pools, we have indoor pools, we
+                          have waves, and we have _____ (131) water slides,
+                          including our Death Fall, the largest slide in the
+                          state. We have everything for everyone in _____ (132)
+                          group. Don't forget our delicious snack stands and
+                          restaurants. We also have gift shops and playgrounds.
+                          _____ (133) You can get tickets by calling 123-5555 or
+                          a season's pass for a _____ (134) of the price. Call
+                          now and experience the fun!",excite,excited,exciting,excitement,C,,
+132,part_6_131_134,,,"<div class=""alert alert-warning"">
+<p>
+                          Come visit Wild Water Parks, your summer destination
+                          for family and friends of all ages. We have kiddie
+                          pools, we have outdoor pools, we have indoor pools, we
+                          have waves, and we have _____ (131) water slides,
+                          including our Death Fall, the largest slide in the
+                          state. We have everything for everyone in _____ (132)
+                          group. Don't forget our delicious snack stands and
+                          restaurants. We also have gift shops and playgrounds.
+                          _____ (133) You can get tickets by calling 123-5555 or
+                          a season's pass for a _____ (134) of the price. Call
+                          now and experience the fun!
+                        </p>
+</div>","Come visit Wild Water Parks, your summer destination
+                          for family and friends of all ages. We have kiddie
+                          pools, we have outdoor pools, we have indoor pools, we
+                          have waves, and we have _____ (131) water slides,
+                          including our Death Fall, the largest slide in the
+                          state. We have everything for everyone in _____ (132)
+                          group. Don't forget our delicious snack stands and
+                          restaurants. We also have gift shops and playgrounds.
+                          _____ (133) You can get tickets by calling 123-5555 or
+                          a season's pass for a _____ (134) of the price. Call
+                          now and experience the fun!",their,his,our,your,D,,
+133,part_6_131_134,,,"<div class=""alert alert-warning"">
+<p>
+                          Come visit Wild Water Parks, your summer destination
+                          for family and friends of all ages. We have kiddie
+                          pools, we have outdoor pools, we have indoor pools, we
+                          have waves, and we have _____ (131) water slides,
+                          including our Death Fall, the largest slide in the
+                          state. We have everything for everyone in _____ (132)
+                          group. Don't forget our delicious snack stands and
+                          restaurants. We also have gift shops and playgrounds.
+                          _____ (133) You can get tickets by calling 123-5555 or
+                          a season's pass for a _____ (134) of the price. Call
+                          now and experience the fun!
+                        </p>
+</div>","Come visit Wild Water Parks, your summer destination
+                          for family and friends of all ages. We have kiddie
+                          pools, we have outdoor pools, we have indoor pools, we
+                          have waves, and we have _____ (131) water slides,
+                          including our Death Fall, the largest slide in the
+                          state. We have everything for everyone in _____ (132)
+                          group. Don't forget our delicious snack stands and
+                          restaurants. We also have gift shops and playgrounds.
+                          _____ (133) You can get tickets by calling 123-5555 or
+                          a season's pass for a _____ (134) of the price. Call
+                          now and experience the fun!",The pools are the best place to stay.,We even have a dog park for that furry companion of yours.,The chefs are top notch and the food is second to none.,Hurry before the season is over and the promotion is finished.,B,,
+134,part_6_131_134,,,"<div class=""alert alert-warning"">
+<p>
+                          Come visit Wild Water Parks, your summer destination
+                          for family and friends of all ages. We have kiddie
+                          pools, we have outdoor pools, we have indoor pools, we
+                          have waves, and we have _____ (131) water slides,
+                          including our Death Fall, the largest slide in the
+                          state. We have everything for everyone in _____ (132)
+                          group. Don't forget our delicious snack stands and
+                          restaurants. We also have gift shops and playgrounds.
+                          _____ (133) You can get tickets by calling 123-5555 or
+                          a season's pass for a _____ (134) of the price. Call
+                          now and experience the fun!
+                        </p>
+</div>","Come visit Wild Water Parks, your summer destination
+                          for family and friends of all ages. We have kiddie
+                          pools, we have outdoor pools, we have indoor pools, we
+                          have waves, and we have _____ (131) water slides,
+                          including our Death Fall, the largest slide in the
+                          state. We have everything for everyone in _____ (132)
+                          group. Don't forget our delicious snack stands and
+                          restaurants. We also have gift shops and playgrounds.
+                          _____ (133) You can get tickets by calling 123-5555 or
+                          a season's pass for a _____ (134) of the price. Call
+                          now and experience the fun!",fraction,section,division,total,A,,
+135,part_6_135_138,,,"<div class=""alert alert-warning"">
+<p>Date: June 21</p>
+<p>To: Mike Harris</p>
+<p>From: Rhonda Cross</p>
+<p>Subject: RE: Landscaping and Maintenance</p>
+<p> </p>
+<p>
+                          Thank you for your _____ (135) about our services.
+                          Arbor Care is a green lawn care and landscaping
+                          business. We only use environmentally friendly
+                          techniques and products when caring for the grounds of
+                          any business. We've been working in the Portland area
+                          for _____ (136) 20 years. Currently, we are serving
+                          more than 150 businesses in the downtown area. 
+                        </p>
+<p> </p>
+<p>
+                          As to your specific request, yes, we can easily remove
+                          dead trees and replace them with something that fits
+                          the ______ (137) landscaping. To give you an exact
+                          quote, we would need to stop by and access the
+                          situation in person. To have one of our garden
+                          technicians stop by, please call us at (713) 678-9916.
+                          _____ (138)
+                        </p>
+</div>","Date: June 21
+To: Mike Harris
+From: Rhonda Cross
+Subject: RE: Landscaping and Maintenance
+ 
+
+                          Thank you for your _____ (135) about our services.
+                          Arbor Care is a green lawn care and landscaping
+                          business. We only use environmentally friendly
+                          techniques and products when caring for the grounds of
+                          any business. We've been working in the Portland area
+                          for _____ (136) 20 years. Currently, we are serving
+                          more than 150 businesses in the downtown area. 
+                        
+ 
+
+                          As to your specific request, yes, we can easily remove
+                          dead trees and replace them with something that fits
+                          the ______ (137) landscaping. To give you an exact
+                          quote, we would need to stop by and access the
+                          situation in person. To have one of our garden
+                          technicians stop by, please call us at (713) 678-9916.
+                          _____ (138)",submission,placement,review,inquiry,D,,
+136,part_6_135_138,,,"<div class=""alert alert-warning"">
+<p>Date: June 21</p>
+<p>To: Mike Harris</p>
+<p>From: Rhonda Cross</p>
+<p>Subject: RE: Landscaping and Maintenance</p>
+<p> </p>
+<p>
+                          Thank you for your _____ (135) about our services.
+                          Arbor Care is a green lawn care and landscaping
+                          business. We only use environmentally friendly
+                          techniques and products when caring for the grounds of
+                          any business. We've been working in the Portland area
+                          for _____ (136) 20 years. Currently, we are serving
+                          more than 150 businesses in the downtown area. 
+                        </p>
+<p> </p>
+<p>
+                          As to your specific request, yes, we can easily remove
+                          dead trees and replace them with something that fits
+                          the ______ (137) landscaping. To give you an exact
+                          quote, we would need to stop by and access the
+                          situation in person. To have one of our garden
+                          technicians stop by, please call us at (713) 678-9916.
+                          _____ (138)
+                        </p>
+</div>","Date: June 21
+To: Mike Harris
+From: Rhonda Cross
+Subject: RE: Landscaping and Maintenance
+ 
+
+                          Thank you for your _____ (135) about our services.
+                          Arbor Care is a green lawn care and landscaping
+                          business. We only use environmentally friendly
+                          techniques and products when caring for the grounds of
+                          any business. We've been working in the Portland area
+                          for _____ (136) 20 years. Currently, we are serving
+                          more than 150 businesses in the downtown area. 
+                        
+ 
+
+                          As to your specific request, yes, we can easily remove
+                          dead trees and replace them with something that fits
+                          the ______ (137) landscaping. To give you an exact
+                          quote, we would need to stop by and access the
+                          situation in person. To have one of our garden
+                          technicians stop by, please call us at (713) 678-9916.
+                          _____ (138)",over,around,until,through,A,,
+137,part_6_135_138,,,"<div class=""alert alert-warning"">
+<p>Date: June 21</p>
+<p>To: Mike Harris</p>
+<p>From: Rhonda Cross</p>
+<p>Subject: RE: Landscaping and Maintenance</p>
+<p> </p>
+<p>
+                          Thank you for your _____ (135) about our services.
+                          Arbor Care is a green lawn care and landscaping
+                          business. We only use environmentally friendly
+                          techniques and products when caring for the grounds of
+                          any business. We've been working in the Portland area
+                          for _____ (136) 20 years. Currently, we are serving
+                          more than 150 businesses in the downtown area. 
+                        </p>
+<p> </p>
+<p>
+                          As to your specific request, yes, we can easily remove
+                          dead trees and replace them with something that fits
+                          the ______ (137) landscaping. To give you an exact
+                          quote, we would need to stop by and access the
+                          situation in person. To have one of our garden
+                          technicians stop by, please call us at (713) 678-9916.
+                          _____ (138)
+                        </p>
+</div>","Date: June 21
+To: Mike Harris
+From: Rhonda Cross
+Subject: RE: Landscaping and Maintenance
+ 
+
+                          Thank you for your _____ (135) about our services.
+                          Arbor Care is a green lawn care and landscaping
+                          business. We only use environmentally friendly
+                          techniques and products when caring for the grounds of
+                          any business. We've been working in the Portland area
+                          for _____ (136) 20 years. Currently, we are serving
+                          more than 150 businesses in the downtown area. 
+                        
+ 
+
+                          As to your specific request, yes, we can easily remove
+                          dead trees and replace them with something that fits
+                          the ______ (137) landscaping. To give you an exact
+                          quote, we would need to stop by and access the
+                          situation in person. To have one of our garden
+                          technicians stop by, please call us at (713) 678-9916.
+                          _____ (138)",exist,existed,existing,exists,C,,
+138,part_6_135_138,,,"<div class=""alert alert-warning"">
+<p>Date: June 21</p>
+<p>To: Mike Harris</p>
+<p>From: Rhonda Cross</p>
+<p>Subject: RE: Landscaping and Maintenance</p>
+<p> </p>
+<p>
+                          Thank you for your _____ (135) about our services.
+                          Arbor Care is a green lawn care and landscaping
+                          business. We only use environmentally friendly
+                          techniques and products when caring for the grounds of
+                          any business. We've been working in the Portland area
+                          for _____ (136) 20 years. Currently, we are serving
+                          more than 150 businesses in the downtown area. 
+                        </p>
+<p> </p>
+<p>
+                          As to your specific request, yes, we can easily remove
+                          dead trees and replace them with something that fits
+                          the ______ (137) landscaping. To give you an exact
+                          quote, we would need to stop by and access the
+                          situation in person. To have one of our garden
+                          technicians stop by, please call us at (713) 678-9916.
+                          _____ (138)
+                        </p>
+</div>","Date: June 21
+To: Mike Harris
+From: Rhonda Cross
+Subject: RE: Landscaping and Maintenance
+ 
+
+                          Thank you for your _____ (135) about our services.
+                          Arbor Care is a green lawn care and landscaping
+                          business. We only use environmentally friendly
+                          techniques and products when caring for the grounds of
+                          any business. We've been working in the Portland area
+                          for _____ (136) 20 years. Currently, we are serving
+                          more than 150 businesses in the downtown area. 
+                        
+ 
+
+                          As to your specific request, yes, we can easily remove
+                          dead trees and replace them with something that fits
+                          the ______ (137) landscaping. To give you an exact
+                          quote, we would need to stop by and access the
+                          situation in person. To have one of our garden
+                          technicians stop by, please call us at (713) 678-9916.
+                          _____ (138)",It is a pleasure doing business with you. ,We hope to hear from you soon. ,Please send us an email.,Best wishes for your continued success.,B,,
+139,part_6_139_142,,,"<div class=""alert alert-warning"">
+<p style=""text-align: center"">
+<strong>Outbound Sales Lead Specialist/Telemarketer</strong>
+</p>
+<p style=""text-align: center"">Location: Atlanta, GA</p>
+<p style=""text-align: center"">Job Code: 3766</p>
+<p style=""text-align: center""># of opening: 4</p>
+<p>
+                          The Sales Lead Specialist will place outbound calls to
+                          _____ (139) customers seeking to purchase various
+                          services such as insurance, tax help, financial help,
+                          telecommunications, or transportation. They will also
+                          call on leaders from our existing customer base. Cold
+                          calls are required. 
+                        </p>
+<p>
+                          You will work directly with customers via the
+                          telephone and e-mail to describe products and services
+                          in order to persuade potential and current customers
+                          to purchase new products and services. The job will
+                          also require you to educate customers on product and
+                          service offerings. _____ (140) There is also a minimum
+                          requirement for monthly sales that is set at $7,500 in
+                          net revenue. _____ (141), the job calls for all
+                          employees to continually be taking product education
+                          course that will help you better serve our customers. 
+                        </p>
+<p>
+                          To be eligible for the position, you must have one or
+                          more years in telesales, strong customer service
+                          skills, and superior closing skills. 
+                        </p>
+<p>
+                          If you feel you _____ (142) these requirements and are
+                          looking for a lucrative exciting experience, please
+                          click below. 
+                        </p>
+</div>","Outbound Sales Lead Specialist/Telemarketer
+
+Location: Atlanta, GA
+Job Code: 3766
+# of opening: 4
+
+                          The Sales Lead Specialist will place outbound calls to
+                          _____ (139) customers seeking to purchase various
+                          services such as insurance, tax help, financial help,
+                          telecommunications, or transportation. They will also
+                          call on leaders from our existing customer base. Cold
+                          calls are required. 
+                        
+
+                          You will work directly with customers via the
+                          telephone and e-mail to describe products and services
+                          in order to persuade potential and current customers
+                          to purchase new products and services. The job will
+                          also require you to educate customers on product and
+                          service offerings. _____ (140) There is also a minimum
+                          requirement for monthly sales that is set at $7,500 in
+                          net revenue. _____ (141), the job calls for all
+                          employees to continually be taking product education
+                          course that will help you better serve our customers. 
+                        
+
+                          To be eligible for the position, you must have one or
+                          more years in telesales, strong customer service
+                          skills, and superior closing skills. 
+                        
+
+                          If you feel you _____ (142) these requirements and are
+                          looking for a lucrative exciting experience, please
+                          click below.",substantial,potential,optimal,logical,B,,
+140,part_6_139_142,,,"<div class=""alert alert-warning"">
+<p style=""text-align: center"">
+<strong>Outbound Sales Lead Specialist/Telemarketer</strong>
+</p>
+<p style=""text-align: center"">Location: Atlanta, GA</p>
+<p style=""text-align: center"">Job Code: 3766</p>
+<p style=""text-align: center""># of opening: 4</p>
+<p>
+                          The Sales Lead Specialist will place outbound calls to
+                          _____ (139) customers seeking to purchase various
+                          services such as insurance, tax help, financial help,
+                          telecommunications, or transportation. They will also
+                          call on leaders from our existing customer base. Cold
+                          calls are required. 
+                        </p>
+<p>
+                          You will work directly with customers via the
+                          telephone and e-mail to describe products and services
+                          in order to persuade potential and current customers
+                          to purchase new products and services. The job will
+                          also require you to educate customers on product and
+                          service offerings. _____ (140) There is also a minimum
+                          requirement for monthly sales that is set at $7,500 in
+                          net revenue. _____ (141), the job calls for all
+                          employees to continually be taking product education
+                          course that will help you better serve our customers. 
+                        </p>
+<p>
+                          To be eligible for the position, you must have one or
+                          more years in telesales, strong customer service
+                          skills, and superior closing skills. 
+                        </p>
+<p>
+                          If you feel you _____ (142) these requirements and are
+                          looking for a lucrative exciting experience, please
+                          click below. 
+                        </p>
+</div>","Outbound Sales Lead Specialist/Telemarketer
+
+Location: Atlanta, GA
+Job Code: 3766
+# of opening: 4
+
+                          The Sales Lead Specialist will place outbound calls to
+                          _____ (139) customers seeking to purchase various
+                          services such as insurance, tax help, financial help,
+                          telecommunications, or transportation. They will also
+                          call on leaders from our existing customer base. Cold
+                          calls are required. 
+                        
+
+                          You will work directly with customers via the
+                          telephone and e-mail to describe products and services
+                          in order to persuade potential and current customers
+                          to purchase new products and services. The job will
+                          also require you to educate customers on product and
+                          service offerings. _____ (140) There is also a minimum
+                          requirement for monthly sales that is set at $7,500 in
+                          net revenue. _____ (141), the job calls for all
+                          employees to continually be taking product education
+                          course that will help you better serve our customers. 
+                        
+
+                          To be eligible for the position, you must have one or
+                          more years in telesales, strong customer service
+                          skills, and superior closing skills. 
+                        
+
+                          If you feel you _____ (142) these requirements and are
+                          looking for a lucrative exciting experience, please
+                          click below.","The more you purchase, the more opportunity you'll have for advancement.",This managerial position will require an organized and highly motivated individual.,"If you could help find your replacement, it would be much an appreciated.",It will be crucial for you to place a minimum of 150 outbound calls each day.,D,,
+141,part_6_139_142,,,"<div class=""alert alert-warning"">
+<p style=""text-align: center"">
+<strong>Outbound Sales Lead Specialist/Telemarketer</strong>
+</p>
+<p style=""text-align: center"">Location: Atlanta, GA</p>
+<p style=""text-align: center"">Job Code: 3766</p>
+<p style=""text-align: center""># of opening: 4</p>
+<p>
+                          The Sales Lead Specialist will place outbound calls to
+                          _____ (139) customers seeking to purchase various
+                          services such as insurance, tax help, financial help,
+                          telecommunications, or transportation. They will also
+                          call on leaders from our existing customer base. Cold
+                          calls are required. 
+                        </p>
+<p>
+                          You will work directly with customers via the
+                          telephone and e-mail to describe products and services
+                          in order to persuade potential and current customers
+                          to purchase new products and services. The job will
+                          also require you to educate customers on product and
+                          service offerings. _____ (140) There is also a minimum
+                          requirement for monthly sales that is set at $7,500 in
+                          net revenue. _____ (141), the job calls for all
+                          employees to continually be taking product education
+                          course that will help you better serve our customers. 
+                        </p>
+<p>
+                          To be eligible for the position, you must have one or
+                          more years in telesales, strong customer service
+                          skills, and superior closing skills. 
+                        </p>
+<p>
+                          If you feel you _____ (142) these requirements and are
+                          looking for a lucrative exciting experience, please
+                          click below. 
+                        </p>
+</div>","Outbound Sales Lead Specialist/Telemarketer
+
+Location: Atlanta, GA
+Job Code: 3766
+# of opening: 4
+
+                          The Sales Lead Specialist will place outbound calls to
+                          _____ (139) customers seeking to purchase various
+                          services such as insurance, tax help, financial help,
+                          telecommunications, or transportation. They will also
+                          call on leaders from our existing customer base. Cold
+                          calls are required. 
+                        
+
+                          You will work directly with customers via the
+                          telephone and e-mail to describe products and services
+                          in order to persuade potential and current customers
+                          to purchase new products and services. The job will
+                          also require you to educate customers on product and
+                          service offerings. _____ (140) There is also a minimum
+                          requirement for monthly sales that is set at $7,500 in
+                          net revenue. _____ (141), the job calls for all
+                          employees to continually be taking product education
+                          course that will help you better serve our customers. 
+                        
+
+                          To be eligible for the position, you must have one or
+                          more years in telesales, strong customer service
+                          skills, and superior closing skills. 
+                        
+
+                          If you feel you _____ (142) these requirements and are
+                          looking for a lucrative exciting experience, please
+                          click below.",Actually,However,Additionally,Therefore,C,,
+142,part_6_139_142,,,"<div class=""alert alert-warning"">
+<p style=""text-align: center"">
+<strong>Outbound Sales Lead Specialist/Telemarketer</strong>
+</p>
+<p style=""text-align: center"">Location: Atlanta, GA</p>
+<p style=""text-align: center"">Job Code: 3766</p>
+<p style=""text-align: center""># of opening: 4</p>
+<p>
+                          The Sales Lead Specialist will place outbound calls to
+                          _____ (139) customers seeking to purchase various
+                          services such as insurance, tax help, financial help,
+                          telecommunications, or transportation. They will also
+                          call on leaders from our existing customer base. Cold
+                          calls are required. 
+                        </p>
+<p>
+                          You will work directly with customers via the
+                          telephone and e-mail to describe products and services
+                          in order to persuade potential and current customers
+                          to purchase new products and services. The job will
+                          also require you to educate customers on product and
+                          service offerings. _____ (140) There is also a minimum
+                          requirement for monthly sales that is set at $7,500 in
+                          net revenue. _____ (141), the job calls for all
+                          employees to continually be taking product education
+                          course that will help you better serve our customers. 
+                        </p>
+<p>
+                          To be eligible for the position, you must have one or
+                          more years in telesales, strong customer service
+                          skills, and superior closing skills. 
+                        </p>
+<p>
+                          If you feel you _____ (142) these requirements and are
+                          looking for a lucrative exciting experience, please
+                          click below. 
+                        </p>
+</div>","Outbound Sales Lead Specialist/Telemarketer
+
+Location: Atlanta, GA
+Job Code: 3766
+# of opening: 4
+
+                          The Sales Lead Specialist will place outbound calls to
+                          _____ (139) customers seeking to purchase various
+                          services such as insurance, tax help, financial help,
+                          telecommunications, or transportation. They will also
+                          call on leaders from our existing customer base. Cold
+                          calls are required. 
+                        
+
+                          You will work directly with customers via the
+                          telephone and e-mail to describe products and services
+                          in order to persuade potential and current customers
+                          to purchase new products and services. The job will
+                          also require you to educate customers on product and
+                          service offerings. _____ (140) There is also a minimum
+                          requirement for monthly sales that is set at $7,500 in
+                          net revenue. _____ (141), the job calls for all
+                          employees to continually be taking product education
+                          course that will help you better serve our customers. 
+                        
+
+                          To be eligible for the position, you must have one or
+                          more years in telesales, strong customer service
+                          skills, and superior closing skills. 
+                        
+
+                          If you feel you _____ (142) these requirements and are
+                          looking for a lucrative exciting experience, please
+                          click below.",meet,to meet,meeting,met,A,,
+143,part_6_143_146,,,"<div class=""alert alert-warning"">
+<p>From: James Jones, Excecutive Manager</p>
+<p>To: Sales Agents</p>
+<p>Date: July 15</p>
+<p>Subject: Policy Change</p>
+<p> </p>
+<p>Dear Sales Agents,</p>
+<p>
+                          There has been a recent change to our reimbursement
+                          policy. In the past, you simply had to pay out of
+                          pocket first then provide your receipts after renting
+                          vehicles, taking business trips or _____ (143) other
+                          business expenses. _____ (144), now you will be
+                          required to fill out an application which will need to
+                          be approved by the accounting department first. _____
+                          (145) If you spend beyond the amount given in the
+                          card, you will have to pay out of your own pocket and
+                          will not be reimbursed for that. 
+                        </p>
+<p>
+                          Please read the attachment to get further details on
+                          what expenses can and cannot be _____ (146) by the
+                          company. 
+                        </p>
+</div>","From: James Jones, Excecutive Manager
+To: Sales Agents
+Date: July 15
+Subject: Policy Change
+ 
+Dear Sales Agents,
+
+                          There has been a recent change to our reimbursement
+                          policy. In the past, you simply had to pay out of
+                          pocket first then provide your receipts after renting
+                          vehicles, taking business trips or _____ (143) other
+                          business expenses. _____ (144), now you will be
+                          required to fill out an application which will need to
+                          be approved by the accounting department first. _____
+                          (145) If you spend beyond the amount given in the
+                          card, you will have to pay out of your own pocket and
+                          will not be reimbursed for that. 
+                        
+
+                          Please read the attachment to get further details on
+                          what expenses can and cannot be _____ (146) by the
+                          company.",incur,incurred,incurring,to incur,C,,
+144,part_6_143_146,,,"<div class=""alert alert-warning"">
+<p>From: James Jones, Excecutive Manager</p>
+<p>To: Sales Agents</p>
+<p>Date: July 15</p>
+<p>Subject: Policy Change</p>
+<p> </p>
+<p>Dear Sales Agents,</p>
+<p>
+                          There has been a recent change to our reimbursement
+                          policy. In the past, you simply had to pay out of
+                          pocket first then provide your receipts after renting
+                          vehicles, taking business trips or _____ (143) other
+                          business expenses. _____ (144), now you will be
+                          required to fill out an application which will need to
+                          be approved by the accounting department first. _____
+                          (145) If you spend beyond the amount given in the
+                          card, you will have to pay out of your own pocket and
+                          will not be reimbursed for that. 
+                        </p>
+<p>
+                          Please read the attachment to get further details on
+                          what expenses can and cannot be _____ (146) by the
+                          company. 
+                        </p>
+</div>","From: James Jones, Excecutive Manager
+To: Sales Agents
+Date: July 15
+Subject: Policy Change
+ 
+Dear Sales Agents,
+
+                          There has been a recent change to our reimbursement
+                          policy. In the past, you simply had to pay out of
+                          pocket first then provide your receipts after renting
+                          vehicles, taking business trips or _____ (143) other
+                          business expenses. _____ (144), now you will be
+                          required to fill out an application which will need to
+                          be approved by the accounting department first. _____
+                          (145) If you spend beyond the amount given in the
+                          card, you will have to pay out of your own pocket and
+                          will not be reimbursed for that. 
+                        
+
+                          Please read the attachment to get further details on
+                          what expenses can and cannot be _____ (146) by the
+                          company.",However,Therefore,Furthermore,Since,A,,
+145,part_6_143_146,,,"<div class=""alert alert-warning"">
+<p>From: James Jones, Excecutive Manager</p>
+<p>To: Sales Agents</p>
+<p>Date: July 15</p>
+<p>Subject: Policy Change</p>
+<p> </p>
+<p>Dear Sales Agents,</p>
+<p>
+                          There has been a recent change to our reimbursement
+                          policy. In the past, you simply had to pay out of
+                          pocket first then provide your receipts after renting
+                          vehicles, taking business trips or _____ (143) other
+                          business expenses. _____ (144), now you will be
+                          required to fill out an application which will need to
+                          be approved by the accounting department first. _____
+                          (145) If you spend beyond the amount given in the
+                          card, you will have to pay out of your own pocket and
+                          will not be reimbursed for that. 
+                        </p>
+<p>
+                          Please read the attachment to get further details on
+                          what expenses can and cannot be _____ (146) by the
+                          company. 
+                        </p>
+</div>","From: James Jones, Excecutive Manager
+To: Sales Agents
+Date: July 15
+Subject: Policy Change
+ 
+Dear Sales Agents,
+
+                          There has been a recent change to our reimbursement
+                          policy. In the past, you simply had to pay out of
+                          pocket first then provide your receipts after renting
+                          vehicles, taking business trips or _____ (143) other
+                          business expenses. _____ (144), now you will be
+                          required to fill out an application which will need to
+                          be approved by the accounting department first. _____
+                          (145) If you spend beyond the amount given in the
+                          card, you will have to pay out of your own pocket and
+                          will not be reimbursed for that. 
+                        
+
+                          Please read the attachment to get further details on
+                          what expenses can and cannot be _____ (146) by the
+                          company.",They will not approve any card not authorized by a bank. ,You will have to spend from your own credit card.,Then you will be provided with a company card which holds limited funds. ,They must decide whether our budget allows for our expenses.,C,,
+146,part_6_143_146,,,"<div class=""alert alert-warning"">
+<p>From: James Jones, Excecutive Manager</p>
+<p>To: Sales Agents</p>
+<p>Date: July 15</p>
+<p>Subject: Policy Change</p>
+<p> </p>
+<p>Dear Sales Agents,</p>
+<p>
+                          There has been a recent change to our reimbursement
+                          policy. In the past, you simply had to pay out of
+                          pocket first then provide your receipts after renting
+                          vehicles, taking business trips or _____ (143) other
+                          business expenses. _____ (144), now you will be
+                          required to fill out an application which will need to
+                          be approved by the accounting department first. _____
+                          (145) If you spend beyond the amount given in the
+                          card, you will have to pay out of your own pocket and
+                          will not be reimbursed for that. 
+                        </p>
+<p>
+                          Please read the attachment to get further details on
+                          what expenses can and cannot be _____ (146) by the
+                          company. 
+                        </p>
+</div>","From: James Jones, Excecutive Manager
+To: Sales Agents
+Date: July 15
+Subject: Policy Change
+ 
+Dear Sales Agents,
+
+                          There has been a recent change to our reimbursement
+                          policy. In the past, you simply had to pay out of
+                          pocket first then provide your receipts after renting
+                          vehicles, taking business trips or _____ (143) other
+                          business expenses. _____ (144), now you will be
+                          required to fill out an application which will need to
+                          be approved by the accounting department first. _____
+                          (145) If you spend beyond the amount given in the
+                          card, you will have to pay out of your own pocket and
+                          will not be reimbursed for that. 
+                        
+
+                          Please read the attachment to get further details on
+                          what expenses can and cannot be _____ (146) by the
+                          company.",certain,acknowledged,established,approved,D,,
+147,part_7_147_148,part_7_147_148.png,,"<div class=""alert alert-warning"">
+<p>
+<img height=""859"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image.png"" width=""687""/>
+</p>
+</div>",What does Ms. Shalib plan to do on May 1?, Call the theater , Request a refund , Pay her credit card bill , Attend a musical event,D,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_147_148.png,
+148,part_7_147_148,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""859"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image.png"" width=""687""/>
+</p>
+</div>",What must Ms. Shalib bring with her?,A credit card,Paper tickets ,A copy of a receipt ,A form of identification,C,,
+149,part_7_149_151,part_7_149_151.png,,"<div class=""alert alert-warning"">
+<p>
+<img height=""857"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image1.png"" width=""733""/>
+</p>
+</div>",What most likely is Omicron Premier Services?,A hospital,A doctor’s office,A shipping company,A medical supply company ,D,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_149_151.png,
+150,part_7_149_151,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""857"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image1.png"" width=""733""/>
+</p>
+</div>","According to the invoice, what will happen on April
+                            3?",An invoice will be revised,An order will be placed. ,A payment will be refunded. ,A shipment will be delivered. ,D,,
+151,part_7_149_151,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""857"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image1.png"" width=""733""/>
+</p>
+</div>",What is indicated about the gloves?,They are out of stock at the moment. ,They are available in one size only. ,They are no longer manufactured. ,They are the wrong brand,A,,
+152,part_7_152_153,part_7_152_153.png,,"<div class=""alert alert-warning"">
+<p>
+<img height=""496"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image2.png"" width=""600""/>
+</p>
+</div>",What problem does Mr. Barilla have?,He feels sick and cannot work. ,He will not be able to attend a scheduled dinner.,He does not know how to divide a large room.,He is unable to do a job by himself,D,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_152_153.png,
+153,part_7_152_153,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""496"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image2.png"" width=""600""/>
+</p>
+</div>",Why did Mr. Barilla send the text message to Maria?,To have her reschedule a meeting at a hotel,To cancel an event in the hotel ballroom,To ask her to make a call,To request special equipment ,C,,
+154,part_7_154_155,part_7_154_155.png,,"<div class=""alert alert-warning"">
+<p>
+<img height=""645"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image3.png"" width=""728""/>
+</p>
+</div>",What are guests asked to do?,Return a completed form ,Leave their keys at the front desk,Tell their friends about the inn,Recommend staff members for awards ,A,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_154_155.png,
+155,part_7_154_155,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""645"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image3.png"" width=""728""/>
+</p>
+</div>",What is suggested about Ms. Haataja?,She is an experienced cook. ,She would like a job in the hotel industry. ,She frequently travels on business. ,She would like to discuss her stay with hotel staff. ,D,,
+156,part_7_156_157,part_7_156_157.png,,"<div class=""alert alert-warning"">
+<p>
+<img height=""656"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image4.png"" width=""720""/>
+</p>
+</div>","At 1:56 P.M., what does Mr. Schlupp most likely
+                            mean when he writes, “Here we go”?",He is about to start a meeting,He is surprised by Ms. Larkin's request.,He has determined the cause of a problem,He would like to invite Ms. Larkin to a meeting,C,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_156_157.png,
+157,part_7_156_157,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""656"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image4.png"" width=""720""/>
+</p>
+</div>",What is probably true about Ms. Larkin?,She has recently received a new computer. ,She does not have permission to attend the meeting. ,She often participates in conference calls. ,She will not need to speak during the training session. ,D,,
+158,part_7_158_160,part_7_158_160.png,,"<div class=""alert alert-warning"">
+<p>
+<img height=""533"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image5.png"" width=""720""/>
+</p>
+</div>",What is one purpose of the memo?,To announce the release of a quarterly expense report,To alert employees to a budget concern,To inform staff of an error in a document,To request feedback on a departmental procedure ,B,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_158_160.png,
+159,part_7_158_160,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""533"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image5.png"" width=""720""/>
+</p>
+</div>",What are employees advised to do?,Make black-and-white copies of basic documents,Tell coworkers about upcoming social events,Distribute meeting notes by e-mail ,Report broken copy machines to their supervisors,A,,
+160,part_7_158_160,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""533"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image5.png"" width=""720""/>
+</p>
+</div>","In which of the positions marked [1], [2], [3] and
+                            [4] does the following sentence best belong?
+                            “Publicity flyers intended for clients are one
+                            obvious example.""",[1],[2],[3],[4],D,,
+161,part_7_161_164,,,"<div class=""alert alert-warning"">
+<p>
+                          Questions 161-164 refer to the following Web site.
+                        </p>
+<p> </p>
+<p style=""text-align: center"">
+<strong>Pondress </strong>
+</p>
+<p style=""text-align: center"">
+<strong>Because Your Opinion Matters</strong>
+</p>
+<p>
+                          The Pondress Corporation has been conducting public
+                          opinion polls on current issues for more than three
+                          decades. All our polls are based on telephone
+                          interviews with adults 18 years of age or older who
+                          live in specific polling areas. To ensure that every
+                          adult living within a polling area has an equal chance
+                          of being contacted, potential interviewees are
+                          selected by a computer that randomly generates phone
+                          numbers from all working exchanges.
+                        </p>
+<p>
+                          To find out what people think about what is happening
+                          in the world these days, visit our Latest Polls page.
+                          New polls are published weekly, and all polls are
+                          stored and accessible online. If you prefer to search
+                          for polls by subject, go to our Subject Guide page. If
+                          you would like to reproduce tables, charts, or any
+                          other graphics created by Pondress, go to the Contact
+                          Us page and click the link for our Permissions
+                          Department. There you will find an easy-to-use online
+                          form to fill out with details about how and where you
+                          intend to use the information. In most cases, a
+                          response is provided within 24 hours of submission.
+                        </p>
+</div>","In paragraph 1, line 1, the word ""current"" is
+                            closest in meaning to",moving,customary,contemporary,momentary,C,,
+162,part_7_161_164,,,"<div class=""alert alert-warning"">
+<p>
+                          Questions 161-164 refer to the following Web site.
+                        </p>
+<p> </p>
+<p style=""text-align: center"">
+<strong>Pondress </strong>
+</p>
+<p style=""text-align: center"">
+<strong>Because Your Opinion Matters</strong>
+</p>
+<p>
+                          The Pondress Corporation has been conducting public
+                          opinion polls on current issues for more than three
+                          decades. All our polls are based on telephone
+                          interviews with adults 18 years of age or older who
+                          live in specific polling areas. To ensure that every
+                          adult living within a polling area has an equal chance
+                          of being contacted, potential interviewees are
+                          selected by a computer that randomly generates phone
+                          numbers from all working exchanges.
+                        </p>
+<p>
+                          To find out what people think about what is happening
+                          in the world these days, visit our Latest Polls page.
+                          New polls are published weekly, and all polls are
+                          stored and accessible online. If you prefer to search
+                          for polls by subject, go to our Subject Guide page. If
+                          you would like to reproduce tables, charts, or any
+                          other graphics created by Pondress, go to the Contact
+                          Us page and click the link for our Permissions
+                          Department. There you will find an easy-to-use online
+                          form to fill out with details about how and where you
+                          intend to use the information. In most cases, a
+                          response is provided within 24 hours of submission.
+                        </p>
+</div>",What is NOT mentioned about poll participants?,They are randomly selected.,They are interviewed in groups. ,They are interviewed over the phone. ,They are adults,B,,
+163,part_7_161_164,,,"<div class=""alert alert-warning"">
+<p>
+                          Questions 161-164 refer to the following Web site.
+                        </p>
+<p> </p>
+<p style=""text-align: center"">
+<strong>Pondress </strong>
+</p>
+<p style=""text-align: center"">
+<strong>Because Your Opinion Matters</strong>
+</p>
+<p>
+                          The Pondress Corporation has been conducting public
+                          opinion polls on current issues for more than three
+                          decades. All our polls are based on telephone
+                          interviews with adults 18 years of age or older who
+                          live in specific polling areas. To ensure that every
+                          adult living within a polling area has an equal chance
+                          of being contacted, potential interviewees are
+                          selected by a computer that randomly generates phone
+                          numbers from all working exchanges.
+                        </p>
+<p>
+                          To find out what people think about what is happening
+                          in the world these days, visit our Latest Polls page.
+                          New polls are published weekly, and all polls are
+                          stored and accessible online. If you prefer to search
+                          for polls by subject, go to our Subject Guide page. If
+                          you would like to reproduce tables, charts, or any
+                          other graphics created by Pondress, go to the Contact
+                          Us page and click the link for our Permissions
+                          Department. There you will find an easy-to-use online
+                          form to fill out with details about how and where you
+                          intend to use the information. In most cases, a
+                          response is provided within 24 hours of submission.
+                        </p>
+</div>","What is indicated about the Pondress
+                            Corporation?",It updates its Web site every week,It has offices in multiple locations.,It is searching for new employees. ,It publishes nonfiction books.,A,,
+164,part_7_161_164,,,"<div class=""alert alert-warning"">
+<p>
+                          Questions 161-164 refer to the following Web site.
+                        </p>
+<p> </p>
+<p style=""text-align: center"">
+<strong>Pondress </strong>
+</p>
+<p style=""text-align: center"">
+<strong>Because Your Opinion Matters</strong>
+</p>
+<p>
+                          The Pondress Corporation has been conducting public
+                          opinion polls on current issues for more than three
+                          decades. All our polls are based on telephone
+                          interviews with adults 18 years of age or older who
+                          live in specific polling areas. To ensure that every
+                          adult living within a polling area has an equal chance
+                          of being contacted, potential interviewees are
+                          selected by a computer that randomly generates phone
+                          numbers from all working exchanges.
+                        </p>
+<p>
+                          To find out what people think about what is happening
+                          in the world these days, visit our Latest Polls page.
+                          New polls are published weekly, and all polls are
+                          stored and accessible online. If you prefer to search
+                          for polls by subject, go to our Subject Guide page. If
+                          you would like to reproduce tables, charts, or any
+                          other graphics created by Pondress, go to the Contact
+                          Us page and click the link for our Permissions
+                          Department. There you will find an easy-to-use online
+                          form to fill out with details about how and where you
+                          intend to use the information. In most cases, a
+                          response is provided within 24 hours of submission.
+                        </p>
+</div>","How can readers get permission to reproduce
+                            graphics?",By sending an e-mail,By making a phone call ,By submitting a paper form,By providing information online,D,,
+165,part_7_165_167,part_7_165_167.png,,"<div class=""alert alert-warning"">
+<p>
+<img height=""768"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image52.png"" width=""999""/>
+</p>
+</div>",What is the reason for the change?,The company owners want to save money on labor.,A new recycling center opened near the business.,The local government changed its regulations.,Environmentalists in the area requested it. ,D,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_165_167.png,
+166,part_7_165_167,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""768"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image52.png"" width=""999""/>
+</p>
+</div>","What can be inferred about Unsworthy
+                            Manufacturing?",It has good relations with local authorities.,It already recycles its plastic industrial waste.,It recently increased its workforce.,It updates its environmental policy regularly.,B,,
+167,part_7_165_167,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""768"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/25/image52.png"" width=""999""/>
+</p>
+</div>",What should supervisors do next week?,Attend a workshop on new procedures,Update the company's website,Make room for new waste receptacles,Inform their teams of the changes,A,,
+168,part_7_168_171,part_7_168_171.png,,"<div class=""alert alert-warning"">
+<p>
+<img height=""673"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image7.png"" width=""720""/>
+</p>
+</div>",Why was the letter written?,To describe a policy change,To introduce a new grocery store,To advertise a market opening,To announce election results,C,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_168_171.png,
+169,part_7_168_171,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""673"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image7.png"" width=""720""/>
+</p>
+</div>",What is indicated about Ms. Hammer?,She is a vendor at a farmers' market,She represents other farmers.,She owns a family-run farm.,She is the mayor of Normanville,B,,
+170,part_7_168_171,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""673"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image7.png"" width=""720""/>
+</p>
+</div>",What problem is mentioned?,Inadequate parking spots,Unfair product pricing,Lack of quality control,Inclement weather,A,,
+171,part_7_168_171,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""673"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image7.png"" width=""720""/>
+</p>
+</div>","What is NOT mentioned as a benefit of shopping at
+                            the venue?",A boost for the local economy,Competitive prices,Healthy produce,Longer opening hours,D,,
+172,part_7_172_175,part_7_172_175.png,,"<div class=""alert alert-warning"">
+<p>
+<img height=""497"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image8.png"" width=""960""/>
+</p>
+</div>",What is the purpose of the article?,To advertise an event for the holidays,To warn citizens of increased crimes,To informed people about lost and found items,To give information about an auction,C,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_172_175.png,
+173,part_7_172_175,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""497"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image8.png"" width=""960""/>
+</p>
+</div>",What is suggested about Jean King?,She searches for lost items,She works for the city,She is an intern,She manages the community center,B,,
+174,part_7_172_175,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""497"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image8.png"" width=""960""/>
+</p>
+</div>",What is suggested about the lost items?,They are not kept indefinitely at the center,They are usually claimed by their owners,They are destroyed when unclaimed,They are generally new items,A,,
+175,part_7_172_175,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""497"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image8.png"" width=""960""/>
+</p>
+</div>","In which of the positions marked [1], [2], [3] and
+                            [4] does the following sentences best belong?'Many
+                            people do come to claim their missing items, but a
+                            vast majority is still left unclaimed'.",[1],[2],[3],[4],C,,
+176,part_7_176_180,part_7_176_180_1.png part_7_176_180_2.png,,"<div class=""alert alert-warning"">
+<p>
+<img height=""499"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image9.png"" width=""960""/>
+</p>
+<p>
+<img height=""713"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image10.png"" width=""960""/>
+</p>
+</div>",What problem is Tech Life facing?,A shortage of employees,An urgent audit,A decline in profitability,A potential competitor,C,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_176_180_1.png https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_176_180_2.png,
+177,part_7_176_180,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""499"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image9.png"" width=""960""/>
+</p>
+<p>
+<img height=""713"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image10.png"" width=""960""/>
+</p>
+</div>",What is mentioned about the shareholders?,They are allowed to share financial information,They will hold a meeting next week,They are demanding more dividends,They agreed on the appointment of a new leader,D,,
+178,part_7_176_180,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""499"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image9.png"" width=""960""/>
+</p>
+<p>
+<img height=""713"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image10.png"" width=""960""/>
+</p>
+</div>","In the article, the word ""optimize"" in paragraph 2,
+                            line 6, is closest in meaning to",merge,improve,analyze,maintain,B,,
+179,part_7_176_180,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""499"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image9.png"" width=""960""/>
+</p>
+<p>
+<img height=""713"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image10.png"" width=""960""/>
+</p>
+</div>",Where did Ms Dyer work previously?,In Harrisburg,In Dallas,In New York,In San Francisco,D,,
+180,part_7_176_180,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""499"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image9.png"" width=""960""/>
+</p>
+<p>
+<img height=""713"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image10.png"" width=""960""/>
+</p>
+</div>",What is Mr. Cross asked to do?,Teach a training course,Meet new employees,Attend a stockholders' meeting,Hire new managers,B,,
+181,part_7_181_185,part_7_181_185_1.png part_7_181_185_2.png,,"<div class=""alert alert-warning"">
+<p>
+<img height=""494"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image11.png"" width=""960""/>
+</p>
+<p>
+<img height=""647"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image12.png"" width=""770""/>
+</p>
+</div>","What was the topic of the conference on January
+                            10?",How to start a small business,How to manage finances,How to lead other people,How to expand business globally,C,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_181_185_1.png https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_181_185_2.png,
+182,part_7_181_185,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""494"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image11.png"" width=""960""/>
+</p>
+<p>
+<img height=""647"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image12.png"" width=""770""/>
+</p>
+</div>","When most likely will inquiries start being
+                            made?",At 3:30 PM,At 4:30 PM,At 5:30 PM,At 6:30 PM,D,,
+183,part_7_181_185,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""494"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image11.png"" width=""960""/>
+</p>
+<p>
+<img height=""647"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image12.png"" width=""770""/>
+</p>
+</div>",Where will a talk be given at no charge?,At Mulligan Elementary School,At Brookstone University,At Piedmont Adult Education Center,At SEM Development Group,B,,
+184,part_7_181_185,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""494"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image11.png"" width=""960""/>
+</p>
+<p>
+<img height=""647"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image12.png"" width=""770""/>
+</p>
+</div>","What does Ms. O’Neill invite AFC members to
+                            do?",Attach a receipt,Fill out a survey,Prepare a presentation,Evaluate speakers,C,,
+185,part_7_181_185,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""494"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image11.png"" width=""960""/>
+</p>
+<p>
+<img height=""647"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image12.png"" width=""770""/>
+</p>
+</div>","What is mentioned about the upcoming
+                            conference?",It will be held at a new location.,Its presentations will start later in the day.,Its attendance fees will be increased.,It will be broadcast online.,D,,
+186,part_7_186_190,part_7_186_190_1.png part_7_186_190_2.png part_7_186_190_3.png,,"<div class=""alert alert-warning"">
+<p>
+<img height=""629"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image13.png"" width=""960""/>
+</p>
+<p>
+<img height=""606"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image15.png"" width=""960""/>
+</p>
+<p>
+<img height=""640"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image16.png"" width=""960""/>
+</p>
+</div>","What is the purpose of the web page
+                            information?",To announce a new company policy,To explain an upcoming relocation,To inform a user about a charge,To notify a user of phishing attempts,C,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_186_190_1.png https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_186_190_2.png https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_186_190_3.png,
+187,part_7_186_190,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""629"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image13.png"" width=""960""/>
+</p>
+<p>
+<img height=""606"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image15.png"" width=""960""/>
+</p>
+<p>
+<img height=""640"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image16.png"" width=""960""/>
+</p>
+</div>","What is NOT mentioned as being checked using the
+                            mobile banking service?",Account balances,Interest rates,Unresolved transactions,Account history,B,,
+188,part_7_186_190,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""629"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image13.png"" width=""960""/>
+</p>
+<p>
+<img height=""606"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image15.png"" width=""960""/>
+</p>
+<p>
+<img height=""640"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image16.png"" width=""960""/>
+</p>
+</div>",What request does Ms. Summers make?,That her accounts be frozen,That her contact information be updated,That her extra fee be waived,That her withdrawal limit be increased,C,,
+189,part_7_186_190,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""629"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image13.png"" width=""960""/>
+</p>
+<p>
+<img height=""606"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image15.png"" width=""960""/>
+</p>
+<p>
+<img height=""640"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image16.png"" width=""960""/>
+</p>
+</div>","In the customer service’s e-mail to Suzie Summers,
+                            what does Laura Massey think is odd about Suzie’s
+                            story?",Suzie didn’t have very much money in her account.,Suzie didn’t file a  police report.,Suzie lost her wallet on June 2 but her card was used at an ATM machine on June 3.,Suzie does not live in Florida.,C,,
+190,part_7_186_190,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""629"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image13.png"" width=""960""/>
+</p>
+<p>
+<img height=""606"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image15.png"" width=""960""/>
+</p>
+<p>
+<img height=""640"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image16.png"" width=""960""/>
+</p>
+</div>","What does Laura Massey instruct Suzie Summers to do
+                            if she wants to get relief from the overdraft
+                            fee?",Write to the fraud department of Stark Bank,File a police report and give the case number to Stark Bank,File a claim against the criminals in the court and give the court number to Stark Bank,File a case number with the fraud department of Stark Bank,B,,
+191,part_7_191_195,part_7_191_195_1.png part_7_191_195_2.png part_7_191_195_3.png,,"<div class=""alert alert-warning"">
+<p>
+<img height=""669"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image17.png"" width=""874""/>
+</p>
+<p>
+<img height=""549"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image18.png"" width=""965""/>
+</p>
+<p>
+<img height=""498"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image19.png"" width=""960""/>
+</p>
+</div>",What is one reason the first e-mail was sent?,To specify a warranty number,To ask for a date for a visit,To confirm an order,To apologize for a shipping delay,B,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_191_195_1.png https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_191_195_2.png https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_191_195_3.png,
+192,part_7_191_195,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""669"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image17.png"" width=""874""/>
+</p>
+<p>
+<img height=""549"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image18.png"" width=""965""/>
+</p>
+<p>
+<img height=""498"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image19.png"" width=""960""/>
+</p>
+</div>","According to the first e-mail, what is true about
+                            the refrigerator?",It is a newly released model.,It is no longer covered by the warranty.,It has a manufacturing defect,It is currently on sale,C,,
+193,part_7_191_195,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""669"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image17.png"" width=""874""/>
+</p>
+<p>
+<img height=""549"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image18.png"" width=""965""/>
+</p>
+<p>
+<img height=""498"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image19.png"" width=""960""/>
+</p>
+</div>","What information does Mr. Lewis request from Ms.
+                            Kerry?",Her current address,Her warranty number,Her refrigerator model,Her contact information,B,,
+194,part_7_191_195,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""669"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image17.png"" width=""874""/>
+</p>
+<p>
+<img height=""549"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image18.png"" width=""965""/>
+</p>
+<p>
+<img height=""498"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image19.png"" width=""960""/>
+</p>
+</div>","Why does the technician need to scan the
+                            warranty?",To make sure it is still covered,To make sure that the model is correct,To make sure that there are enough spare parts to make the repairs,To make sure that the manufacturer covers the repair costs,D,,
+195,part_7_191_195,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""669"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image17.png"" width=""874""/>
+</p>
+<p>
+<img height=""549"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image18.png"" width=""965""/>
+</p>
+<p>
+<img height=""498"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image19.png"" width=""960""/>
+</p>
+</div>","Why do you think the technician will come on
+                            Monday?",Because that is the time the technician is available,Because the technician is too busy on Friday,Because the housekeeper will be there to let him in,Because Ms. Kerry is in Arkansas,C,,
+196,part_7_196_200,part_7_196_200_1.png part_7_196_200_2.png part_7_196_200_3.png,,"<div class=""alert alert-warning"">
+<p>
+<img height=""697"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image20.png"" width=""960""/>
+</p>
+<p>
+<img height=""574"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image21.png"" width=""947""/>
+</p>
+<p>
+<img height=""463"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image22.png"" width=""960""/>
+</p>
+</div>",Why did Mr. West write the first e-mail?,To inquire about a service,To schedule a meeting,To report on a budget,To apply for a position,B,https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_196_200_1.png https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_196_200_2.png https://my-toeic-bucket.s3.amazonaws.com/test_1/images/part_7_196_200_3.png,
+197,part_7_196_200,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""697"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image20.png"" width=""960""/>
+</p>
+<p>
+<img height=""574"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image21.png"" width=""947""/>
+</p>
+<p>
+<img height=""463"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image22.png"" width=""960""/>
+</p>
+</div>",What service does JM Solutions provide?,Recruitment and employee training,Graphic design,Web programming,Marketing strategy consultation,C,,
+198,part_7_196_200,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""697"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image20.png"" width=""960""/>
+</p>
+<p>
+<img height=""574"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image21.png"" width=""947""/>
+</p>
+<p>
+<img height=""463"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image22.png"" width=""960""/>
+</p>
+</div>","According to the second e-mail, how will the
+                            profits of the back-to-school sale be spent?",On repairing some roads,On purchasing advertising space,On paying for JM Solutions’ service,On hiring more employees,B,,
+199,part_7_196_200,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""697"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image20.png"" width=""960""/>
+</p>
+<p>
+<img height=""574"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image21.png"" width=""947""/>
+</p>
+<p>
+<img height=""463"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image22.png"" width=""960""/>
+</p>
+</div>",What is indicated by the third e-mail?,The budget for the first quarter of next year looks good.,JM Solutions has a strong reputation.,It will be easy for Kingston Sporting Goods to find money in their budget for web development.,Some items in the budget may lose their funding in order to pay for web development.,D,,
+200,part_7_196_200,,,"<div class=""alert alert-warning"">
+<p>
+<img height=""697"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image20.png"" width=""960""/>
+</p>
+<p>
+<img height=""574"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image21.png"" width=""947""/>
+</p>
+<p>
+<img height=""463"" src=""https://www.anhngumshoa.com/uploads/images/userfiles/2021/06/26/image22.png"" width=""960""/>
+</p>
+</div>","Why does Kingston Sporting Goods need to allow for
+                            $3,200 for web development?",They need the best web money can buy,They have to expand their business into other territories.,They have to pay JM Solutions 10% of the overall cost as a deposit.,They have to negotiate a better price after the deposit.,C,,

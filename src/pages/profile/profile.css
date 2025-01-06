@@ -1,0 +1,26 @@
+/* profile.css */
+body {
+    background-color: #1a202c;
+    /* Màu nền tối */
+}
+
+input {
+    border: 1px solid #4a5568;
+    /* Màu viền input */
+}
+
+input:focus {
+    border-color: #ecc94b;
+    /* Màu viền khi focus */
+    outline: none;
+    /* Bỏ viền mặc định */
+}
+
+button {
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    /* Hiệu ứng phóng to khi hover */
+}

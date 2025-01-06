@@ -4,8 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'regal-blue': '#243c5a'
-      }
+        primary: "#1a1a3d",
+        secondary: "#3a3a5d",
+        accent: "#00ff00",
+        profile_name: "#35416",
+      },
     },
   },
   plugins: [],

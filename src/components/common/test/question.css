@@ -1,0 +1,21 @@
+.question {
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.radio {
+    align-items: center;
+}
