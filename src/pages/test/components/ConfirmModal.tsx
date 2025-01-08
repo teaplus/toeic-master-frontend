@@ -47,7 +47,7 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
           </div>
           <div className="flex justify-between items-center py-2 border-b">
             <span className="text-gray-600">Level:</span>
-            <span className="font-medium">{test.test_level}</span>
+            <span className="font-medium">{test.level}</span>
           </div>
           <div className="flex justify-between items-center py-2">
             <span className="text-gray-600">Time Limit:</span>

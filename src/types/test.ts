@@ -1,9 +1,18 @@
+export enum Level {
+  EASY = "EASY",
+  NORMAL = "NORMAL",
+  ADVANCE = "ADVANCE",
+}
+
 export interface Test {
   name: string;
   total_score: number;
   total_questions: number; // tổng số câu hỏi, sẽ luôn là 200
   sections: Sections[];
   type: string;
+  partNumber?: number | null;
+  level?: Level | null;
+  total_time?: number | null;
 }
 
 export interface Sections {
@@ -57,7 +66,8 @@ export interface ListTestResponseDataType {
   created_at: string;
   updated_at: string;
   type: string;
-  test_level: string;
+  level: string;
+  partNumber: number;
 }
 
 //get test by id

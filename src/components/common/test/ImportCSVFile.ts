@@ -27,6 +27,7 @@ interface ImportResult {
 export enum TestType {
   FULL = "FULL_TEST",
   MINI = "MINI_TEST",
+  PART = "PART_TEST",
 }
 
 export const importCSVFile = (

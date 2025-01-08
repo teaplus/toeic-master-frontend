@@ -86,7 +86,7 @@ const TestManagementTab: React.FC = () => {
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold text-gray-800">Test Management</h2>
         <Link
-          to="/admin/tests/create"
+          to="/admin/test/create"
           className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
         >
           Create New Test
@@ -203,7 +203,7 @@ const TestManagementTab: React.FC = () => {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-lg bg-gray-100 text-gray-800">
-                    {test.test_level}
+                    {test.level}
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">

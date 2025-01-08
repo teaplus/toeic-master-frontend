@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { ToeicQuestion } from "../../../types/toeic";
-import { Test, Sections } from "../../../types/test";
+import { Test, Sections, Level } from "../../../types/test";
 import { importCSVFile, TestType } from "./ImportCSVFile";
 
 import { createTestAPI } from "../../../services/test.service";
@@ -22,6 +22,9 @@ const TabsForm: React.FC = () => {
   // }>({});
   const [testName, setTestName] = useState<string>("");
   const [testType, setTestType] = useState<TestType>(TestType.FULL);
+  const [selectedParts, setSelectedParts] = useState<number[]>([]);
+  const [level, setLevel] = useState<Level | null>(null);
+  const [totalTime, setTotalTime] = useState<number>(120); // mặc định 120 phút
 
   const parts = [
     { id: 1, name: "Photographs", type: "listening" },
@@ -67,65 +70,150 @@ const TabsForm: React.FC = () => {
     await createTestAPI(test)
       .then((response) => {
         console.log(response);
-        alert("Test đã được tạo thành công!");
       })
       .catch((error) => {
         console.error("Error submitting test:", error);
         alert("Có lỗi xảy ra khi tạo test. Vui lòng thử lại!");
       });
+    // alert("Test đã được tạo thành công!");
   };
 
-  const createTest = () => {
-    // Kiểm tra số lượng câu hỏi cho mỗi part
-    const isComplete = parts.every(
-      (part) =>
-        questionsByPart[part.id]?.length === getRequiredQuestions(part.id)
-    );
+  const PART_DURATIONS: { [key: number]: number } = {
+    1: 5, // Part 1: 5 phút
+    2: 19, // Part 2: 19 phút
+    3: 30, // Part 3: 30 phút
+    4: 23, // Part 4: 23 phút
+    5: 14, // Part 5: 14 phút
+    6: 7, // Part 6: 7 phút
+    7: 25, // Part 7: 25 phút
+  };
 
-    if (!isComplete) {
-      alert("Vui lòng hoàn thành tất cả các phần trước khi tạo bài test!");
+  const getDefaultTime = (type: TestType, selectedPartId?: number): number => {
+    switch (type) {
+      case TestType.FULL:
+        return 120; // 2 giờ cho full test
+      case TestType.MINI:
+        return 60; // 1 giờ cho mini test
+      case TestType.PART:
+        return selectedPartId ? PART_DURATIONS[selectedPartId] : 0;
+      default:
+        return 120;
+    }
+  };
+
+  useEffect(() => {
+    if (testType === TestType.PART) {
+      if (selectedParts.length === 1) {
+        setTotalTime(PART_DURATIONS[selectedParts[0]]);
+      } else if (selectedParts.length > 1) {
+        const totalDuration = selectedParts.reduce(
+          (sum, partId) => sum + PART_DURATIONS[partId],
+          0
+        );
+        setTotalTime(totalDuration);
+      }
+    } else {
+      setTotalTime(getDefaultTime(testType));
+    }
+  }, [testType, selectedParts]);
+
+  const createTest = () => {
+    if (testType === TestType.PART && selectedParts.length === 0) {
+      alert("Vui lòng chọn ít nhất một phần để tạo bài test!");
       return;
     }
 
-    // Tạo cấu trúc test
-    const test: Test = {
-      name: testName || "TOEIC Test",
-      total_score: 990,
-      total_questions: Object.values(questionsByPart).reduce((total, questions) => total + questions.length, 0) -1 ,
-      sections: createSections(),
-      type: testType,
-    };
+    const partsToCheck =
+      testType === TestType.PART ? selectedParts : parts.map((p) => p.id);
+    const isComplete = partsToCheck.every(
+      (partId) =>
+        questionsByPart[partId]?.length === getRequiredQuestions(partId)
+    );
 
-    console.log(test);
-    // Gửi test lên server
-    // submitTest(test);
+    if (!isComplete) {
+      alert(
+        "Vui lòng hoàn thành t�t cả các phần đã chọn trước khi tạo bài test!"
+      );
+      return;
+    }
+
+    if (testType !== TestType.PART && !level) {
+      alert("Vui lòng chọn level cho bài test!");
+      return;
+    }
+
+    if (testType === TestType.PART) {
+      selectedParts.forEach((partId) => {
+        const test: Test = {
+          name: `${testName || "TOEIC Test"} - Part ${partId}`,
+          total_score: 0,
+          total_questions: questionsByPart[partId]?.length || 0,
+          sections: createSections([partId]),
+          type: testType,
+          partNumber: partId,
+          level: null,
+          total_time: totalTime,
+        };
+        submitTest(test);
+      });
+    } else {
+      const test: Test = {
+        name: testName || "TOEIC Test",
+        total_score: 0,
+        total_questions: Object.entries(questionsByPart)
+          .filter(([partId]) => partsToCheck.includes(Number(partId)))
+          .reduce((total, [_, questions]) => total + questions.length, 0),
+        sections: createSections(partsToCheck),
+        type: testType,
+        partNumber: null,
+        level: level,
+        total_time: totalTime,
+      };
+      console.log(test);
+      submitTest(test);
+    }
+    alert("Test đã được tạo thành công!");
   };
 
-  const createSections = (): Sections[] => {
-    const listeningParts = parts.filter((p) => p.type === "listening");
-    const readingParts = parts.filter((p) => p.type === "reading");
+  const createSections = (partsToInclude: number[]): Sections[] => {
+    const filteredParts = parts.filter((p) => partsToInclude.includes(p.id));
+    const listeningParts = filteredParts.filter((p) => p.type === "listening");
+    const readingParts = filteredParts.filter((p) => p.type === "reading");
 
-    return [
-      {
+    const sections: Sections[] = [];
+
+    if (listeningParts.length > 0) {
+      sections.push({
         name: "Listening Comprehension",
-        type: 'LISTENING',
+        type: "LISTENING",
         parts: createPartsForSection(listeningParts),
-      },
-      {
+      });
+    }
+
+    if (readingParts.length > 0) {
+      sections.push({
         name: "Reading Comprehension",
-        type: 'READING',
+        type: "READING",
         parts: createPartsForSection(readingParts),
-      },
-    ];
+      });
+    }
+
+    return sections;
   };
 
   const createPartsForSection = (sectionParts: (typeof parts)[0][]) => {
     return sectionParts.map((part) => {
       const questions = questionsByPart[part.id] || [];
-      // console.log("questions", questions);
-
       const groupedQuestions = groupQuestionsByGroup(questions);
-      console.log("groupedQuestions", groupedQuestions);
+
+      // Nếu là test dạng PART, đánh lại số thứ tự câu hỏi từ 1
+      if (testType === TestType.PART) {
+        let questionCounter = 1;
+        groupedQuestions.forEach((q) => {
+          q.questionNumber = questionCounter++;
+        });
+      }
+
       return {
         partNumber: part.id,
         partName: part.name,
@@ -190,6 +278,15 @@ const TabsForm: React.FC = () => {
         5: 14,
         6: 9,
         7: 27,
+      },
+      [TestType.PART]: {
+        1: 6,
+        2: 25,
+        3: 39,
+        4: 30,
+        5: 30,
+        6: 16,
+        7: 54,
       },
     };
     return questionCounts[testType][
@@ -386,37 +483,69 @@ const TabsForm: React.FC = () => {
     );
   };
 
+  const getLevelLabel = (level: Level): string => {
+    switch (level) {
+      case Level.EASY:
+        return "Easy";
+      case Level.NORMAL:
+        return "Normal";
+      case Level.ADVANCE:
+        return "Advance";
+      default:
+        return level;
+    }
+  };
+
   return (
-    <div className="p-8 bg-gray-50 min-h-screen">
-      {/* Import section với thêm lựa chọn loại test */}
-      <div className="mb-8 bg-white p-6 rounded-lg shadow-sm">
-        <h2 className="text-xl font-semibold mb-4">Import Test Data</h2>
-        <div className="space-y-4">
+    <div className="p-8 bg-gray-100 min-h-screen">
+      {/* Import section */}
+      <div className="mb-8 bg-white p-8 rounded-xl shadow-md">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">
+          Import Test Data
+        </h2>
+        <div className="space-y-6">
           {/* Test Type Selection */}
-          <div className="flex items-center gap-4">
-            <label className="font-medium text-gray-700">Test Type:</label>
-            <div className="flex gap-4">
-              <label className="inline-flex items-center">
+          <div className="flex items-center gap-6">
+            <label className="font-semibold text-gray-700">Test Type:</label>
+            <div className="flex gap-6">
+              <label className="inline-flex items-center hover:text-blue-600 transition-colors cursor-pointer">
                 <input
                   type="radio"
-                  className="form-radio text-blue-600"
+                  className="form-radio text-blue-600 w-5 h-5"
                   name="test_type"
                   value={TestType.FULL}
                   checked={testType === TestType.FULL}
-                  onChange={(e) => setTestType(e.target.value as TestType)}
+                  onChange={(e) => {
+                    setTestType(e.target.value as TestType);
+                    setSelectedParts([]);
+                  }}
                 />
-                <span className="ml-2">Full Test (200 questions)</span>
+                <span className="ml-2 text-lg">Full Test (200 questions)</span>
               </label>
-              <label className="inline-flex items-center">
+              <label className="inline-flex items-center hover:text-blue-600 transition-colors cursor-pointer">
                 <input
                   type="radio"
-                  className="form-radio text-blue-600"
+                  className="form-radio text-blue-600 w-5 h-5"
                   name="test_type"
                   value={TestType.MINI}
                   checked={testType === TestType.MINI}
+                  onChange={(e) => {
+                    setTestType(e.target.value as TestType);
+                    setSelectedParts([]);
+                  }}
+                />
+                <span className="ml-2 text-lg">Mini Test (100 questions)</span>
+              </label>
+              <label className="inline-flex items-center hover:text-blue-600 transition-colors cursor-pointer">
+                <input
+                  type="radio"
+                  className="form-radio text-blue-600 w-5 h-5"
+                  name="test_type"
+                  value={TestType.PART}
+                  checked={testType === TestType.PART}
                   onChange={(e) => setTestType(e.target.value as TestType)}
                 />
-                <span className="ml-2">Mini Test (100 questions)</span>
+                <span className="ml-2 text-lg">Part Test</span>
               </label>
             </div>
           </div>
@@ -424,11 +553,11 @@ const TabsForm: React.FC = () => {
           {/* File Upload */}
           <div className="flex-1">
             <label className="block">
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-500 transition-colors cursor-pointer">
-                <span className="material-icons text-gray-400 text-3xl mb-2">
+              <div className="border-3 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-blue-500 hover:bg-blue-50 transition-all cursor-pointer">
+                <span className="material-icons text-gray-400 text-4xl mb-3">
                   upload_file
                 </span>
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-lg">
                   Choose CSV file or drag & drop here
                 </p>
                 <input
@@ -442,21 +571,21 @@ const TabsForm: React.FC = () => {
           </div>
 
           {/* Test Info */}
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <h3 className="font-medium text-gray-700 mb-2">
+          <div className="bg-gray-50 p-6 rounded-xl">
+            <h3 className="font-semibold text-gray-800 text-xl mb-4">
               {testType === TestType.FULL ? "Full Test" : "Mini Test"}{" "}
               Requirements:
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {parts.map((part) => (
                 <div
                   key={part.id}
-                  className="bg-white p-3 rounded-lg shadow-sm"
+                  className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <div className="font-medium text-gray-600">
+                  <div className="font-semibold text-gray-700 text-lg">
                     Part {part.id}
                   </div>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-gray-500 mt-1">
                     {getRequiredQuestions(part.id)} questions
                   </div>
                 </div>
@@ -468,15 +597,15 @@ const TabsForm: React.FC = () => {
 
       {/* Parts navigation */}
       <div className="mb-8">
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-4">
           {parts.map((part) => (
             <button
               key={part.id}
               onClick={() => setActivePart(part.id)}
-              className={`px-6 py-3 rounded-lg font-medium transition-all ${
+              className={`px-8 py-4 rounded-xl font-semibold text-lg transition-all ${
                 activePart === part.id
-                  ? "bg-blue-500 text-white shadow-md scale-105"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
+                  ? "bg-blue-600 text-white shadow-lg scale-105"
+                  : "bg-white text-gray-700 hover:bg-gray-100 hover:shadow-md"
               }`}
             >
               Part {part.id}
@@ -486,17 +615,90 @@ const TabsForm: React.FC = () => {
       </div>
 
       {/* Active part preview */}
-      <div className="bg-white rounded-lg shadow-sm p-6 mb-24">
+      <div className="bg-white rounded-xl shadow-md p-8 mb-24">
         {renderPartPreview(activePart)}
       </div>
 
       {/* Create test button */}
       <button
         onClick={createTest}
-        className="fixed bottom-8 right-8 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-medium shadow-lg transition-colors flex items-center gap-2"
+        className="fixed bottom-8 right-8 bg-green-600 hover:bg-green-700 text-white px-10 py-4 rounded-xl font-semibold text-lg shadow-xl transition-all hover:scale-105 flex items-center gap-3"
       >
-        <span className="material-icons">Create Test</span>
+        Create Test
       </button>
+
+      {testType === TestType.PART && (
+        <div className="mt-6 bg-white p-6 rounded-xl shadow-md">
+          <label className="font-semibold text-gray-800 text-lg block mb-4">
+            Select Parts to Create:
+          </label>
+          <div className="flex flex-wrap gap-4">
+            {parts.map((part) => (
+              <label
+                key={part.id}
+                className="inline-flex items-center hover:text-blue-600 transition-colors cursor-pointer"
+              >
+                <input
+                  type="checkbox"
+                  className="form-checkbox text-blue-600 w-5 h-5"
+                  checked={selectedParts.includes(part.id)}
+                  onChange={(e) => {
+                    if (e.target.checked) {
+                      setSelectedParts([...selectedParts, part.id]);
+                    } else {
+                      setSelectedParts(
+                        selectedParts.filter((id) => id !== part.id)
+                      );
+                    }
+                  }}
+                />
+                <span className="ml-2 text-lg">Part {part.id}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Level Selection */}
+      {testType !== TestType.PART && (
+        <div className="mb-6 bg-white p-6 rounded-xl shadow-md">
+          <label className="font-semibold text-gray-800 text-lg block mb-4">
+            Difficulty Level:
+          </label>
+          <div className="flex gap-6">
+            {Object.values(Level).map((l) => (
+              <label
+                key={l}
+                className="inline-flex items-center hover:text-blue-600 transition-colors cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  className="form-radio text-blue-600 w-5 h-5"
+                  name="level"
+                  value={l}
+                  checked={level === l}
+                  onChange={(e) => setLevel(e.target.value as Level)}
+                />
+                <span className="ml-2 text-lg">{getLevelLabel(l)}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Time Selection */}
+      <div className="mb-6 bg-white p-6 rounded-xl shadow-md">
+        <label className="font-semibold text-gray-800 text-lg block mb-4">
+          Test Duration (minutes):
+        </label>
+        <input
+          type="number"
+          className="form-input mt-1 block w-full max-w-xs rounded-lg border-gray-300 text-lg p-3"
+          value={totalTime}
+          onChange={(e) => setTotalTime(Number(e.target.value))}
+          min="1"
+        />
+      </div>
     </div>
   );
 };

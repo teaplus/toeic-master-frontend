@@ -198,7 +198,7 @@ const TestList: React.FC = () => {
                           />
                         </svg>
                         <span className="text-sm">
-                          Level: {test.test_level}
+                          Level: {test.level}
                         </span>
                       </div>
                     </div>
