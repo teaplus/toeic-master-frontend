@@ -197,9 +197,7 @@ const TestList: React.FC = () => {
                             d="M13 10V3L4 14h7v7l9-11h-7z"
                           />
                         </svg>
-                        <span className="text-sm">
-                          Level: {test.level}
-                        </span>
+                        <span className="text-sm">Level: {test.level}</span>
                       </div>
                     </div>
 
