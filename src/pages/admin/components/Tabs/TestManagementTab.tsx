@@ -17,6 +17,7 @@ const TestManagementTab: React.FC = () => {
   const [filter, setFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalItems, setTotalItems] = useState(0);
+  const [partFilter, setPartFilter] = useState<number | "all">("all");
 
   // Xử lý debounce search riêng
   useEffect(() => {
@@ -30,12 +31,12 @@ const TestManagementTab: React.FC = () => {
   // Fetch data khi params thay đổi
   useEffect(() => {
     fetchTests(currentPage, debouncedSearch, filter);
-  }, [currentPage, debouncedSearch, filter]);
+  }, [currentPage, debouncedSearch, filter, partFilter]);
 
   // Reset về trang 1 khi search hoặc filter thay đổi
   useEffect(() => {
     setCurrentPage(1);
-  }, [debouncedSearch, filter]);
+  }, [debouncedSearch, filter, partFilter]);
 
   const fetchTests = async (page: number, search: string, testType: string) => {
     try {
@@ -45,6 +46,10 @@ const TestManagementTab: React.FC = () => {
         limit: ITEMS_PER_PAGE,
         search,
         test_type: testType === "all" ? undefined : testType,
+        partsNumber:
+          filter === "PART_TEST" && partFilter !== "all"
+            ? partFilter
+            : undefined,
       });
 
       console.log("API Response:", response);
@@ -94,7 +99,7 @@ const TestManagementTab: React.FC = () => {
       </div>
 
       {/* Search and Filter Section - Luôn hiển thị */}
-      <div className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="relative">
           <input
             type="text"
@@ -118,14 +123,33 @@ const TestManagementTab: React.FC = () => {
           </svg>
         </div>
         <select
-          className="w-full md:w-48 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
         >
           <option value="all">All Types</option>
           <option value="MINI_TEST">Mini Test</option>
           <option value="FULL_TEST">Full Test</option>
+          <option value="PART_TEST">Part Test</option>
         </select>
+        {filter === "PART_TEST" && (
+          <select
+            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+            value={partFilter}
+            onChange={(e) =>
+              setPartFilter(
+                e.target.value === "all" ? "all" : Number(e.target.value)
+              )
+            }
+          >
+            <option value="all">All Parts</option>
+            {[1, 2, 3, 4, 5, 6, 7].map((part) => (
+              <option key={part} value={part}>
+                Part {part}
+              </option>
+            ))}
+          </select>
+        )}
       </div>
 
       {/* Content Section với Loading Overlay */}
@@ -191,14 +215,18 @@ const TestManagementTab: React.FC = () => {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span
                     className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                      test.type === "mini"
+                      test.type === "MINI_TEST"
                         ? "bg-blue-100 text-blue-800"
-                        : "bg-green-100 text-green-800"
+                        : test.type === "FULL_TEST"
+                        ? "bg-green-100 text-green-800"
+                        : "bg-purple-100 text-purple-800"
                     }`}
                   >
-                    {test.type === 'MINI_TEST'
+                    {test.type === "MINI_TEST"
                       ? "MINI TEST"
-                      : "FULL TEST"}
+                      : test.type === "FULL_TEST"
+                      ? "FULL TEST"
+                      : `PART ${test.partNumber || ""}`}
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">

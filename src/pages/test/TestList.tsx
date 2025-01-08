@@ -17,6 +17,7 @@ const TestList: React.FC = () => {
   const [totalItems, setTotalItems] = useState(0);
   const [selectedTest, setSelectedTest] =
     useState<ListTestResponseDataType | null>(null);
+  const [partFilter, setPartFilter] = useState<number | "all">("all");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,11 +30,11 @@ const TestList: React.FC = () => {
 
   useEffect(() => {
     fetchTests(currentPage, debouncedSearch, filter);
-  }, [currentPage, debouncedSearch, filter]);
+  }, [currentPage, debouncedSearch, filter, partFilter]);
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [debouncedSearch, filter]);
+  }, [debouncedSearch, filter, partFilter]);
 
   const fetchTests = async (page: number, search: string, testType: string) => {
     try {
@@ -43,6 +44,10 @@ const TestList: React.FC = () => {
         limit: ITEMS_PER_PAGE,
         search,
         test_type: testType === "all" ? undefined : testType,
+        partsNumber:
+          filter === "PART_TEST" && partFilter !== "all"
+            ? partFilter
+            : undefined,
       });
 
       console.log("API Response:", response);
@@ -126,7 +131,27 @@ const TestList: React.FC = () => {
               <option value="all">All Tests</option>
               <option value="MINI_TEST">Mini Tests</option>
               <option value="FULL_TEST">Full Tests</option>
+              <option value="PART_TEST">Part Tests</option>
             </select>
+
+            {filter === "PART_TEST" && (
+              <select
+                className="px-4 py-2 border border-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                value={partFilter}
+                onChange={(e) =>
+                  setPartFilter(
+                    e.target.value === "all" ? "all" : Number(e.target.value)
+                  )
+                }
+              >
+                <option value="all">All Parts</option>
+                {[1, 2, 3, 4, 5, 6, 7].map((part) => (
+                  <option key={part} value={part}>
+                    Part {part}
+                  </option>
+                ))}
+              </select>
+            )}
           </div>
         </div>
 
@@ -157,10 +182,16 @@ const TestList: React.FC = () => {
                         className={`px-3 py-1 rounded-full text-xs font-medium ${
                           test.type === "MINI_TEST"
                             ? "bg-blue-100 text-blue-800"
-                            : "bg-green-100 text-green-800"
+                            : test.type === "FULL_TEST"
+                            ? "bg-green-100 text-green-800"
+                            : "bg-purple-100 text-purple-800"
                         }`}
                       >
-                        {test.type === "MINI_TEST" ? "MINI TEST" : "FULL TEST"}
+                        {test.type === "MINI_TEST"
+                          ? "MINI TEST"
+                          : test.type === "FULL_TEST"
+                          ? "FULL TEST"
+                          : `PART ${test.partNumber || ""}`}
                       </span>
                     </div>
 

@@ -36,36 +36,6 @@ const TabsForm: React.FC = () => {
     { id: 7, name: "Reading Comprehension", type: "reading" },
   ];
 
-  // const handleQuestionAdded = (part: number, newQuestion: ToeicQuestion) => {
-  //   setQuestionsByPart((prev) => ({
-  //     ...prev,
-  //     [part]: [...(prev[part] || []), newQuestion],
-  //   }));
-  // };
-
-  // const handleQuestionDeleted = (part: number, questionNumber: number) => {
-  //   setQuestionsByPart((prev) => ({
-  //     ...prev,
-  //     [part]:
-  //       prev[part]?.filter((q) => q.questionNumber !== questionNumber) || [],
-  //   }));
-  // };
-
-  // const handleQuestionEdited = (
-  //   part: number,
-  //   editedQuestion: ToeicQuestion
-  // ) => {
-  //   setQuestionsByPart((prev) => ({
-  //     ...prev,
-  //     [part]:
-  //       prev[part]?.map((q) =>
-  //         q.questionNumber === editedQuestion.questionNumber
-  //           ? editedQuestion
-  //           : q
-  //       ) || [],
-  //   }));
-  // };
-
   const submitTest = async (test: Test) => {
     await createTestAPI(test)
       .then((response) => {
@@ -154,6 +124,7 @@ const TabsForm: React.FC = () => {
           level: null,
           total_time: totalTime,
         };
+        // console.log(test);
         submitTest(test);
       });
     } else {

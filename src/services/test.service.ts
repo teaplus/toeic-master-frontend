@@ -22,6 +22,7 @@ interface GetListTestParams {
   limit: number;
   search?: string;
   test_type?: string;
+  partsNumber?: number;
 }
 
 const getListTestAPI = (params: GetListTestParams) => {
@@ -33,6 +34,7 @@ const getListTestAPI = (params: GetListTestParams) => {
       limit: params.limit,
       search: params.search,
       type: params.test_type,
+      partNumber: params.partsNumber,
     },
   });
 };
