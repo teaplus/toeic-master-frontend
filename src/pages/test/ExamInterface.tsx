@@ -16,6 +16,7 @@ interface ExamState {
     answers: { question_id: number; answer_id: number }[];
   }[];
   selectedPartId: number;
+  markedQuestions: Set<number>;
 }
 
 interface ExamInterfaceProps {
@@ -73,6 +74,7 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
         },
       ],
       selectedPartId: firstPart.id,
+      markedQuestions: new Set(),
     };
   });
 
@@ -110,7 +112,7 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
             pIndex,
             qIndex,
             question,
-            partId: part.id
+            partId: part.id,
           });
         });
       });
@@ -118,8 +120,6 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
 
     return result;
   };
-
-  console.log("currentGroup", currentGroup);
 
   useEffect(() => {}, [currentQuestion, state.selectedPartId]);
 
@@ -208,8 +208,9 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
       currentSection: sIndex,
       currentPart: pIndex,
       currentQuestion: qIndex,
-      selectedPartId: partId
+      selectedPartId: partId,
     }));
+    console.log("state.currentQuestion", currentQuestion);
   };
 
   const totalQuestion = test.sections.reduce((total, section) => {
@@ -237,23 +238,55 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
       .padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
   };
 
-  // // Timer effect
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prevTime) => {
-        if (prevTime <= 1) {
-          clearInterval(timer);
-          if (window.confirm("Hết giờ làm bài! Bài thi sẽ được nộp tự động.")) {
-            handleSubmitExam();
-          }
-          return 0;
-        }
-        return prevTime - 1;
-      });
-    }, 1000);
+  const handleNextQuestion = () => {
+    setState((prev) => {
+      const isLastQuestion =
+        prev.currentQuestion === currentPart.questions.length - 1;
+      const isLastPart = prev.currentPart === currentSection.parts.length - 1;
+      const isLastSection = prev.currentSection === test.sections.length - 1;
+      console.log("isLastQuestion", isLastQuestion, isLastPart, isLastSection);
 
-    return () => clearInterval(timer);
-  }, []);
+      // Nếu là câu hỏi cuối cùng trong phần
+      if (isLastQuestion) {
+        // Kiểm tra nếu cũng là phần cuối cùng
+        if (isLastPart) {
+          // Đã đến phần cuối cùng, không thay đổi gì thêm
+
+          return prev;
+        }
+
+        // Chuyển sang phần tiếp theo
+        return {
+          ...prev,
+          currentPart: prev.currentPart + 1,
+          currentQuestion: 0, // Bắt đầu từ câu hỏi đầu tiên của phần tiếp theo
+        };
+      }
+
+      // Nếu chưa phải câu hỏi cuối cùng
+      return {
+        ...prev,
+        currentQuestion: prev.currentQuestion + 1,
+      };
+    });
+  };
+  // // Timer effect
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setTimeLeft((prevTime) => {
+  //       if (prevTime <= 1) {
+  //         clearInterval(timer);
+  //         if (window.confirm("Hết giờ làm bài! Bài thi sẽ được nộp tự động.")) {
+  //           handleSubmitExam();
+  //         }
+  //         return 0;
+  //       }
+  //       return prevTime - 1;
+  //     });
+  //   }, 1000);
+
+  //   return () => clearInterval(timer);
+  // }, []);
 
   const handlePartSelect = (partId: number) => {
     // Tìm section và part tương ứng với partId được chọn
@@ -281,6 +314,21 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
     } else {
       console.error("Part not found");
     }
+  };
+
+  const handleMarkQuestion = (questionId: number) => {
+    setState((prev) => {
+      const newMarked = new Set(prev.markedQuestions);
+      if (newMarked.has(questionId)) {
+        newMarked.delete(questionId);
+      } else {
+        newMarked.add(questionId);
+      }
+      return {
+        ...prev,
+        markedQuestions: newMarked,
+      };
+    });
   };
 
   return (
@@ -333,15 +381,7 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
                   </button>
                 ) : (
                   <button
-                    onClick={() =>
-                      setState((prev) => ({
-                        ...prev,
-                        currentQuestion: Math.min(
-                          currentPart.questions.length - 1,
-                          prev.currentQuestion + 1
-                        ),
-                      }))
-                    }
+                    onClick={handleNextQuestion}
                     className="px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-md"
                   >
                     Next
@@ -382,18 +422,20 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
               <div className="mb-6">
                 {currentPart.questions.find(
                   (q) => q.group === currentQuestion.group
-                )?.passage && currentPart.partNumber !== 4 && currentPart.partNumber !== 3 && (
-                  <div className="p-4 bg-gray-50 rounded-lg prose max-w-none">
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html:
-                          currentPart.questions.find(
-                            (q) => q.group === currentQuestion.group
-                          )?.passage || "",
-                      }}
-                    />
-                  </div>
-                )}
+                )?.passage &&
+                  currentPart.partNumber !== 4 &&
+                  currentPart.partNumber !== 3 && (
+                    <div className="p-4 bg-gray-50 rounded-lg prose max-w-none">
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            currentPart.questions.find(
+                              (q) => q.group === currentQuestion.group
+                            )?.passage || "",
+                        }}
+                      />
+                    </div>
+                  )}
               </div>
             )}
 
@@ -414,7 +456,11 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
                       question={item as QuestionResponseType}
                       selectedAnswer={state.answers[item.id]}
                       onAnswerSelect={handleAnswerSelect}
-                      isHavePassage={item.passage?.length && currentPart.partNumber === 4 ? true : false}
+                      isHavePassage={
+                        item.passage?.length && currentPart.partNumber === 4
+                          ? true
+                          : false
+                      }
                     />
                   </div>
                 );
@@ -455,15 +501,7 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
                   </button>
                 ) : (
                   <button
-                    onClick={() =>
-                      setState((prev) => ({
-                        ...prev,
-                        currentQuestion: Math.min(
-                          currentPart.questions.length - 1,
-                          prev.currentQuestion + 1
-                        ),
-                      }))
-                    }
+                    onClick={handleNextQuestion}
                     className="px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-md"
                   >
                     Next
@@ -556,27 +594,51 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
 
             <div className="p-1 grid grid-cols-5 gap-2 overflow-y-auto h-[400px]">
               {flattenQuestions(test).map(
-                ({ questionNumber, sIndex, pIndex, qIndex, question, partId }) => (
+                ({
+                  questionNumber,
+                  sIndex,
+                  pIndex,
+                  qIndex,
+                  question,
+                  partId,
+                }) => (
                   <button
                     key={`${sIndex}-${pIndex}-${qIndex}`}
-                    onClick={() => handleQuestionClick(sIndex, pIndex, qIndex, partId)}
-                    className={`p-2 rounded-md text-center text-sm
-            ${
-              state.currentSection === sIndex &&
-              state.currentPart === pIndex &&
-              state.currentQuestion === qIndex
-                ? "ring-2 ring-blue-500"
-                : ""
-            }
-            ${
-              state.answers[question.id]
-                ? "bg-blue-100"
-                : currentGroup === question.group
-                ? "bg-green-100"
-                : "bg-gray-100"
-            } `}
+                    onClick={() =>
+                      handleQuestionClick(sIndex, pIndex, qIndex, partId)
+                    }
+                    className={`p-2 rounded-md text-center text-sm relative
+                      ${
+                        state.currentSection === sIndex &&
+                        state.currentPart === pIndex &&
+                        state.currentQuestion === qIndex
+                          ? "ring-2 ring-blue-500"
+                          : ""
+                      }
+                      ${
+                        state.answers[question.id]
+                          ? "bg-blue-100"
+                          : state.markedQuestions.has(question.id)
+                          ? "bg-green-100"
+                          : "bg-gray-100"
+                      } `}
                   >
                     {questionNumber}
+                    <span
+                      onClick={(e) => {
+                        e.stopPropagation(); // Chặn sự kiện click để không diễn ra navigation
+                        handleMarkQuestion(question.id);
+                      }}
+                      className={`absolute top-1 right-1 text-sm cursor-pointer
+                        ${
+                          state.markedQuestions.has(question.id)
+                            ? "text-yellow-500"
+                            : "text-gray-300"
+                        }
+                      `}
+                    >
+                      ★
+                    </span>
                   </button>
                 )
               )}

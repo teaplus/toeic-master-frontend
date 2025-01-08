@@ -1,8 +1,9 @@
 export interface Test {
   name: string;
   total_score: number;
-  totalQuestions: number; // tổng số câu hỏi, sẽ luôn là 200
+  total_questions: number; // tổng số câu hỏi, sẽ luôn là 200
   sections: Sections[];
+  type: string;
 }
 
 export interface Sections {
@@ -44,18 +45,18 @@ export interface CreateTestResponseType {
 
 //list test
 export interface ListTestResponseType {
-  data: ListTestResponseDataType[];
+  tests: ListTestResponseDataType[];
   message: string;
 }
 
-interface ListTestResponseDataType {
+export interface ListTestResponseDataType {
   id: string;
   name: string;
   total_score: number;
   total_questions: number;
   created_at: string;
   updated_at: string;
-  test_type: string;
+  type: string;
   test_level: string;
 }
 
@@ -87,7 +88,7 @@ export interface PartResponseType {
   partName: string; // Tên phần (ví dụ: Listening, Reading)
   numberOfQuestions: number; // Số câu hỏi trong phần
   questions: QuestionResponseType[];
-} 
+}
 
 export interface QuestionResponseType {
   id: number;
@@ -98,7 +99,6 @@ export interface QuestionResponseType {
   answers: AnswerResponseType[];
   group?: string;
   passage?: string;
-
 }
 
 export interface AnswerResponseType {

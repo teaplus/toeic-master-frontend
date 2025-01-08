@@ -114,7 +114,7 @@ function Header() {
 
         {/* Navigation Links - Desktop */}
         <nav className="hidden md:flex space-x-4">
-          <a className="text-white hover:text-yellow-300" href="#">
+          <a className="text-white hover:text-yellow-300" href="/test">
             Full test
           </a>
           <a className="text-white hover:text-yellow-300" href="#">

@@ -1,6 +1,11 @@
 import { AxiosResponse } from "axios";
 import { callAPIWithToken } from "./jwt-service";
-import { CreateTestResponseType, Test } from "../types/test";
+import {
+  CreateTestResponseType,
+  ListTestResponseType,
+  Test,
+} from "../types/test";
+import axios from "axios";
 
 const createTestAPI = (
   data: Test
@@ -12,10 +17,30 @@ const createTestAPI = (
   });
 };
 
-const getListTestAPI = (): Promise<AxiosResponse<Test[]>> => {
+interface GetListTestParams {
+  page: number;
+  limit: number;
+  search?: string;
+  test_type?: string;
+}
+
+const getListTestAPI = (params: GetListTestParams) => {
   return callAPIWithToken({
     url: "/test/list",
     method: "get",
+    params: {
+      page: params.page,
+      limit: params.limit,
+      search: params.search,
+      type: params.test_type,
+    },
+  });
+};
+
+const deleteTestAPI = (testId: string): Promise<AxiosResponse<any>> => {
+  return callAPIWithToken({
+    url: `/test/delete/${testId}`,
+    method: "delete",
   });
 };
 
@@ -41,4 +66,11 @@ const submitTestAPI = (data: Test): Promise<AxiosResponse<any>> => {
   });
 };
 
-export { createTestAPI, getListTestAPI, getTestAPI, startTestAPI, submitTestAPI };
+export {
+  createTestAPI,
+  getListTestAPI,
+  getTestAPI,
+  startTestAPI,
+  submitTestAPI,
+  deleteTestAPI,
+};

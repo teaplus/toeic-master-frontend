@@ -9,6 +9,7 @@ import Profile from "../pages/profile/Profile";
 import { ExamInterface } from "../pages/test/ExamInterface";
 import ExamPage from "../pages/test/[id]";
 import ExamPage2 from "../pages/exam/[id]";
+import TestList from "../pages/test/TestList";
 
 function AppRoutes() {
   return (
@@ -18,6 +19,7 @@ function AppRoutes() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<Landing_page />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/test" element={<TestList />} />
         </Route>
         <Route path="/admin/test/create" element={<CreateToeicTest />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />

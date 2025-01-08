@@ -1,11 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 
 import { ToeicQuestion } from "../../../types/toeic";
 import { Test, Sections } from "../../../types/test";
-import { importCSVFile } from "./ImportCSVFile";
+import { importCSVFile, TestType } from "./ImportCSVFile";
 
-import { submitTestAPI } from "../../../services/test.service";
-
+import { createTestAPI } from "../../../services/test.service";
 
 const TabsForm: React.FC = () => {
   const [displayMode, setDisplayMode] = useState<"full" | "part">("full");
@@ -17,10 +17,11 @@ const TabsForm: React.FC = () => {
   const [passages, setPassages] = useState<{
     [key: number]: { [key: string]: string };
   }>({});
-  const [transcripts, setTranscripts] = useState<{
-    [key: number]: { [key: string]: string };
-  }>({});
+  // const [transcripts, setTranscripts] = useState<{
+  //   [key: number]: { [key: string]: string };
+  // }>({});
   const [testName, setTestName] = useState<string>("");
+  const [testType, setTestType] = useState<TestType>(TestType.FULL);
 
   const parts = [
     { id: 1, name: "Photographs", type: "listening" },
@@ -32,38 +33,38 @@ const TabsForm: React.FC = () => {
     { id: 7, name: "Reading Comprehension", type: "reading" },
   ];
 
-  const handleQuestionAdded = (part: number, newQuestion: ToeicQuestion) => {
-    setQuestionsByPart((prev) => ({
-      ...prev,
-      [part]: [...(prev[part] || []), newQuestion],
-    }));
-  };
+  // const handleQuestionAdded = (part: number, newQuestion: ToeicQuestion) => {
+  //   setQuestionsByPart((prev) => ({
+  //     ...prev,
+  //     [part]: [...(prev[part] || []), newQuestion],
+  //   }));
+  // };
 
-  const handleQuestionDeleted = (part: number, questionNumber: number) => {
-    setQuestionsByPart((prev) => ({
-      ...prev,
-      [part]:
-        prev[part]?.filter((q) => q.questionNumber !== questionNumber) || [],
-    }));
-  };
+  // const handleQuestionDeleted = (part: number, questionNumber: number) => {
+  //   setQuestionsByPart((prev) => ({
+  //     ...prev,
+  //     [part]:
+  //       prev[part]?.filter((q) => q.questionNumber !== questionNumber) || [],
+  //   }));
+  // };
 
-  const handleQuestionEdited = (
-    part: number,
-    editedQuestion: ToeicQuestion
-  ) => {
-    setQuestionsByPart((prev) => ({
-      ...prev,
-      [part]:
-        prev[part]?.map((q) =>
-          q.questionNumber === editedQuestion.questionNumber
-            ? editedQuestion
-            : q
-        ) || [],
-    }));
-  };
+  // const handleQuestionEdited = (
+  //   part: number,
+  //   editedQuestion: ToeicQuestion
+  // ) => {
+  //   setQuestionsByPart((prev) => ({
+  //     ...prev,
+  //     [part]:
+  //       prev[part]?.map((q) =>
+  //         q.questionNumber === editedQuestion.questionNumber
+  //           ? editedQuestion
+  //           : q
+  //       ) || [],
+  //   }));
+  // };
 
   const submitTest = async (test: Test) => {
-    await submitTestAPI(test)
+    await createTestAPI(test)
       .then((response) => {
         console.log(response);
         alert("Test đã được tạo thành công!");
@@ -90,13 +91,14 @@ const TabsForm: React.FC = () => {
     const test: Test = {
       name: testName || "TOEIC Test",
       total_score: 990,
-      totalQuestions: 200,
+      total_questions: Object.values(questionsByPart).reduce((total, questions) => total + questions.length, 0) -1 ,
       sections: createSections(),
+      type: testType,
     };
 
     console.log(test);
     // Gửi test lên server
-    submitTest(test);
+    // submitTest(test);
   };
 
   const createSections = (): Sections[] => {
@@ -106,12 +108,12 @@ const TabsForm: React.FC = () => {
     return [
       {
         name: "Listening Comprehension",
-        type: "listening",
+        type: 'LISTENING',
         parts: createPartsForSection(listeningParts),
       },
       {
         name: "Reading Comprehension",
-        type: "reading",
+        type: 'READING',
         parts: createPartsForSection(readingParts),
       },
     ];
@@ -171,15 +173,28 @@ const TabsForm: React.FC = () => {
 
   const getRequiredQuestions = (partId: number) => {
     const questionCounts = {
-      1: 6,
-      2: 25,
-      3: 39,
-      4: 30,
-      5: 30,
-      6: 16,
-      7: 54,
+      [TestType.FULL]: {
+        1: 6,
+        2: 25,
+        3: 39,
+        4: 30,
+        5: 30,
+        6: 16,
+        7: 54,
+      },
+      [TestType.MINI]: {
+        1: 3,
+        2: 11,
+        3: 21,
+        4: 15,
+        5: 14,
+        6: 9,
+        7: 27,
+      },
     };
-    return questionCounts[partId as keyof typeof questionCounts];
+    return questionCounts[testType][
+      partId as keyof (typeof questionCounts)[typeof testType]
+    ];
   };
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -188,7 +203,6 @@ const TabsForm: React.FC = () => {
 
     setIsImporting(true);
     try {
-      // Lấy tên file không bao gồm phần mở rộng .csv
       const fileName = file.name.replace(".csv", "");
       setTestName(fileName);
 
@@ -196,7 +210,8 @@ const TabsForm: React.FC = () => {
         questions,
         passages: importedPassages,
         transcripts: importedTranscripts,
-      } = await importCSVFile(file);
+      } = await importCSVFile(file, testType);
+
       setQuestionsByPart(questions);
       alert("Import thành công!");
     } catch (error) {
@@ -373,26 +388,81 @@ const TabsForm: React.FC = () => {
 
   return (
     <div className="p-8 bg-gray-50 min-h-screen">
-      {/* Import section */}
+      {/* Import section với thêm lựa chọn loại test */}
       <div className="mb-8 bg-white p-6 rounded-lg shadow-sm">
         <h2 className="text-xl font-semibold mb-4">Import Test Data</h2>
-        <div className="flex items-center gap-4">
-          <label className="flex-1">
-            <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-500 transition-colors cursor-pointer">
-              <span className="material-icons text-gray-400 text-3xl mb-2">
-                upload_file
-              </span>
-              <p className="text-gray-600">
-                Choose CSV file or drag & drop here
-              </p>
-              <input
-                type="file"
-                accept=".csv"
-                onChange={handleFileUpload}
-                className="hidden"
-              />
+        <div className="space-y-4">
+          {/* Test Type Selection */}
+          <div className="flex items-center gap-4">
+            <label className="font-medium text-gray-700">Test Type:</label>
+            <div className="flex gap-4">
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  className="form-radio text-blue-600"
+                  name="test_type"
+                  value={TestType.FULL}
+                  checked={testType === TestType.FULL}
+                  onChange={(e) => setTestType(e.target.value as TestType)}
+                />
+                <span className="ml-2">Full Test (200 questions)</span>
+              </label>
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  className="form-radio text-blue-600"
+                  name="test_type"
+                  value={TestType.MINI}
+                  checked={testType === TestType.MINI}
+                  onChange={(e) => setTestType(e.target.value as TestType)}
+                />
+                <span className="ml-2">Mini Test (100 questions)</span>
+              </label>
             </div>
-          </label>
+          </div>
+
+          {/* File Upload */}
+          <div className="flex-1">
+            <label className="block">
+              <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-500 transition-colors cursor-pointer">
+                <span className="material-icons text-gray-400 text-3xl mb-2">
+                  upload_file
+                </span>
+                <p className="text-gray-600">
+                  Choose CSV file or drag & drop here
+                </p>
+                <input
+                  type="file"
+                  accept=".csv"
+                  onChange={handleFileUpload}
+                  className="hidden"
+                />
+              </div>
+            </label>
+          </div>
+
+          {/* Test Info */}
+          <div className="bg-gray-50 p-4 rounded-lg">
+            <h3 className="font-medium text-gray-700 mb-2">
+              {testType === TestType.FULL ? "Full Test" : "Mini Test"}{" "}
+              Requirements:
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {parts.map((part) => (
+                <div
+                  key={part.id}
+                  className="bg-white p-3 rounded-lg shadow-sm"
+                >
+                  <div className="font-medium text-gray-600">
+                    Part {part.id}
+                  </div>
+                  <div className="text-sm text-gray-500">
+                    {getRequiredQuestions(part.id)} questions
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
