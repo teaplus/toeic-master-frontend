@@ -6,8 +6,22 @@ import {
 import { ListTestResponseDataType } from "../../../../types/test";
 import LoadingSpinner from "../../../../components/common/LoadingSpinner";
 import { Link } from "react-router-dom";
+import TestFormModal from "./TestFormModal";
 
 const ITEMS_PER_PAGE = 10;
+
+const getLevelColor = (level: string) => {
+  switch (level) {
+    case "EASY":
+      return "bg-green-100 text-green-800";
+    case "NORMAL":
+      return "bg-amber-100 text-amber-800";
+    case "ADVANCE":
+      return "bg-red-100 text-red-800";
+    default:
+      return "bg-gray-100 text-gray-800";
+  }
+};
 
 const TestManagementTab: React.FC = () => {
   const [tests, setTests] = useState<ListTestResponseDataType[]>([]);
@@ -18,6 +32,7 @@ const TestManagementTab: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalItems, setTotalItems] = useState(0);
   const [partFilter, setPartFilter] = useState<number | "all">("all");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Xử lý debounce search riêng
   useEffect(() => {
@@ -90,12 +105,12 @@ const TestManagementTab: React.FC = () => {
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold text-gray-800">Test Management</h2>
-        <Link
-          to="/admin/test/create"
+        <button
+          onClick={() => setIsModalOpen(true)}
           className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
         >
           Create New Test
-        </Link>
+        </button>
       </div>
 
       {/* Search and Filter Section - Luôn hiển thị */}
@@ -230,7 +245,11 @@ const TestManagementTab: React.FC = () => {
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <span className="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-lg bg-gray-100 text-gray-800">
+                  <span
+                    className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-lg ${getLevelColor(
+                      test.level
+                    )}`}
+                  >
                     {test.level}
                   </span>
                 </td>
@@ -499,6 +518,12 @@ const TestManagementTab: React.FC = () => {
           </div>
         )}
       </div>
+
+      {/* Test Form Modal */}
+      <TestFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };

@@ -6,8 +6,16 @@ import { Test, Sections, Level } from "../../../types/test";
 import { importCSVFile, TestType } from "./ImportCSVFile";
 
 import { createTestAPI } from "../../../services/test.service";
+import { useNotice } from "../Notice";
+import { useLoading } from "../../../contexts/LoadingContext";
 
-const TabsForm: React.FC = () => {
+interface TabsFormProps {
+  onSuccess?: () => void;
+}
+
+const TabsForm: React.FC<TabsFormProps> = ({ onSuccess }) => {
+  const notice = useNotice();
+  const { showLoading, hideLoading } = useLoading();
   const [displayMode, setDisplayMode] = useState<"full" | "part">("full");
   const [activePart, setActivePart] = useState<number>(1);
   const [questionsByPart, setQuestionsByPart] = useState<{
@@ -43,7 +51,7 @@ const TabsForm: React.FC = () => {
       })
       .catch((error) => {
         console.error("Error submitting test:", error);
-        alert("Có lỗi xảy ra khi tạo test. Vui lòng thử lại!");
+        notice.show("error", "Có lỗi xảy ra khi tạo test. Vui lòng thử lại!");
       });
     // alert("Test đã được tạo thành công!");
   };
@@ -73,23 +81,15 @@ const TabsForm: React.FC = () => {
 
   useEffect(() => {
     if (testType === TestType.PART) {
-      if (selectedParts.length === 1) {
-        setTotalTime(PART_DURATIONS[selectedParts[0]]);
-      } else if (selectedParts.length > 1) {
-        const totalDuration = selectedParts.reduce(
-          (sum, partId) => sum + PART_DURATIONS[partId],
-          0
-        );
-        setTotalTime(totalDuration);
-      }
+      setTotalTime(getDefaultTime(testType));
     } else {
       setTotalTime(getDefaultTime(testType));
     }
-  }, [testType, selectedParts]);
+  }, [testType]);
 
-  const createTest = () => {
+  const createTest = async () => {
     if (testType === TestType.PART && selectedParts.length === 0) {
-      alert("Vui lòng chọn ít nhất một phần để tạo bài test!");
+      notice.show("error", "Vui lòng chọn ít nhất một phần để tạo bài test!");
       return;
     }
 
@@ -101,49 +101,64 @@ const TabsForm: React.FC = () => {
     );
 
     if (!isComplete) {
-      alert(
-        "Vui lòng hoàn thành t�t cả các phần đã chọn trước khi tạo bài test!"
+      notice.show(
+        "error",
+        "Vui lòng hoàn thành tất cả các phần đã chọn trước khi tạo bài test!"
       );
       return;
     }
 
-    if (testType !== TestType.PART && !level) {
-      alert("Vui lòng chọn level cho bài test!");
+    if (!level) {
+      notice.show("error", "Vui lòng chọn level cho bài test!");
       return;
     }
 
-    if (testType === TestType.PART) {
-      selectedParts.forEach((partId) => {
-        const test: Test = {
-          name: `${testName || "TOEIC Test"} - Part ${partId}`,
-          total_score: 0,
-          total_questions: questionsByPart[partId]?.length || 0,
-          sections: createSections([partId]),
+    try {
+      showLoading();
+      if (testType === TestType.PART) {
+        const part = await Promise.all(
+          selectedParts.map((partId) => {
+            const test = {
+              name: `${testName || "TOEIC Test"} - Part ${partId}`,
+              total_score: questionsByPart[partId]?.length * 5 || 0,
+              total_questions: questionsByPart[partId]?.length || 0,
+              sections: createSections([partId]),
+              type: testType,
+              partNumber: partId,
+              level: level,
+              total_time: PART_DURATIONS[partId],
+            };
+            return submitTest(test);
+          })
+        );
+        if (part.length > 0) {
+          notice.show("success", "Test đã được tạo thành công!");
+        }
+      } else {
+        const test = {
+          name: testName || "TOEIC Test",
+          total_score: 990,
+          total_questions: Object.entries(questionsByPart)
+            .filter(([partId]) => partsToCheck.includes(Number(partId)))
+            .reduce((total, [_, questions]) => total + questions.length, 0),
+          sections: createSections(partsToCheck),
           type: testType,
-          partNumber: partId,
-          level: null,
+          partNumber: null,
+          level: level,
           total_time: totalTime,
         };
-        // console.log(test);
-        submitTest(test);
-      });
-    } else {
-      const test: Test = {
-        name: testName || "TOEIC Test",
-        total_score: 0,
-        total_questions: Object.entries(questionsByPart)
-          .filter(([partId]) => partsToCheck.includes(Number(partId)))
-          .reduce((total, [_, questions]) => total + questions.length, 0),
-        sections: createSections(partsToCheck),
-        type: testType,
-        partNumber: null,
-        level: level,
-        total_time: totalTime,
-      };
-      console.log(test);
-      submitTest(test);
+        await submitTest(test);
+        // notice.show("success", "Test đã được tạo thành công!");
+      }
+
+      notice.show("success", "Test đã được tạo thành công!");
+      onSuccess?.(); // Close modal after success
+    } catch (error) {
+      console.error("Error creating test:", error);
+      notice.show("error", "Có lỗi xảy ra khi tạo test. Vui lòng thử lại!");
+    } finally {
+      hideLoading();
     }
-    alert("Test đã được tạo thành công!");
   };
 
   const createSections = (partsToInclude: number[]): Sections[] => {
@@ -631,7 +646,7 @@ const TabsForm: React.FC = () => {
       )}
 
       {/* Level Selection */}
-      {testType !== TestType.PART && (
+      {testType && (
         <div className="mb-6 bg-white p-6 rounded-xl shadow-md">
           <label className="font-semibold text-gray-800 text-lg block mb-4">
             Difficulty Level:

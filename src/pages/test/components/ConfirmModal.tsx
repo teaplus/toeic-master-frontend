@@ -1,6 +1,12 @@
 import React from "react";
 import { ListTestResponseDataType } from "../../../types/test";
 
+const formatTime = (minutes: number): string => {
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+  return hours > 0 ? `${hours}h ${mins}m` : `${mins} minutes`;
+};
+
 interface ConfirmModalProps {
   test: ListTestResponseDataType;
   isOpen: boolean;
@@ -38,7 +44,11 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
                   : "bg-green-100 text-green-800"
               }`}
             >
-              {test.type === "mini" ? "Mini Test" : "Full Test"}
+              {test.type === "MINI_TEST"
+                ? "Mini Test"
+                : test.type === "FULL_TEST"
+                ? "Full Test"
+                : "Skill Test"}
             </span>
           </div>
           <div className="flex justify-between items-center py-2 border-b">
@@ -51,9 +61,7 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
           </div>
           <div className="flex justify-between items-center py-2">
             <span className="text-gray-600">Time Limit:</span>
-            <span className="font-medium">
-              {test.type === "MINI_TEST" ? "1 hour" : "2 hours"}
-            </span>
+            <span className="font-medium">{formatTime(test.total_time)}</span>
           </div>
         </div>
 

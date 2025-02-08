@@ -56,6 +56,7 @@ export interface CreateTestResponseType {
 export interface ListTestResponseType {
   tests: ListTestResponseDataType[];
   message: string;
+  statusCode: number;
 }
 
 export interface ListTestResponseDataType {
@@ -68,6 +69,7 @@ export interface ListTestResponseDataType {
   type: string;
   level: string;
   partNumber: number;
+  total_time: number;
 }
 
 //get test by id
@@ -75,6 +77,7 @@ export interface ListTestResponseDataType {
 export interface GetTestResponseType {
   data: TestResponseType;
   message: string;
+  statusCode: number;
 }
 
 export interface TestResponseType {
@@ -116,3 +119,127 @@ export interface AnswerResponseType {
   content: string;
   is_correct: boolean;
 }
+
+export interface SaveAnswerResponseType {
+  data: any;
+  message: string;
+  statusCode: number;
+}
+
+export interface TestSessionResponseType {
+  statusCode: number;
+  message: string;
+  data: TestSessionResponseDataType;
+}
+
+export interface TestSessionResponseDataType {
+  id: number;
+  timeRemaining: number;
+  status: string;
+  responses: responseDataType[];
+}
+
+export interface responseDataType {
+  id: number;
+  question: {
+    id: number;
+    content: string;
+  };
+  answer: {
+    id: number;
+    content: string;
+    is_correct: boolean;
+  };
+}
+
+
+//Test review
+export interface TestReviewResponseType {
+  data: TestSessionReviewResponseDataType;
+  message: string;
+  statusCode: number;
+}
+
+export interface TestSessionReviewResponseDataType {
+  id: number;
+  timeRemaining: number;
+  startedAt: string;
+  completedAt: string;
+  listening_score: number;
+  reading_score: number;
+  writing_score: number;
+  total_score: number;
+  test: TestReviewResponseDataType;
+}
+
+export interface TestReviewResponseDataType {
+  id: number;
+  name: string; 
+  total_score: number;
+  total_questions: number;
+  partNumber: number;
+  sections: SectionReviewResponseDataType[];
+}
+
+export interface SectionReviewResponseDataType {
+  id: number;
+  name: string;
+  type: string;
+  parts: PartReviewResponseDataType[];
+}
+
+export interface PartReviewResponseDataType {
+  id: number;
+  partNumber: number;
+  partName: string;
+  numberOfQuestions: number;
+  questions: QuestionReviewResponseDataType[];
+}
+export interface QuestionReviewResponseDataType {
+  id: number;
+  number: number;
+  passage: string;
+  content: string;
+  group: string;
+  type: string | null;
+  audio_url: string | null;
+  image_url: string | null;
+  answers: AnswerReviewResponseDataType[];
+  userResponse: UserResponseReviewDataType | null;
+}
+
+export interface AnswerReviewResponseDataType {
+  id: number;
+  content: string;
+  is_correct: boolean;
+}
+
+export interface UserResponseReviewDataType {
+  id: number;
+  isCorrect: boolean;
+  answer: {
+    id: number;
+    content: string;
+    is_correct: boolean;
+  };
+  question: {
+    id: number;
+    number: number;
+    passage: string;
+    content: string;
+    group: string;
+    type: string | null;
+    audio_url: string | null;
+    image_url: string | null;
+  };
+}
+
+
+export interface TestRecommendResponseType {
+  recommendedTests: ListTestResponseDataType[];
+  highestScore: number;
+  message: string;
+  recommendedLevel: string;
+  statusCode: number;
+}
+

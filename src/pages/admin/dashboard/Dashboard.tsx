@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import Sidebar, { AdminTabId } from "../components/Sidebar";
 import DashboardTab from "../components/Tabs/DashboardTab";
 import TestManagementTab from "../components/Tabs/TestManagementTab";
+import UserManagementTab from "../components/Tabs/UserManagementTab";
 
 const TAB_COMPONENTS: Record<AdminTabId, React.ComponentType> = {
   dashboard: DashboardTab,
   tests: TestManagementTab,
-  users: () => <div className="p-6">Quản lý người dùng</div>,
-  questions: () => <div className="p-6">Ngân hàng câu hỏi</div>,
-  results: () => <div className="p-6">Kết quả thi</div>,
+  users: UserManagementTab,
 };
 
 function Dashboard() {

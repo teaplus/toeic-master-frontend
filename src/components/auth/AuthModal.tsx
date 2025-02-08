@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import GoogleLoginButton from "../common/GoogleLoginButton";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { callApi } from "../../services/api_auth.service";
-import apiAuthen, { authenGoogle } from "../../services/jwt-axios";
-import { Login } from "../../types/authen";
-import { loginAPI } from "../../services/auth.service";
+import { authenGoogle } from "../../services/jwt-axios";
+import { loginAPI, registerAPI } from "../../services/auth.service";
 import Cookies from "js-cookie";
 import {
   validateUsername,
@@ -12,6 +10,8 @@ import {
   validateEmail,
   validateConfirmPassword,
 } from "../../utils/validation";
+import { useNotice } from "../common/Notice";
+import ForgotPassword from "./ForgotPassword";
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -25,7 +25,16 @@ interface FormState {
   confirmPassword: string;
 }
 
+interface FormErrors {
+  username?: string;
+  password?: string;
+  email?: string;
+  confirmPassword?: string;
+  server?: string; // Thêm server error
+}
+
 const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
+  const notice = useNotice();
   const [activeTab, setActiveTab] = useState<"login" | "register">("login");
 
   const [formState, setFormState] = useState<FormState>({
@@ -35,10 +44,13 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     confirmPassword: "",
   });
 
-  const [error, setError] = useState<string | null>(null);
+  const [formErrors, setFormErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const usernameRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
+
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
 
   useEffect(() => {
     // Lấy giá trị đã được trình duyệt điền sẵn
@@ -54,33 +66,29 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     const { name, value } = e.target;
     setFormState({ ...formState, [name]: value });
 
-    // Kiểm tra validation ngay khi người dùng nhập
-    const validationError = validateForm();
-    setError(validationError);
+    // Clear error when user starts typing
+    if (formErrors[name as keyof FormErrors]) {
+      setFormErrors({ ...formErrors, [name]: undefined });
+    }
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
-    console.log("Tên đăng nhập:", formState.username);
-    console.log("Mật khẩu:", formState.password);
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    setFormErrors({});
 
-    // Kiểm tra validation trước khi gửi
-    const validationError = validateForm();
-    if (validationError) {
-      setError(validationError);
-      console.log("Validation Error:", validationError);
-      return;
-    }
+    if (!validateForm()) return;
 
-    console.log("validationError", validationError);
+    setIsSubmitting(true);
 
-    // Proceed with API call if all validations pass
-    console.log("Tên đăng nhập:", formState.username);
-    console.log("Mật khẩu:", formState.password);
-    loginAPI({ username: formState.username, password: formState.password })
-      .then((response) => {
+    if (activeTab === "login") {
+      try {
+        const response = await loginAPI({
+          username: formState.username,
+          password: formState.password,
+        });
+
         const { data } = response;
-        console.log("response", data.data.access_token);
+        notice.show("success", "Đăng nhập thành công");
 
         const user = data.data.user;
         Cookies.set("accessToken", data.data.access_token);
@@ -88,12 +96,40 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
         Cookies.set("user", JSON.stringify(user));
         Cookies.set("username", data.data.user.username);
         Cookies.set("role", data.data.user.role);
+        Cookies.set("id", data.data.user.id);
         onClose();
         window.location.reload();
+      } catch (error: any) {
+        if (error.response?.status === 404) {
+          setFormErrors({
+            server: "Tên đăng nhập hoặc mật khẩu không chính xác",
+          });
+        } else {
+          setFormErrors({
+            server: "Đã có lỗi xảy ra, vui lòng thử lại sau",
+          });
+        }
+      } finally {
+        setIsSubmitting(false);
+      }
+    }
+    if (activeTab === "register") {
+      registerAPI({
+        username: formState.username,
+        password: formState.password,
+        email: formState.email,
       })
-      .catch((response) => {
-        console.log("error", response);
-      });
+        .then((response) => {
+          const { data } = response;
+          notice.show("success", data.data.message);
+          console.log("response", response);
+          onClose();
+          window.location.reload();
+        })
+        .catch((response) => {
+          console.log("error", response);
+        });
+    }
   };
 
   const handleLoginSuccess = async (token: string) => {
@@ -102,8 +138,20 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     // const response = await callApi()
     await authenGoogle
       .postData("/auth/oauth-google", { token: token })
-      .then((Response) => {
-        console.log("response", Response);
+      .then((response) => {
+        const { data } = response;
+        console.log("response", data);
+        notice.show("success", "Successfully authenticated");
+
+        const user = data.data.user;
+        Cookies.set("accessToken", data.data.access_token);
+        Cookies.set("refreshToken", data.data.refresh_Token);
+        Cookies.set("user", JSON.stringify(user));
+        Cookies.set("username", data.data.user.username);
+        Cookies.set("role", data.data.user.role);
+        Cookies.set("id", data.data.user.id);
+        onClose();
+        window.location.reload();
       });
   };
 
@@ -111,35 +159,58 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     console.error("Google Login Error:", error);
   };
 
-  // Hàm kiểm tra validation
   const validateForm = () => {
-    let validationError: string | null;
+    const errors: FormErrors = {};
 
-    validationError = validateUsername(formState.username);
-    if (validationError) return validationError;
+    // Username validation
+    const usernameError = validateUsername(formState.username);
+    if (usernameError) errors.username = usernameError;
 
-    validationError = validatePassword(formState.password);
-    if (validationError) return validationError;
+    // Password validation
+    const passwordError = validatePassword(formState.password);
+    if (passwordError) errors.password = passwordError;
 
     if (activeTab === "register") {
-      validationError = validateEmail(formState.email);
-      if (validationError) return validationError;
+      // Email validation
+      const emailError = validateEmail(formState.email);
+      if (emailError) errors.email = emailError;
 
-      validationError = validateConfirmPassword(
+      // Confirm password validation
+      const confirmPasswordError = validateConfirmPassword(
         formState.password,
         formState.confirmPassword
       );
-      if (validationError) return validationError;
+      if (confirmPasswordError) errors.confirmPassword = confirmPasswordError;
     }
 
-    return null; // Không có lỗi
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
   };
+
+  if (showForgotPassword) {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
+        <div className="bg-gray-800 shadow-md rounded-lg w-[500px] p-8 relative">
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 text-gray-400 hover:text-white"
+          >
+            &#x2715;
+          </button>
+          <ForgotPassword
+            onClose={onClose}
+            onBack={() => setShowForgotPassword(false)}
+          />
+        </div>
+      </div>
+    );
+  }
 
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
-      <div className="bg-gray-800 shadow-md rounded-lg w-[500px] h-[600px] p-8 relative">
+      <div className="bg-gray-800 shadow-md rounded-lg w-[500px] h-[650px] p-8 relative">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -194,41 +265,85 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
         </div>
         {activeTab === "login" ? (
           <div>
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="relative">
                 <input
                   type="text"
                   name="username"
-                  id="username"
                   value={formState.username}
                   onChange={handleChange}
                   placeholder="Tên tài khoản"
-                  className="w-full px-4 py-2 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white"
+                  className={`w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 bg-gray-700 text-white
+                    ${
+                      formErrors.username
+                        ? "border-red-500 focus:ring-red-500"
+                        : "border-gray-600 focus:ring-blue-500"
+                    }`}
                 />
+                {formErrors.username && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {formErrors.username}
+                  </p>
+                )}
               </div>
-              <div className="mb-4 relative">
+
+              <div className="relative">
                 <input
                   type="password"
                   name="password"
-                  placeholder="Mật khẩu"
-                  id="password"
                   value={formState.password}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white"
+                  placeholder="Mật khẩu"
+                  className={`w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 bg-gray-700 text-white
+                    ${
+                      formErrors.password
+                        ? "border-red-500 focus:ring-red-500"
+                        : "border-gray-600 focus:ring-blue-500"
+                    }`}
                 />
+                {formErrors.password && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {formErrors.password}
+                  </p>
+                )}
               </div>
-              {error && <p className="text-red-500">{error}</p>}
+
+              {formErrors.server && (
+                <div
+                  className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+                  role="alert"
+                >
+                  <span className="block sm:inline">{formErrors.server}</span>
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded"
+                disabled={isSubmitting}
+                className={`w-full py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded
+                  ${
+                    isSubmitting
+                      ? "opacity-70 cursor-not-allowed"
+                      : "hover:opacity-90"
+                  }`}
               >
-                Đăng nhập
+                {isSubmitting ? (
+                  <div className="flex items-center justify-center">
+                    <div className="w-5 h-5 border-t-2 border-b-2 border-white rounded-full animate-spin mr-2"></div>
+                    Đang xử lý...
+                  </div>
+                ) : (
+                  "Đăng nhập"
+                )}
               </button>
             </form>
             <div className="text-right mt-4">
-              <a href="#" className="text-blue-500">
-                Quên mật khẩu
-              </a>
+              <button
+                onClick={() => setShowForgotPassword(true)}
+                className="text-blue-500 hover:text-blue-400 text-sm"
+              >
+                Quên mật khẩu?
+              </button>
             </div>
           </div>
         ) : (
@@ -275,7 +390,6 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                   className="w-full px-4 py-2 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white"
                 />
               </div>
-              {error && <p className="text-red-500">{error}</p>}
               <div className="flex items-center mb-6">
                 <input type="checkbox" id="agree" className="mr-2"></input>
                 <label htmlFor="agree" className="text-gray-400 text-sm">
@@ -292,12 +406,6 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                 Đăng ký
               </button>
             </form>
-            <div className="text-left text-gray-500 text-sm ">
-              <a href="#" className="text-blue-500">
-                đã có tài khoản? Đăng nhập
-              </a>
-              .
-            </div>
           </div>
         )}
       </div>

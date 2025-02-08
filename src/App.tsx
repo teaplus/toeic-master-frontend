@@ -1,13 +1,16 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/layout/Header";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
-
+import { NoticeProvider } from "./components/common/Notice";
+import { LoadingProvider } from "./contexts/LoadingContext";
 function App() {
   return (
     <div className="App relative">
-      <AppRoutes />
+      <LoadingProvider>
+        <NoticeProvider>
+          <AppRoutes />
+        </NoticeProvider>
+      </LoadingProvider>
     </div>
   );
 }

@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { QuestionResponseType, Test, TestResponseType } from "../../types/test";
+import {
+  QuestionResponseType,
+  TestResponseType,
+  TestSessionResponseDataType,
+} from "../../types/test";
 import QuestionContent from "./components/QuestionContent";
 import ExamHeader from "./components/ExamHeader";
-import { callAPIWithToken } from "../../services/jwt-service";
+import { saveAnswerAPI, submitTestAPI } from "../../services/test.service";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { useNotice } from "../../components/common/Notice";
 
 interface ExamState {
   currentSection: number;
@@ -21,6 +28,7 @@ interface ExamState {
 
 interface ExamInterfaceProps {
   test: Required<TestResponseType>;
+  testSessionResponse: Required<TestSessionResponseDataType>;
 }
 
 interface Question {
@@ -45,8 +53,15 @@ interface Part {
   }[];
   individualQuestions: Question[]; // Câu hỏi không thuộc group nào
 }
-export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
+
+export const ExamInterface: React.FC<ExamInterfaceProps> = ({
+  test,
+  testSessionResponse,
+}) => {
   // console.log('test',test)
+  const [timeLeft, setTimeLeft] = useState(
+    testSessionResponse?.timeRemaining || 120 * 60
+  );
   if (
     !test?.sections?.length ||
     !test.sections.every(
@@ -55,6 +70,12 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
   ) {
     throw new Error("Invalid test data structure");
   }
+  const { id: testId, test_id: testSessionId } = useParams<{
+    id: string;
+    test_id: string;
+  }>();
+
+  const notice = useNotice();
 
   const [state, setState] = useState<ExamState>(() => {
     const firstSection = test.sections[0];
@@ -69,7 +90,7 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
       parts: [
         {
           part_id: firstPart.id,
-          partNumber: 1,
+          partNumber: firstPart.partNumber,
           answers: [],
         },
       ],
@@ -77,6 +98,35 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
       markedQuestions: new Set(),
     };
   });
+
+  useEffect(() => {
+    try {
+      if (testSessionResponse && testSessionResponse.responses) {
+        test.sections.forEach((section) => {
+          section.parts.forEach((part) => {
+            part.questions.forEach((question) => {
+              testSessionResponse.responses.forEach((response) => {
+                if (response.question.id === question.id) {
+                  setState((prev) => ({
+                    ...prev,
+                    answers: {
+                      ...prev.answers,
+                      [question.id]: response.answer.id,
+                    },
+                  }));
+                }
+              });
+            });
+          });
+        });
+      } else {
+        console.log("No test session responses available");
+      }
+    } catch (error) {
+      console.error("Error processing test responses:", error);
+    }
+    setTimeLeft(testSessionResponse?.timeRemaining || 120 * 60);
+  }, [testSessionResponse, test.sections]);
 
   const currentSection = test.sections[state.currentSection];
   const currentPart = currentSection.parts[state.currentPart];
@@ -123,16 +173,77 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
 
   useEffect(() => {}, [currentQuestion, state.selectedPartId]);
 
+  useEffect(() => {
+    const loadTestSessionResponses = async () => {
+      try {
+        // Kiểm tra nếu có testSessionResponse và có responses
+        if (testSessionResponse?.responses?.length) {
+          setState((prev) => {
+            // Tạo object answers mới từ responses
+            const newAnswers = testSessionResponse.responses.reduce(
+              (acc: { [key: string]: number }, response: any) => {
+                acc[response.question_id] = response.answer_id;
+                return acc;
+              },
+              {}
+            );
+
+            return {
+              ...prev,
+              answers: newAnswers,
+            };
+          });
+        }
+      } catch (error) {
+        // Xử lý lỗi nếu có
+        console.error("Error loading test session responses:", error);
+
+        // Nếu lỗi 401 (Unauthorized), callAPIWithToken sẽ tự động xử lý refresh token
+        // Nếu refresh token thất bại, người dùng sẽ được chuyển hướng đến trang login
+
+        // Các lỗi khác có thể được xử lý tại đây
+        if (axios.isAxiosError(error)) {
+          if (error.response?.status === 403) {
+            // Xử lý lỗi forbidden
+            window.location.href = "/403";
+          }
+          // Có thể thêm xử lý cho các mã lỗi khác
+        }
+      }
+    };
+
+    loadTestSessionResponses();
+  }, []); // Dependencies
+
   if (!currentSection || !currentPart || !currentQuestion) {
     throw new Error("Invalid current question state");
   }
 
-  const getQuestionKey = (id: number) => {
-    return `${state.currentSection}-${state.currentPart}-${state.currentGroup}-${id}`;
+  const handleSubmitAnswer = async (questionId: number, answer: number) => {
+    const res = await saveAnswerAPI({
+      testId: Number(testId),
+      testSessionId: Number(testSessionId),
+      questionId: questionId,
+      answerId: answer,
+      timeRemaining: timeLeft,
+    });
+    if (res.data.statusCode === 200) {
+      console.log("res", res);
+    }
   };
 
-  const handleAnswerSelect = (questionId: number, answer: number) => {
-    // console.log("questionId", questionId, "answer", answer, currentPart);
+  const handleAnswerSelect = async (questionId: number, answer: number) => {
+    console.log("questionId", questionId, "answer", answer);
+
+    try {
+      await handleSubmitAnswer(questionId, answer);
+    } catch (error) {
+      console.error("Error submitting answer:", error);
+      notice.show(
+        "error",
+        "Có lỗi xảy ra khi lưu câu trả lời. Vui lòng thử lại."
+      );
+    }
 
     setState((prev) => {
       // Kiểm tra xem part đã tồn tại trong state chưa
@@ -180,21 +291,22 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
       };
     });
 
-    // console.log('state.answers', state.answers[getQuestionKey(questionId)])
+    console.log("state.answers", state.answers);
   };
 
   const handleSubmitExam = async () => {
     console.log("state.answers", state.parts);
-    // try {
-    //   const response = await callAPIWithToken.post(`/tests/12/submit`, {
-    //     answers: state.answers,
-    //   });
-    //   // Redirect to results page
-    //   window.location.href = `/results/${response.data.data.resultId}`;
-    // } catch (error) {
-    //   console.error("Error submitting exam:", error);
-    //   alert("Có lỗi xảy ra khi nộp bài. Vui lòng thử lại!");
-    // }
+    try {
+      const response = await submitTestAPI(Number(testSessionId));
+      if (response.data.statusCode === 201) {
+        // Redirect to results page
+        console.log("response.data.data.resultId", response.data.data.resultId);
+        window.location.href = `/test/review/${testId}/${testSessionId}`;
+      }
+    } catch (error) {
+      console.error("Error submitting exam:", error);
+      alert("Có lỗi xảy ra khi nộp bài. Vui lòng thử lại!");
+    }
   };
 
   const handleQuestionClick = (
@@ -210,7 +322,6 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
       currentQuestion: qIndex,
       selectedPartId: partId,
     }));
-    console.log("state.currentQuestion", currentQuestion);
   };
 
   const totalQuestion = test.sections.reduce((total, section) => {
@@ -224,9 +335,8 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
 
   // console.log("totalQuestion", totalQuestion, state.currentQuestion);
   // Thêm các hooks và helpers cho Timer
-  const [timeLeft, setTimeLeft] = useState(120 * 60); // 120 phút mặc định
+  // 120 phút mặc định
   const isTimeWarning = timeLeft <= 300; // cảnh báo khi còn 5 phút
-
   // Helper function để format thời gian
   const formatTime = (seconds: number): string => {
     const hours = Math.floor(seconds / 3600);
@@ -259,6 +369,7 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
         return {
           ...prev,
           currentPart: prev.currentPart + 1,
+          selectedPartId: currentSection.parts[prev.currentPart + 1].id,
           currentQuestion: 0, // Bắt đầu từ câu hỏi đầu tiên của phần tiếp theo
         };
       }
@@ -271,22 +382,22 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
     });
   };
   // // Timer effect
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setTimeLeft((prevTime) => {
-  //       if (prevTime <= 1) {
-  //         clearInterval(timer);
-  //         if (window.confirm("Hết giờ làm bài! Bài thi sẽ được nộp tự động.")) {
-  //           handleSubmitExam();
-  //         }
-  //         return 0;
-  //       }
-  //       return prevTime - 1;
-  //     });
-  //   }, 1000);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prevTime) => {
+        if (prevTime <= 1) {
+          clearInterval(timer);
+          if (window.confirm("Hết giờ làm bài! Bài thi sẽ được nộp tự động.")) {
+            handleSubmitExam();
+          }
+          return 0;
+        }
+        return prevTime - 1;
+      });
+    }, 1000);
 
-  //   return () => clearInterval(timer);
-  // }, []);
+    return () => clearInterval(timer);
+  }, []);
 
   const handlePartSelect = (partId: number) => {
     // Tìm section và part tương ứng với partId được chọn
@@ -416,15 +527,62 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
           {/* Question Content */}
           <div className="bg-white p-6 rounded-lg shadow-sm">
             {/* Hiển thị passage cho group */}
+
+            {currentPart.questions.find(
+              (q) => q.group === currentQuestion.group
+            )?.audio_url && (
+              <div className="mb-4">
+                <audio key={currentQuestion.group} controls className="w-full">
+                  <source
+                    src={
+                      currentPart.questions.find(
+                        (q) => q.group === currentQuestion.group
+                      )?.audio_url || undefined
+                    }
+                    type="audio/mpeg"
+                  />
+                </audio>
+              </div>
+            )}
+
+            {/* Display images from first question in group */}
+            {currentPart.questions.find(
+              (q) => q.group === currentQuestion.group
+            )?.image_url &&
+              currentPart.partNumber !== 2 &&
+              currentPart.partNumber !== 3 &&
+              currentPart.partNumber !== 4 && (
+                <div className="mb-4">
+                  {(() => {
+                    const imageUrls = currentPart.questions
+                      .find((q, idx) => q.group === currentQuestion.group)
+                      ?.image_url?.split(",");
+
+                    return imageUrls?.map((url, idx) => (
+                      <img
+                        key={idx}
+                        src={url}
+                        alt={`Question ${idx + 1}`}
+                        className="rounded-lg object-contain w-full h-auto"
+                      />
+                    ));
+                  })()}
+                </div>
+              )}
+
             {currentPart.questions.some(
               (q) => q.group === currentQuestion.group
             ) && (
               <div className="mb-6">
                 {currentPart.questions.find(
                   (q) => q.group === currentQuestion.group
-                )?.passage &&
+                ) &&
                   currentPart.partNumber !== 4 &&
-                  currentPart.partNumber !== 3 && (
+                  currentPart.partNumber !== 3 &&
+                  currentPart.partNumber !== 2 &&
+                  !currentPart.questions.find(
+                    (q) => q.group === currentQuestion.group
+                  )?.image_url && (
                     <div className="p-4 bg-gray-50 rounded-lg prose max-w-none">
                       <div
                         dangerouslySetInnerHTML={{
@@ -456,8 +614,11 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
                       question={item as QuestionResponseType}
                       selectedAnswer={state.answers[item.id]}
                       onAnswerSelect={handleAnswerSelect}
+                      currentPart={currentPart}
                       isHavePassage={
-                        item.passage?.length && currentPart.partNumber === 4
+                        item.passage?.length &&
+                        (currentPart.partNumber === 5 ||
+                          currentPart.partNumber === 6)
                           ? true
                           : false
                       }
@@ -465,12 +626,7 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
                   </div>
                 );
               })}
-            {/* <QuestionContent
-              question={currentQuestion}
-              selectedAnswer={state.answers[getQuestionKey()] || ""}
-              onAnswerSelect={handleAnswerSelect}
-              isHavePassage={currentQuestion.passage?.length ? true : false}
-            /> */}
+
             <div className="flex justify-between mt-4">
               <div>
                 {state.currentQuestion > 0 && (
@@ -618,7 +774,8 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({ test }) => {
                       ${
                         state.answers[question.id]
                           ? "bg-blue-100"
-                          : state.markedQuestions.has(question.id)
+                          : currentQuestion.group &&
+                            question.group === currentGroup
                           ? "bg-green-100"
                           : "bg-gray-100"
                       } `}

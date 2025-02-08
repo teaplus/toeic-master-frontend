@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getListTestAPI } from "../../services/test.service";
+import { getListTestAPI, startTestAPI } from "../../services/test.service";
 import LoadingSpinner from "../../components/common/LoadingSpinner";
 import { ListTestResponseDataType } from "../../types/test";
 import ConfirmModal from "./components/ConfirmModal";
+import { useAuth } from "../../hooks/useAuth";
+import Cookies from "js-cookie";
+import { useNotice } from "../../components/common/Notice";
+import { useLoading } from "../../contexts/LoadingContext";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -19,14 +23,18 @@ const TestList: React.FC = () => {
     useState<ListTestResponseDataType | null>(null);
   const [partFilter, setPartFilter] = useState<number | "all">("all");
   const navigate = useNavigate();
-
+  const { user } = useAuth();
+  const { showLoading, hideLoading } = useLoading();
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setDebouncedSearch(searchTerm);
     }, 500);
 
+
     return () => clearTimeout(timeoutId);
   }, [searchTerm]);
+
+  const notice = useNotice();
 
   useEffect(() => {
     fetchTests(currentPage, debouncedSearch, filter);
@@ -78,8 +86,26 @@ const TestList: React.FC = () => {
   };
 
   const handleConfirmTest = () => {
+    showLoading();
     if (selectedTest) {
-      navigate(`/test/${selectedTest.id}`);
+      startTestAPI({
+        test_id: Number(selectedTest.id),
+        user_id: Number(user?.id),
+        timeRemaining: selectedTest.total_time,
+      }).then((res) => {
+        // console.log("res", res.data.data.id);
+        if (res.data.statusCode === 201) {
+          setTimeout(() => {
+            navigate(`/test/${selectedTest.id}/${res.data.data.id}`);
+          }, 2000);
+          return;
+
+        } else {
+          notice.show("error", res.data.message);
+        }
+      }).finally(() => {
+        hideLoading();
+      });
     }
   };
 

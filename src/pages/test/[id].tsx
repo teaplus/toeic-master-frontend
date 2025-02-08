@@ -3,23 +3,36 @@ import { useParams } from "react-router-dom";
 import { Test, TestResponseType } from "../../types/test";
 import { ExamInterface } from "./ExamInterface";
 import LoadingSpinner from "../../components/common/LoadingSpinner";
-import { getTestAPI } from "../../services/test.service";
+import { getTestAPI, getTestResponseAPI } from "../../services/test.service";
 
 const ExamPage: React.FC = () => {
-  const { id } = useParams();
+  const { id: testId, test_id: testSessionId } = useParams<{
+    id: string;
+    test_id: string;
+  }>();
+
   const [test, setTest] = useState<TestResponseType | null>(null);
+  const [testSessionResponse, setTestSessionResponse] =
+    useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!id) return;
-    getTestAPI(id).then((res) => {
+    if (!testId) return;
+    getTestAPI(testId).then((res) => {
       const { data } = res.data;
       console.log(data);
       setTest(data);
       setLoading(false);
     });
-  }, [id]);
+    if (testSessionId) {
+      getTestResponseAPI(testSessionId).then((res) => {
+        const { data } = res.data;
+        console.log("testSessionResponse", data);
+        setTestSessionResponse(data);
+      });
+    }
+  }, [testId, testSessionId]);
 
   if (loading) {
     return (
@@ -40,7 +53,7 @@ const ExamPage: React.FC = () => {
     );
   }
 
-  return <ExamInterface test={test} />;
+  return <ExamInterface test={test} testSessionResponse={testSessionResponse} />;
 };
 
 export default ExamPage;

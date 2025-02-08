@@ -9,8 +9,6 @@ export const ADMIN_MENU_ITEMS = [
   { id: "dashboard", icon: "📊", label: "Dashboard" },
   { id: "tests", icon: "📝", label: "Quản lý bài thi" },
   { id: "users", icon: "👥", label: "Quản lý người dùng" },
-  { id: "questions", icon: "❓", label: "Ngân hàng câu hỏi" },
-  { id: "results", icon: "📈", label: "Kết quả thi" },
 ] as const;
 
 export type AdminTabId = (typeof ADMIN_MENU_ITEMS)[number]["id"];
@@ -34,6 +32,13 @@ function Sidebar({ activeTab, onTabChange }: SidebarProps) {
             </button>
           ))}
         </nav>
+        <button
+          onClick={() => window.location.href = '/'}
+          className="w-full flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors mt-8"
+        >
+          <span>🏠</span>
+          <span>Trang chủ</span>
+        </button>
       </div>
     </aside>
   );

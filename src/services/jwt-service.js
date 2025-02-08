@@ -104,6 +104,10 @@ callAPIWithToken.interceptors.response.use(
             reject(err);
             Cookies.remove("accessToken");
             Cookies.remove("refreshToken");
+            Cookies.remove("user");
+            Cookies.remove("role");
+            Cookies.remove("id");
+            Cookies.remove("username");
             window.location.href = "/login";
           })
           .finally(() => {
