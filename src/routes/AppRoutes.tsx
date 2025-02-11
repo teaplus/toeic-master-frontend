@@ -14,6 +14,7 @@ import PageNotFound from "../pages/PageNotFound";
 import ReviewPage from "../pages/test/review/[id]";
 import ToeicStructure from "../pages/articles/ToeicStructure";
 import Leaderboard from "../pages/leaderboard/Leaderboard";
+import LearningHub from "../pages/learning/LearningHub";
 
 
 function AppRoutes() {
@@ -27,6 +28,7 @@ function AppRoutes() {
           <Route path="/toeic-structure" element={<ToeicStructure />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
         </Route>
+        <Route path="/learning" element={<LearningHub />} />
         <Route path="/admin/test/create" element={<CreateToeicTest />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/test/:id/:test_id" element={<ExamPage />} />

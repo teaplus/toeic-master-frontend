@@ -1,0 +1,246 @@
+{
+    "grammar": [
+      {
+        "category": "Tenses (Các thì)",
+        "description": "Sử dụng đúng thì của động từ là rất quan trọng trong TOEIC.",
+        "items": [
+          {
+            "tense": "Present Simple (Hiện tại đơn)",
+            "structure": "S + V(s/es)",
+            "usage": [
+              "Thói quen, sự thật hiển nhiên, lịch trình.",
+              "Ví dụ: The train leaves at 8 AM."
+            ],
+            "signalWords": ["always", "usually", "often", "sometimes", "rarely", "never", "every day/week/month"]
+          },
+          {
+            "tense": "Present Continuous (Hiện tại tiếp diễn)",
+            "structure": "S + am/is/are + V-ing",
+            "usage": ["Hành động đang xảy ra, kế hoạch tương lai gần.", "Ví dụ: I am working now. We are meeting tomorrow."],
+            "signalWords": ["now", "at the moment", "right now", "currently"]
+          },
+          {
+            "tense": "Present Perfect (Hiện tại hoàn thành)",
+            "structure": "S + have/has + V3/ed",
+            "usage": ["Hành động quá khứ liên quan đến hiện tại, kinh nghiệm.", "Ví dụ: I have visited London twice."],
+            "signalWords": ["since", "for", "just", "already", "yet", "ever", "never"]
+          },
+          {
+            "tense": "Present Perfect Continuous (HT hoàn thành tiếp diễn)",
+            "structure": "S + have/has + been + V-ing",
+            "usage": ["Nhấn mạnh tính liên tục của hành động từ quá khứ đến hiện tại.", "Ví dụ: I have been studying for five years."],
+            "signalWords": ["for", "since", "all day"]
+          },
+          {
+            "tense": "Past Simple (Quá khứ đơn)",
+            "structure": "S + V2/ed",
+            "usage": ["Hành động đã kết thúc trong quá khứ.", "Ví dụ: I went to the cinema yesterday."],
+            "signalWords": ["yesterday", "last week/month/year", "ago", "in 2020"]
+          },
+          {
+            "tense": "Past Continuous (Quá khứ tiếp diễn)",
+            "structure": "S + was/were + V-ing",
+            "usage": ["Hành động đang xảy ra tại một thời điểm trong quá khứ.", "Ví dụ: I was watching TV when the phone rang."],
+            "signalWords": ["while", "when", "at that time"]
+          },
+          {
+            "tense": "Past Perfect (Quá khứ hoàn thành)",
+            "structure": "S + had + V3/ed",
+            "usage": ["Hành động xảy ra trước một hành động khác trong quá khứ.", "Ví dụ: I had already eaten when they arrived."],
+            "signalWords": ["before", "after", "by the time", "already"]
+          },
+          {
+            "tense": "Past Perfect Continuous (QK hoàn thành tiếp diễn)",
+            "structure": "S + had + been + V-ing",
+            "usage": ["Nhấn mạnh tính liên tục của hành động trước một hành động khác trong quá khứ.", "Ví dụ: He had been working for ten years before he retired."],
+            "signalWords": ["for", "since", "before"]
+          },
+          {
+            "tense": "Future Simple (Tương lai đơn)",
+            "structure": "S + will/shall + V",
+            "usage": ["Dự đoán, quyết định tức thời, lời hứa.", "Ví dụ: I will call you later."],
+            "signalWords": ["tomorrow", "next week/month/year", "someday"]
+          },
+          {
+            "tense": "Future Continuous (Tương lai tiếp diễn)",
+            "structure": "S + will + be + V-ing",
+            "usage": ["Hành động sẽ đang xảy ra ở tương lai.", "Ví dụ: I will be working at this time tomorrow."],
+            "signalWords": ["at this time tomorrow"]
+          },
+          {
+            "tense": "Future Perfect (Tương lai hoàn thành)",
+            "structure": "S + will + have + V3/ed",
+            "usage": ["Hành động sẽ hoàn thành trước một thời điểm ở tương lai.", "Ví dụ: I will have finished by Friday."],
+            "signalWords": ["by", "by the time"]
+          },
+          {
+              "tense": "Future Perfect Continuous",
+              "structure": "S + will + have + been + V-ing",
+              "usage": ["Diễn tả một hành động xảy ra trong tương lai và kéo dài liên tục đến một thời điểm xác định.", "Ví dụ: I will have been working here for five year."],
+               "signalWords": ["for", "by"]
+          },
+          {
+            "tense": "Be going to (Dự định)",
+            "structure": "S + am/is/are + going to + V",
+            "usage": ["Kế hoạch, dự định, dự đoán có căn cứ.", "Ví dụ: I am going to study abroad. It's going to rain."]
+          }
+        ]
+      },
+      {
+        "category": "Objects (Tân ngữ)",
+        "description": "Các loại tân ngữ.",
+        "items": [
+          {"type": "Direct Object", "description": "Chịu tác động trực tiếp.", "example": "I ate an apple."},
+          {"type": "Indirect Object", "description": "Nhận/hưởng lợi, thường đứng trước tân ngữ trực tiếp.", "example": "I gave him a book."},
+          {"type": "Object of Preposition", "description": "Đi sau giới từ.", "example": "I talked to him."}
+        ]
+      },
+       {
+        "category": "Sentence Structures (Cấu trúc câu)",
+        "description": "Các loại câu và thành phần.",
+        "items": [
+          {"structure": "Simple Sentence", "description": "Một mệnh đề độc lập.", "example": "The cat sat on the mat."},
+          {"structure": "Compound Sentence", "description": "Hai+ mệnh đề độc lập nối bằng liên từ.", "example": "The cat sat, and the dog barked."},
+          {"structure": "Complex Sentence", "description": "Một mệnh đề độc lập và một+ mệnh đề phụ.", "example": "Because it was raining, the cat stayed inside."},
+          {"structure": "Compound-Complex Sentence", "description": "Hai+ mệnh đề độc lập và một+ mệnh đề phụ.", "example": "Although it was late, the cat sat, and the dog barked."}
+        ]
+      },
+      {
+        "category": "Conditional Sentences (Câu điều kiện)",
+        "description": "Các loại câu điều kiện.",
+        "items": [
+          {"type": "Type 0", "structure": "If + S + V(s/es), S + V(s/es)", "usage": "Sự thật hiển nhiên.", "example": "If you heat water, it boils."},
+          {"type": "Type 1", "structure": "If + S + V(s/es), S + will/can/may + V", "usage": "Có thể xảy ra.", "example": "If it rains, I will stay home."},
+          {"type": "Type 2", "structure": "If + S + V2/ed, S + would/could/might + V", "usage": "Không có thật ở hiện tại/tương lai.", "example": "If I were you, I would study."},
+          {"type": "Type 3", "structure": "If + S + had + V3/ed, S + would/could/might + have + V3/ed", "usage": "Không có thật trong quá khứ.", "example": "If I had studied, I would have passed."},
+          {"type": "Mixed", "description": "Kết hợp các loại khác nhau.", "example": "If I had studied, I would be a doctor now."}
+        ]
+      },
+      {
+        "category": "Passive Voice (Câu bị động)",
+        "description": "Chuyển đổi từ câu chủ động.",
+        "structure": "S + be + V3/ed + (by + O)",
+        "usage": ["Nhấn mạnh hành động/đối tượng bị tác động.", "Ví dụ: The report was written by John."],
+        "transformations": [
+          {"tense": "Present Simple", "active": "V(s/es)", "passive": "am/is/are + V3/ed"},
+          {"tense": "Present Continuous", "active": "am/is/are + V-ing", "passive": "am/is/are + being + V3/ed"},
+          {"tense": "Present Perfect", "active": "have/has + V3/ed", "passive": "have/has + been + V3/ed"},
+          {"tense": "Past Simple", "active": "V2/ed", "passive": "was/were + V3/ed"},
+          {"tense": "Past Continuous", "active": "was/were + V-ing", "passive": "was/were + being + V3/ed"},
+          {"tense": "Past Perfect", "active": "had + V3/ed", "passive": "had + been + V3/ed"},
+          {"tense": "Future Simple", "active": "will + V", "passive": "will + be + V3/ed"},
+          {"tense": "Modal Verbs", "active": "modal + V", "passive": "modal + be + V3/ed"}
+        ],
+        "specialCases": [
+          {"description": "Hai tân ngữ", "example": "Active: They gave me a book. -> Passive: I was given a book. / A book was given to me."},
+          {"description": "Động từ chỉ giác quan", "example": "Active: I saw him cross. -> Passive: He was seen crossing/to cross."},
+          {"description": "'make' và 'let'", "example": "Active: They made me do it. -> Passive: I was made to do it."}
+        ]
+      },
+      {
+        "category": "Reported Speech (Câu tường thuật)",
+        "description": "Thuật lại lời nói.",
+        "usage": ["Thay đổi thì, đại từ, trạng từ.", "Ví dụ: He said, \"I am tired.\" -> He said that he was tired."],
+        "changes": [
+          {"original": "am/is/are", "reported": "was/were"},
+          {"original": "V(s/es)", "reported": "V2/ed"},
+          {"original": "V2/ed", "reported": "had + V3/ed"},
+          {"original": "will", "reported": "would"}, {"original": "can", "reported": "could"},
+          {"original": "now", "reported": "then"}, {"original": "today", "reported": "that day"}
+        ]
+      },
+      {
+          "category": "Causative Form (Thể sai khiến)",
+          "description": "Nhờ vả, sai khiến, cho phép",
+          "structures": [
+              {"form": "have something done", "usage": "Nhờ ai đó làm", "example": "I had my hair cut."},
+              {"form": "get something done", "usage": "Nhờ vả (thuyết phục)", "example": "I got my car repaired."},
+              {"form": "make someone do something", "usage": "Bắt buộc", "example": "The teacher made them do homework."},
+              {"form": "have someone do something", "usage": "Nhờ vả (lịch sự)", "example": "I had the mechanic fix my car."},
+              {"form": "let someone do something", "usage": "Cho phép", "example": "My parents let me go."},
+              {"form": "help someone (to) do something", "usage": "Giúp đỡ", "example": "Can you help me (to) carry this?"}
+          ]
+      },
+      {
+          "category": "Relative Clauses (Mệnh đề quan hệ)",
+          "description": "Bổ sung nghĩa cho danh từ, sử dụng đại từ/trạng từ quan hệ.",
+          "usage": "who, whom, which, that, whose, when, where, why",
+          "example": "The book that I borrowed is interesting."
+      },
+  
+      {
+        "category": "Gerunds and Infinitives (Danh động từ và Động từ nguyên mẫu)",
+        "description": "Cách dùng V-ing và to V.",
+        "usage": [
+          "Gerund (V-ing): chủ ngữ, tân ngữ, bổ ngữ.",
+          "Infinitive (to V): chủ ngữ, tân ngữ, bổ ngữ, sau động từ/tính từ."
+        ],
+        "examples": [
+          "Swimming is good. (Gerund - chủ ngữ)",
+          "I enjoy reading. (Gerund - tân ngữ)",
+          "I want to learn. (Infinitive - tân ngữ)",
+          "It's important to be on time. (Infinitive - sau tính từ)"
+        ],
+        "verbPatterns": [
+          {"verb": "enjoy", "followedBy": "gerund"}, {"verb": "avoid", "followedBy": "gerund"},
+          {"verb": "finish", "followedBy": "gerund"}, {"verb": "mind", "followedBy": "gerund"},
+          {"verb": "want", "followedBy": "infinitive"}, {"verb": "need", "followedBy": "infinitive"},
+           {"verb": "decide", "followedBy": "infinitive"}, {"verb": "begin", "followedBy": "gerund/infinitive"}
+        ]
+      },
+        {
+        "category": "Inversion (Đảo ngữ)",
+        "description": "Đảo trợ động từ lên trước chủ ngữ.",
+        "usage": "Nhấn mạnh, thường dùng với trạng từ phủ định, câu điều kiện.",
+        "example": "Rarely have I seen such beauty. Had I known, I would have helped."
+      },
+      {
+        "category": "Conjunctions (Liên từ)",
+        "description": "Nối từ, cụm từ, mệnh đề.",
+        "types": [
+          {"type": "Coordinating", "examples": ["and", "but", "or", "nor", "for", "so", "yet"], "usage": "Nối thành phần cùng loại."},
+          {"type": "Subordinating", "examples": ["because", "although", "since", "if", "when"], "usage": "Nối mệnh đề phụ với mệnh đề chính."},
+          {"type": "Correlative", "examples": ["both...and", "either...or", "not only...but also"], "usage": "Nối thành phần tương đương theo cặp."}
+        ]
+      },
+      {
+        "category": "Sentence Transformation (Viết lại câu)",
+        "description": "Các dạng bài viết lại câu thường gặp.",
+        "types": [
+          {
+            "type": "Active to Passive (Chủ động sang bị động)",
+            "example": "The cat ate the mouse. -> The mouse was eaten by the cat."
+          },
+          {
+            "type": "Direct to Reported Speech (Trực tiếp sang gián tiếp)",
+            "example": "He said, \"I'm tired.\" -> He said that he was tired."
+          },
+          {
+            "type": "Conditional Sentences (Biến đổi câu điều kiện)",
+            "example": "If I had money, I would travel. -> Were I to have money, I would travel."
+          },
+          {
+            "type": "Using Gerunds/Infinitives (Dùng danh động từ/động từ nguyên mẫu)",
+            "example": "It's important to study. -> Studying is important."
+          },
+          {
+            "type": "Using Conjunctions (Sử dụng liên từ)",
+            "example": "He is rich, but he is unhappy.  -> Although he is rich, he is unhappy."
+          },
+          {
+              "type": "So...that/ Such...that",
+              "example": "The weather was so hot that we stayed inside. -> It was such a hot day that we stayed inside."
+          },
+          {
+            "type": "Inversion (Đảo ngữ)",
+            "example": "I have never seen such a mess. -> Never have I seen such a mess."
+          },
+           {
+              "type": "Comparison",
+              "example": "John is taller than Mary -> Mary is not as tall as John."
+           }
+  
+        ]
+      }
+    ]
+  }

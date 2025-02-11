@@ -52,6 +52,8 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
 
   const [showForgotPassword, setShowForgotPassword] = useState(false);
 
+  const [agreeToTerms, setAgreeToTerms] = useState<boolean>(false);
+
   useEffect(() => {
     // Lấy giá trị đã được trình duyệt điền sẵn
     if (usernameRef.current) {
@@ -66,9 +68,14 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     const { name, value } = e.target;
     setFormState({ ...formState, [name]: value });
 
-    // Clear error when user starts typing
+    // Clear errors khi user nhập lại
     if (formErrors[name as keyof FormErrors]) {
       setFormErrors({ ...formErrors, [name]: undefined });
+    }
+
+    // Clear confirm password error khi thay đổi password
+    if (name === "password" && formErrors.confirmPassword) {
+      setFormErrors({ ...formErrors, confirmPassword: undefined });
     }
   };
 
@@ -126,8 +133,20 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
           onClose();
           window.location.reload();
         })
-        .catch((response) => {
-          console.log("error", response);
+        .catch((error: any) => {
+          console.log("error", error);
+          if (error.response?.status === 400) {
+            setFormErrors({
+              server: "Tên đăng nhập hoặc email đã tồn tại",
+            });
+          } else {
+            setFormErrors({
+              server: "Đã có lỗi xảy ra, vui lòng thử lại sau",
+            });
+          }
+        })
+        .finally(() => {
+          setIsSubmitting(false);
         });
     }
   };
@@ -159,6 +178,14 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     console.error("Google Login Error:", error);
   };
 
+  const handleAgreeToTerms = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAgreeToTerms(e.target.checked);
+    // Clear server error khi user check vào checkbox
+    if (formErrors.server) {
+      setFormErrors({ ...formErrors, server: undefined });
+    }
+  };
+
   const validateForm = () => {
     const errors: FormErrors = {};
 
@@ -175,12 +202,35 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
       const emailError = validateEmail(formState.email);
       if (emailError) errors.email = emailError;
 
-      // Confirm password validation
-      const confirmPasswordError = validateConfirmPassword(
-        formState.password,
-        formState.confirmPassword
-      );
-      if (confirmPasswordError) errors.confirmPassword = confirmPasswordError;
+      // Password validation
+      if (!formState.password) {
+        errors.password = "Vui lòng nhập mật khẩu";
+      } else {
+        // Check độ dài tối thiểu
+        if (formState.password.length < 6) {
+          errors.password = "Mật khẩu phải có ít nhất 6 ký tự";
+        }
+        // Check pattern (ít nhất 1 chữ và 1 số)
+        if (
+          !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{6,}$/.test(
+            formState.password
+          )
+        ) {
+          errors.password = "Mật khẩu phải chứa ít nhất 1 chữ cái và 1 số";
+        }
+      }
+
+      // Confirm Password validation
+      if (!formState.confirmPassword) {
+        errors.confirmPassword = "Vui lòng xác nhận mật khẩu";
+      } else if (formState.password !== formState.confirmPassword) {
+        errors.confirmPassword = "Mật khẩu xác nhận không khớp";
+      }
+
+      // Validate terms agreement
+      if (!agreeToTerms) {
+        errors.server = "Vui lòng đồng ý với điều khoản sử dụng";
+      }
     }
 
     setFormErrors(errors);
@@ -356,9 +406,20 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                   placeholder="Email"
                   value={formState.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white"
+                  className={`w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 bg-gray-700 text-white
+                    ${
+                      formErrors.email
+                        ? "border-red-500 focus:ring-red-500"
+                        : "border-gray-600 focus:ring-blue-500"
+                    }`}
                 />
+                {formErrors.email && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {formErrors.email}
+                  </p>
+                )}
               </div>
+
               <div className="mb-4">
                 <input
                   type="text"
@@ -366,8 +427,18 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                   placeholder="Tên tài khoản"
                   value={formState.username}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white"
+                  className={`w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 bg-gray-700 text-white
+                    ${
+                      formErrors.username
+                        ? "border-red-500 focus:ring-red-500"
+                        : "border-gray-600 focus:ring-blue-500"
+                    }`}
                 />
+                {formErrors.username && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {formErrors.username}
+                  </p>
+                )}
               </div>
 
               <div className="mb-4 relative">
@@ -377,9 +448,20 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                   placeholder="Mật khẩu"
                   value={formState.password}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white"
+                  className={`w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 bg-gray-700 text-white
+                    ${
+                      formErrors.password
+                        ? "border-red-500 focus:ring-red-500"
+                        : "border-gray-600 focus:ring-blue-500"
+                    }`}
                 />
+                {formErrors.password && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {formErrors.password}
+                  </p>
+                )}
               </div>
+
               <div className="mb-4 relative">
                 <input
                   type="password"
@@ -387,23 +469,65 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                   placeholder="Xác nhận mật khẩu"
                   value={formState.confirmPassword}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white"
+                  className={`w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 bg-gray-700 text-white
+                    ${
+                      formErrors.confirmPassword
+                        ? "border-red-500 focus:ring-red-500"
+                        : "border-gray-600 focus:ring-blue-500"
+                    }`}
                 />
+                {formErrors.confirmPassword && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {formErrors.confirmPassword}
+                  </p>
+                )}
               </div>
+
+              {formErrors.server && (
+                <div
+                  className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
+                  role="alert"
+                >
+                  <span className="block sm:inline">{formErrors.server}</span>
+                </div>
+              )}
+
               <div className="flex items-center mb-6">
-                <input type="checkbox" id="agree" className="mr-2"></input>
+                <input
+                  type="checkbox"
+                  id="agree"
+                  checked={agreeToTerms}
+                  onChange={handleAgreeToTerms}
+                  className={`mr-2 ${
+                    !agreeToTerms && formErrors.server ? "border-red-500" : ""
+                  }`}
+                />
                 <label htmlFor="agree" className="text-gray-400 text-sm">
                   Tôi đồng ý chia sẻ thông tin và đồng ý với{" "}
-                  <p className="text-blue-500">
+                  <span className="text-blue-500 cursor-pointer hover:underline">
                     Chính sách bảo mật dữ liệu cá nhân
-                  </p>
+                  </span>
                 </label>
               </div>
+
               <button
                 type="submit"
-                className="w-full py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded"
+                disabled={isSubmitting}
+                className={`w-full py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded
+                  ${
+                    isSubmitting
+                      ? "opacity-70 cursor-not-allowed"
+                      : "hover:opacity-90"
+                  }`}
               >
-                Đăng ký
+                {isSubmitting ? (
+                  <div className="flex items-center justify-center">
+                    <div className="w-5 h-5 border-t-2 border-b-2 border-white rounded-full animate-spin mr-2"></div>
+                    Đang xử lý...
+                  </div>
+                ) : (
+                  "Đăng ký"
+                )}
               </button>
             </form>
           </div>
