@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useRef } from "react";
 import * as echarts from "echarts"; // Import ECharts
 import "./profile.css";
@@ -11,11 +12,7 @@ import S3Uploader from "../../components/common/S3Uploader";
 import { useNavigate } from "react-router-dom";
 import { PartScores } from "../../types/user";
 import { changePasswordAPI } from "../../services/auth.service";
-import {
-  formatDateTime,
-  formatDate,
-  getRelativeTime,
-} from "../../utils/dateFormat";
+import { formatDateTime, getRelativeTime } from "../../utils/dateFormat";
 
 const Profile = () => {
   const [name, setName] = useState("nanyak");

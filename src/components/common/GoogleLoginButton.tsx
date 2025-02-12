@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  GoogleLogin,
-  googleLogout,
-  CredentialResponse,
-} from "@react-oauth/google";
+import { GoogleLogin, CredentialResponse } from "@react-oauth/google";
 
 interface GoogleLoginButtonProps {
   onLoginSuccess: (token: string) => void;
@@ -14,9 +10,7 @@ interface GoogleLoginButtonProps {
 const GoogleLoginButton: React.FC<GoogleLoginButtonProps> = ({
   onLoginSuccess,
   onLoginFailure,
-  type,
 }) => {
-  
   return (
     <div>
       <GoogleLogin

@@ -9,13 +9,14 @@ const ExamPage2: React.FC = () => {
   const { id } = useParams();
   const [test, setTest] = useState<TestResponseType | null>(null);
   const [loading, setLoading] = useState(true);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!id) return;
     getTestAPI(id).then((res) => {
       const { data } = res.data;
-    //   console.log(data);
+      //   console.log(data);
       setTest(data);
       setLoading(false);
     });

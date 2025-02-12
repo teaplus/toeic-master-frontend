@@ -33,6 +33,7 @@ const DashboardTab = () => {
   useEffect(() => {
     fetchDashboardStats();
     fetchPeriodStats();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedPeriod, selectedYear]);
 
   const fetchDashboardStats = async () => {

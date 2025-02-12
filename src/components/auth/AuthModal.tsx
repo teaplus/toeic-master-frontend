@@ -8,7 +8,6 @@ import {
   validateUsername,
   validatePassword,
   validateEmail,
-  validateConfirmPassword,
 } from "../../utils/validation";
 import { useNotice } from "../common/Notice";
 import ForgotPassword from "./ForgotPassword";
@@ -62,6 +61,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     if (passwordRef.current) {
       setFormState({ ...formState, password: passwordRef.current.value });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

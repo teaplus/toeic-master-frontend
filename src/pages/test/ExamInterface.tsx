@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import {
   QuestionResponseType,
@@ -29,29 +30,6 @@ interface ExamState {
 interface ExamInterfaceProps {
   test: Required<TestResponseType>;
   testSessionResponse: Required<TestSessionResponseDataType>;
-}
-
-interface Question {
-  id: number;
-  content: string;
-  group?: {
-    id: string;
-    passage: string;
-    questions: number[]; // IDs của các câu hỏi trong group
-  };
-  options: string[];
-  correctAnswer: string;
-}
-
-interface Part {
-  id: number;
-  name: string;
-  groups?: {
-    id: string;
-    passage: string;
-    questions: Question[];
-  }[];
-  individualQuestions: Question[]; // Câu hỏi không thuộc group nào
 }
 
 export const ExamInterface: React.FC<ExamInterfaceProps> = ({

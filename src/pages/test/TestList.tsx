@@ -1,11 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getListTestAPI, startTestAPI } from "../../services/test.service";
 import LoadingSpinner from "../../components/common/LoadingSpinner";
 import { ListTestResponseDataType } from "../../types/test";
 import ConfirmModal from "./components/ConfirmModal";
 import { useAuth } from "../../hooks/useAuth";
-import Cookies from "js-cookie";
 import { useNotice } from "../../components/common/Notice";
 import { useLoading } from "../../contexts/LoadingContext";
 
@@ -29,7 +29,6 @@ const TestList: React.FC = () => {
     const timeoutId = setTimeout(() => {
       setDebouncedSearch(searchTerm);
     }, 500);
-
 
     return () => clearTimeout(timeoutId);
   }, [searchTerm]);
@@ -92,20 +91,21 @@ const TestList: React.FC = () => {
         test_id: Number(selectedTest.id),
         user_id: Number(user?.id),
         timeRemaining: selectedTest.total_time,
-      }).then((res) => {
-        // console.log("res", res.data.data.id);
-        if (res.data.statusCode === 201) {
-          setTimeout(() => {
-            navigate(`/test/${selectedTest.id}/${res.data.data.id}`);
-          }, 2000);
-          return;
-
-        } else {
-          notice.show("error", res.data.message);
-        }
-      }).finally(() => {
-        hideLoading();
-      });
+      })
+        .then((res) => {
+          // console.log("res", res.data.data.id);
+          if (res.data.statusCode === 201) {
+            setTimeout(() => {
+              navigate(`/test/${selectedTest.id}/${res.data.data.id}`);
+            }, 2000);
+            return;
+          } else {
+            notice.show("error", res.data.message);
+          }
+        })
+        .finally(() => {
+          hideLoading();
+        });
     }
   };
 

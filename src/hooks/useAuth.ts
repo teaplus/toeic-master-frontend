@@ -52,6 +52,7 @@ export const useAuth = () => {
       setRole(role);
     }
     getTestStats();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { isAuthenticated, isLoading, user, role, testStats };

@@ -46,6 +46,7 @@ const TestManagementTab: React.FC = () => {
   // Fetch data khi params thay đổi
   useEffect(() => {
     fetchTests(currentPage, debouncedSearch, filter);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage, debouncedSearch, filter, partFilter]);
 
   // Reset về trang 1 khi search hoặc filter thay đổi

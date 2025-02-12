@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useNotice } from "../../components/common/Notice";
-import { verifyAPI, verifyEmailAPI } from "../../services/auth.service";
+import { verifyAPI } from "../../services/auth.service";
 
 const Verification = () => {
   const { token } = useParams();
@@ -9,7 +9,6 @@ const Verification = () => {
   const notice = useNotice();
   const [isVerifying, setIsVerifying] = useState(true);
   const [isSuccess, setIsSuccess] = useState(false);
-
 
   useEffect(() => {
     const verifyAccount = async () => {
@@ -43,8 +42,6 @@ const Verification = () => {
 
     verifyAccount();
   }, [token, navigate, notice]);
-
- 
 
   if (isVerifying) {
     return (

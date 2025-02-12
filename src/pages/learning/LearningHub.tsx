@@ -57,7 +57,7 @@ interface GrammarCategory {
   }[];
 }
 
-interface GrammarData {
+export interface GrammarData {
   grammar: GrammarCategory[];
 }
 
@@ -68,6 +68,7 @@ const LearningHub: React.FC = () => {
   );
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [selectedGrammarCategory, setSelectedGrammarCategory] = useState(0);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const notice = useNotice();
 
   const filteredVocabulary = useMemo(() => {

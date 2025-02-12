@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { getLeaderboardAPI } from "../../services/leaderboard.service";
 import { LeaderboardData } from "../../types/leaderboard";

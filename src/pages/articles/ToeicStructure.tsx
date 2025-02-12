@@ -1,28 +1,7 @@
 // src/pages/ToeicStructure.tsx
 import React from "react";
-import ContentSection from "./components/ContentSection";
-import RelatedNews from "./components/RelatedNews";
 
 const ToeicStructure = () => {
-  const menuItems = [
-    {
-      id: "h2title_0",
-      title: "CẤU TRÚC BÀI THI TOEIC MỚI NHẤT",
-    },
-    {
-      id: "h2title_1",
-      title: "CẤU TRÚC ĐỀ THI TOEIC 2 KỸ NĂNG",
-    },
-    {
-      id: "h2title_2",
-      title: "PHÂN TÍCH CẤU TRÚC ĐỀ THI TOEIC MỚI NHẤT",
-    },
-    {
-      id: "h2title_3",
-      title: "GIẢI ĐÁP THẮC MẮC VỀ CẤU TRÚC ĐỀ THI TOEIC",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section - Modern & Clean */}

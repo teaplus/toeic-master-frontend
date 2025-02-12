@@ -85,6 +85,7 @@ const TabsForm: React.FC<TabsFormProps> = ({ onSuccess }) => {
     } else {
       setTotalTime(getDefaultTime(testType));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [testType]);
 
   const createTest = async () => {

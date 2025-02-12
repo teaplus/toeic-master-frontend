@@ -2,12 +2,9 @@ import { AxiosResponse } from "axios";
 import { callAPIWithToken } from "./jwt-service";
 import {
   CreateTestResponseType,
-  ListTestResponseType,
   SaveAnswerResponseType,
   Test,
-  Part,
 } from "../types/test";
-import axios from "axios";
 
 const createTestAPI = (
   data: Test

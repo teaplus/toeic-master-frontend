@@ -1,7 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import {
   getUserListAPI,
-  updateUserInfoAPI,
   updateUserStatusAPI,
 } from "../../../../services/user.service";
 import { useNotice } from "../../../../components/common/Notice";
@@ -10,16 +10,16 @@ import LoadingSpinner from "../../../../components/common/LoadingSpinner";
 import UserCreateModal from "./UserCreateModal";
 import UserDetailModal from "./UserDetailModal";
 
-interface User {
-  id: string;
-  username: string;
-  email: string;
-  role: "admin" | "user" | "teacher";
-  status: "active" | "inactive" | "banned";
-  lastTestDate: string;
-  lastTestScore: number;
-  highestScore: number;
-}
+// interface User {
+//   id: string;
+//   username: string;
+//   email: string;
+//   role: "admin" | "user" | "teacher";
+//   status: "active" | "inactive" | "banned";
+//   lastTestDate: string;
+//   lastTestScore: number;
+//   highestScore: number;
+// }
 
 const ITEMS_PER_PAGE = 10;
 
@@ -30,45 +30,12 @@ const UserManagementTab = () => {
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalItems, setTotalItems] = useState(0);
-  const [showModal, setShowModal] = useState(false);
-  const [editingUser, setEditingUser] = useState<User | null>(null);
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    role: "user",
-    status: "active",
-  });
+
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
 
   const notice = useNotice();
-
-  const getStatusStyle = (status: string) => {
-    switch (status) {
-      case "active":
-        return "bg-green-100 text-green-800";
-      case "inactive":
-        return "bg-yellow-100 text-yellow-800";
-      case "banned":
-        return "bg-red-100 text-red-800";
-      default:
-        return "";
-    }
-  };
-
-  const getStatusText = (status: string) => {
-    switch (status) {
-      case "active":
-        return "Hoạt động";
-      case "inactive":
-        return "Không hoạt động";
-      case "banned":
-        return "Đã khóa";
-      default:
-        return status;
-    }
-  };
 
   // Xử lý debounce search riêng
   useEffect(() => {
@@ -111,36 +78,36 @@ const UserManagementTab = () => {
   };
 
   // Handle form submission
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    // try {
-    //   if (editingUser) {
-    //     await handleUpdateUser(editingUser.id.toString(), formData);
-    //   } else {
-    //     await handleCreateUser(formData);
-    //   }
-    // } catch (error) {
-    //   notice.show("error", "Lỗi khi xử lý form");
-    //   console.error("Error submitting form:", error);
-    // }
-  };
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   // try {
+  //   //   if (editingUser) {
+  //   //     await handleUpdateUser(editingUser.id.toString(), formData);
+  //   //   } else {
+  //   //     await handleCreateUser(formData);
+  //   //   }
+  //   // } catch (error) {
+  //   //   notice.show("error", "Lỗi khi xử lý form");
+  //   //   console.error("Error submitting form:", error);
+  //   // }
+  // };
 
   // Handle search
-  const filteredUsers = users.filter(
-    (user) =>
-      user.username.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.email.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // const filteredUsers = users.filter(
+  //   (user) =>
+  //     user.username.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //     user.email.toLowerCase().includes(searchTerm.toLowerCase())
+  // );
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  // const handleInputChange = (
+  //   e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  // ) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     [name]: value,
+  //   }));
+  // };
 
   const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
 

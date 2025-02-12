@@ -1,5 +1,5 @@
 import React from "react";
-import { Part, Question, QuestionResponseType } from "../../../types/test";
+import { Part, QuestionResponseType } from "../../../types/test";
 
 interface QuestionContentProps {
   question: QuestionResponseType;
@@ -16,18 +16,15 @@ const QuestionContent: React.FC<QuestionContentProps> = ({
   isHavePassage,
   currentPart,
 }) => {
-  const imageUrls = question.image_url ? question.image_url.split(",") : [];
   // console.log('question', question, 'selectedAnswer', selectedAnswer);
-  console.log('question', question, currentPart.partNumber);
+  console.log("question", question, currentPart.partNumber);
   return (
     <div className="space-y-6">
-      
-
       <div className="flex items-center space-x-4 p-1 bg-gray-100 rounded-lg">
         <div className="text-blue-600 font-semibold text-lg">{`Câu ${question.number}`}</div>
         {!isHavePassage && currentPart.partNumber !== 2 && (
           <div className="text-gray-800 font-medium text-base flex-1">
-          { question.content}
+            {question.content}
           </div>
         )}
       </div>
@@ -54,7 +51,11 @@ const QuestionContent: React.FC<QuestionContentProps> = ({
                 onChange={() => onAnswerSelect(question.id, answer.id)}
                 className="mr-3"
               />
-              <span>{ currentPart.partNumber !== 1 && currentPart.partNumber !== 2 ? answer.content : null}</span>
+              <span>
+                {currentPart.partNumber !== 1 && currentPart.partNumber !== 2
+                  ? answer.content
+                  : null}
+              </span>
             </label>
           );
         })}

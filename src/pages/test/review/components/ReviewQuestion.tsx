@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  Part,
-  QuestionResponseType,
-  QuestionReviewResponseDataType,
-} from "../../../../types/test";
+import { Part, QuestionReviewResponseDataType } from "../../../../types/test";
 
 interface ReviewQuestionProps {
   questions: QuestionReviewResponseDataType[];
@@ -17,7 +13,7 @@ const ReviewQuestion: React.FC<ReviewQuestionProps> = ({
   currentPart,
 }) => {
   const question = questions[0];
-  const userAnswer = responses?.[question.id];
+  // const userAnswer = responses?.[question.id];
   const isUserCorrect = question.userResponse?.isCorrect;
   const idUserResponseId = question.userResponse?.answer.id;
 

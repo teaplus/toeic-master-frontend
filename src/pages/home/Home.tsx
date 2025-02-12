@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState, useCallback, useMemo } from "react";
 import "./home.css";
 import { useAuth } from "../../hooks/useAuth";
@@ -14,7 +15,6 @@ import {
 import {
   ListTestResponseDataType,
   TestRecommendResponseType,
-  TestResponseType,
 } from "../../types/test";
 import ConfirmModal from "../test/components/ConfirmModal";
 import ReactECharts from "echarts-for-react";
@@ -98,13 +98,6 @@ function Home() {
   const handleTestClick = (test: ListTestResponseDataType) => {
     setSelectedTest(test);
     setShowConfirmModal(true);
-  };
-
-  const handleStartTest = () => {
-    if (selectedTest) {
-      navigate(`/test/${selectedTest.id}`);
-    }
-    setShowConfirmModal(false);
   };
 
   const handleConfirmTest = () => {
@@ -219,6 +212,7 @@ function Home() {
   }
 
   if (!isAuthenticated) {
+    // eslint-disable-next-line react/jsx-pascal-case
     return <Landing_page />;
   }
   console.log("fullTest", fullTest);

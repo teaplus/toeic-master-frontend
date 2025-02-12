@@ -8,7 +8,8 @@ import { useAuth } from "../../hooks/useAuth";
 
 function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const [user, setUser] = useState<string>("");
   const menuRef = useRef<HTMLDivElement>(null);

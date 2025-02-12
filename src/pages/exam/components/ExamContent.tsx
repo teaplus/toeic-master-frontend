@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import { ButtonCustom } from "./Button";
 import { TestResponseType } from "../../../types/test";
-import QuestionContent from "../../test/components/QuestionContent";
 
 interface ExamState {
   currentSection: number;
@@ -11,11 +11,6 @@ interface ExamState {
   currentGroup: number;
 }
 
-interface currentGroup {
-  id: string;
-  passage: string;
-  questions: number[];
-}
 
 function ExamContent({ test }: { test: TestResponseType }) {
   if (
@@ -29,6 +24,7 @@ function ExamContent({ test }: { test: TestResponseType }) {
 
   const [stateTest, setStateTest] = useState<ExamState>(() => {
     const firstSection = test.sections[0];
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const firstPart = firstSection.parts[0];
 
     return {
@@ -66,28 +62,28 @@ function ExamContent({ test }: { test: TestResponseType }) {
     return `${stateTest.currentSection}-${stateTest.currentPart}-${stateTest.currentQuestion}`;
   };
 
-  const handleAnswerSelect = (questionId: number, answer: string) => {
-    setStateTest((prev) => ({
-      ...prev,
-      answers: {
-        ...prev.answers,
-        [getQuestionKey()]: answer,
-      },
-    }));
-  };
+  // const handleAnswerSelect = (questionId: number, answer: string) => {
+  //   setStateTest((prev) => ({
+  //     ...prev,
+  //     answers: {
+  //       ...prev.answers,
+  //       [getQuestionKey()]: answer,
+  //     },
+  //   }));
+  // };
 
-  const handleQuestionClick = (
-    sIndex: number,
-    pIndex: number,
-    qIndex: number
-  ) => {
-    setStateTest((prev) => ({
-      ...prev,
-      currentSection: sIndex,
-      currentPart: pIndex,
-      currentQuestion: qIndex,
-    }));
-  };
+  // const handleQuestionClick = (
+  //   sIndex: number,
+  //   pIndex: number,
+  //   qIndex: number
+  // ) => {
+  //   setStateTest((prev) => ({
+  //     ...prev,
+  //     currentSection: sIndex,
+  //     currentPart: pIndex,
+  //     currentQuestion: qIndex,
+  //   }));
+  // };
 
   return (
     <div className="min-h-screen bg-gray-50">

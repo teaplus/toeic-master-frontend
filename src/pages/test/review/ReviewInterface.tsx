@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import {
-  QuestionResponseType,
-  TestReviewResponseType,
-  TestSessionReviewResponseDataType,
-} from "../../../types/test";
+import { TestSessionReviewResponseDataType } from "../../../types/test";
 import ReviewQuestion from "./components/ReviewQuestion";
 import ExamHeader from "../components/ExamHeader";
 

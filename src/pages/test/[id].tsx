@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Test, TestResponseType } from "../../types/test";
+import { TestResponseType } from "../../types/test";
 import { ExamInterface } from "./ExamInterface";
 import LoadingSpinner from "../../components/common/LoadingSpinner";
 import { getTestAPI, getTestResponseAPI } from "../../services/test.service";
@@ -12,8 +13,7 @@ const ExamPage: React.FC = () => {
   }>();
 
   const [test, setTest] = useState<TestResponseType | null>(null);
-  const [testSessionResponse, setTestSessionResponse] =
-    useState<any>(null);
+  const [testSessionResponse, setTestSessionResponse] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -53,7 +53,9 @@ const ExamPage: React.FC = () => {
     );
   }
 
-  return <ExamInterface test={test} testSessionResponse={testSessionResponse} />;
+  return (
+    <ExamInterface test={test} testSessionResponse={testSessionResponse} />
+  );
 };
 
 export default ExamPage;
