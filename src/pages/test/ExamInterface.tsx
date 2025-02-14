@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+// /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import {
   QuestionResponseType,
@@ -76,35 +76,6 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({
       markedQuestions: new Set(),
     };
   });
-
-  useEffect(() => {
-    try {
-      if (testSessionResponse && testSessionResponse.responses) {
-        test.sections.forEach((section) => {
-          section.parts.forEach((part) => {
-            part.questions.forEach((question) => {
-              testSessionResponse.responses.forEach((response) => {
-                if (response.question.id === question.id) {
-                  setState((prev) => ({
-                    ...prev,
-                    answers: {
-                      ...prev.answers,
-                      [question.id]: response.answer.id,
-                    },
-                  }));
-                }
-              });
-            });
-          });
-        });
-      } else {
-        console.log("No test session responses available");
-      }
-    } catch (error) {
-      console.error("Error processing test responses:", error);
-    }
-    setTimeLeft(testSessionResponse?.timeRemaining || 120 * 60);
-  }, [testSessionResponse, test.sections]);
 
   const currentSection = test.sections[state.currentSection];
   const currentPart = currentSection.parts[state.currentPart];
@@ -191,11 +162,45 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({
     };
 
     loadTestSessionResponses();
-  }, []); // Dependencies
+  }, [testSessionResponse.responses]); // Dependencies
 
   if (!currentSection || !currentPart || !currentQuestion) {
     throw new Error("Invalid current question state");
   }
+
+  useEffect(() => {
+    initState();
+    setTimeLeft(testSessionResponse?.timeRemaining || 120 * 60);
+  }, [testSessionResponse, test]);
+
+  const initState = () => {
+    try {
+      console.log("testSessionResponse", testSessionResponse);
+      if (testSessionResponse && testSessionResponse.responses) {
+        test.sections.forEach((section) => {
+          section.parts.forEach((part) => {
+            part.questions.forEach((question) => {
+              testSessionResponse.responses.forEach((response) => {
+                if (response.question.id === question.id) {
+                  setState((prev) => ({
+                    ...prev,
+                    answers: {
+                      ...prev.answers,
+                      [question.id]: response.answer.id,
+                    },
+                  }));
+                }
+              });
+            });
+          });
+        });
+      } else {
+        console.log("No test session responses available");
+      }
+    } catch (error) {
+      console.error("Error processing test responses:", error);
+    }
+  };
 
   const handleSubmitAnswer = async (questionId: number, answer: number) => {
     const res = await saveAnswerAPI({
@@ -376,7 +381,7 @@ export const ExamInterface: React.FC<ExamInterfaceProps> = ({
 
     return () => clearInterval(timer);
   }, []);
-
+  console.log("state", state);
   const handlePartSelect = (partId: number) => {
     // Tìm section và part tương ứng với partId được chọn
     let targetSectionIndex = -1;
