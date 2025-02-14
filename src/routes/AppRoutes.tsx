@@ -16,7 +16,6 @@ import ToeicStructure from "../pages/articles/ToeicStructure";
 import Leaderboard from "../pages/leaderboard/Leaderboard";
 import LearningHub from "../pages/learning/LearningHub";
 
-
 function AppRoutes() {
   return (
     <Router>
@@ -27,14 +26,18 @@ function AppRoutes() {
           <Route path="/tests" element={<TestList />} />
           <Route path="/toeic-structure" element={<ToeicStructure />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/learning" element={<LearningHub />} />
         </Route>
-        <Route path="/learning" element={<LearningHub />} />
+
         <Route path="/admin/test/create" element={<CreateToeicTest />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/test/:id/:test_id" element={<ExamPage />} />
         <Route path="/exam/:id" element={<ExamPage2 />} />
         <Route path="/verification/:token" element={<Verification />} />
-        <Route path="/reset-password/:email/:token" element={<ResetPassword />} />
+        <Route
+          path="/reset-password/:email/:token"
+          element={<ResetPassword />}
+        />
         <Route path="/404" element={<PageNotFound />} />
         <Route path="*" element={<PageNotFound />} />
         <Route path="/test/review/:id/:test_id" element={<ReviewPage />} />

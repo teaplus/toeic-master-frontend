@@ -52,7 +52,7 @@ function Header() {
         Cookies.remove("username");
         Cookies.remove("role");
         Cookies.remove("id");
-        window.location.reload();
+        window.location.href = "/";
       })
       .catch((err) => console.error(err));
   };
@@ -118,6 +118,12 @@ function Header() {
 
         {/* Navigation Links - Desktop */}
         <nav className="hidden md:flex items-center space-x-6">
+          <a
+            href="/learning"
+            className="text-white hover:text-yellow-300 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-white/10"
+          >
+            Học tập
+          </a>
           <a
             href="/leaderboard"
             className="text-white hover:text-yellow-300 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-white/10"
