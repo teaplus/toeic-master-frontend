@@ -74,7 +74,7 @@ const ResetPassword = () => {
 
       notice.show("success", "Đặt lại mật khẩu thành công!");
       setTimeout(() => {
-        navigate("/auth/login");
+        navigate("/");
       }, 2000);
     } catch (error: any) {
       const errorMessage =
