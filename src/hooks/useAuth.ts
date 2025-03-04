@@ -26,6 +26,7 @@ export const useAuth = () => {
       navigate("/");
       return null;
     }
+    
     const response = await getUserInfoAPI(Number(id));
     if (response.data.statusCode === 200) {
       setUser(response.data.data);

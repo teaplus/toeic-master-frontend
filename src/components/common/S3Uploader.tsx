@@ -38,7 +38,7 @@ const S3Uploader = forwardRef<
 
       // Gọi API để lấy Pre-Signed URL
       const response = await axios.get(
-        "http://localhost:3000/s3/presigned-url",
+        "https://api.toeicmaster.online/s3/presigned-url",
         {
           params: {
             key,

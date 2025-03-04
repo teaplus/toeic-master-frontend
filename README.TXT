@@ -1,0 +1,271 @@
+    // Start Generation Here
+    ### Hướng Dẫn Chạy Dự Án
+
+    **Bước 1: Sao chép repository**
+    
+    
+    
+    **Bước 2: Cài đặt các phụ thuộc**
+    
+    Di chuyển vào thư mục dự án và cài đặt các gói phụ thuộc bằng npm:
+    
+    ```bash
+    cd your-repository
+    npm install
+    ```
+    
+    **Bước 3: Cấu hình biến môi trường**
+    
+    Tạo một file `.env` trong thư mục gốc của dự án và thêm các biến môi trường cần thiết:
+    
+    ```env
+    REACT_APP_WEB_CLIENT_ID=271028292439-3iagm29eogatvjlg4v3lj71hmcjs63qb.apps.googleusercontent.com
+    PORT=4000
+    REACT_APP_API_URL=http://localhost:3000
+
+    REACT_APP_AWS_ACCESS_KEY_ID=AKIAXVGL77P322IILBU5
+    REACT_APP_AWS_SECRET_ACCESS_KEY=y4WSECFCImCY45aWwD2C+YjotI6YUXGu48RBt+kzA
+    REACT_APP_AWS_REGION=us-east-1
+    REACT_APP_AWS_BUCKET_NAME=my-toeic-bucket
+    ```
+    
+    **Bước 4: Chạy ứng dụng trong chế độ phát triển**
+    
+    Khởi động ứng dụng bằng lệnh:
+    
+    ```bash
+    npm start
+    ```
+    
+    Ứng dụng sẽ chạy ở http://localhost:4000.
+    
+    **Bước 5: Chạy các bài kiểm tra**
+    
+    Để chạy bộ kiểm tra, sử dụng lệnh:
+    
+    ```bash
+    npm test
+    ```
+    
+    **Bước 6: Xây dựng ứng dụng cho môi trường sản xuất**
+    
+    Để xây dựng ứng dụng cho môi trường sản xuất, chạy lệnh:
+    
+    ```bash
+    npm run build
+    ```
+    
+    Thư mục `build` sẽ chứa các tệp đã được tối ưu hóa để triển khai.
+
+    # Chạy build version
+    serve -s build -l 3000
+
+    ##### Chạy backend
+
+    # TOEIC API Project
+
+## Yêu cầu hệ thống deploy
+- Docker
+- Docker Compose
+- Node.js v20.x (cho development)
+- PostgreSQL (cho development local)
+
+## môi trường development 
+Nodejs V20.X
+PostgreSQL 17 /pgadmin
+npm version 9.X
+
+## Cấu trúc project
+```bash
+toeic-api/
+├── src/                    # Source code
+├── dist/                   # Compiled files
+├── docker/                 # Docker configurations
+├── .env                    # Environment variables
+├── .env.example           # Example environment file
+├── docker-compose.yml     # Docker compose config
+├── Dockerfile             # Docker build file
+└── package.json           # Node.js dependencies
+```
+
+## Cách chạy dự án với Docker
+
+### 1. Clone repository
+```bash
+git clone <repository-url>
+cd toeic-api
+```
+
+### 2. Cấu hình môi trường
+```bash
+# Copy file môi trường mẫu
+cp .env.example .env
+
+# Chỉnh sửa các biến môi trường trong .env
+nano .env
+```
+
+Các biến môi trường cần thiết:
+```env
+# Database
+DB_HOST=db
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=your_password
+DB_NAME=toeic_db
+
+# JWT
+JWT_SECRET=your_jwt_secret
+JWT_EXPIRES_IN=86400
+
+# Mail
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=465
+MAIL_USER=your_email
+MAIL_PASSWORD=your_password
+
+# AWS (nếu sử dụng)
+AWS_ACCESS_KEY_ID=your_access_key
+AWS_SECRET_ACCESS_KEY=your_secret_key
+AWS_REGION=your_region
+AWS_BUCKET_NAME=your_bucket
+```
+
+### 3. Khởi động dự án với Docker
+
+#### Development Mode
+```bash
+# Build và start containers
+docker-compose up -d
+
+# Xem logs
+docker-compose logs -f
+```
+
+Dockerfile cho development:
+```dockerfile
+FROM node:20-alpine
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+COPY tsconfig*.json ./
+COPY ormconfig.js ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "run", "start:dev"]
+```
+
+docker-compose.yml cho development:
+```yaml
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: toeic-api
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13-alpine
+    container_name: toeic-db
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+```
+
+### 4. Các lệnh hữu ích
+
+#### Docker Commands
+```bash
+# Stop containers
+docker-compose down
+
+# Rebuild và restart
+docker-compose up -d --build
+
+# Xem logs realtime
+docker-compose logs -f
+
+# Xem logs của service cụ thể
+docker-compose logs -f api
+docker-compose logs -f db
+```
+
+#### Database Commands
+```bash
+# Truy cập PostgreSQL shell
+docker exec -it toeic-db psql -U postgres -d toeic_db
+
+# Backup database
+docker exec toeic-db pg_dump -U postgres toeic_db > backup.sql
+
+# Restore database
+cat backup.sql | docker exec -i toeic-db psql -U postgres toeic_db
+```
+
+#### Development Commands
+```bash
+# Install dependencies
+npm install
+
+# Run migrations
+npm run migration:run
+
+# Generate migration
+npm run migration:generate --name=migration_name
+
+# Revert migration
+npm run migration:revert
+```
+## chạy trên local windows 
+#### Chạy dự án trên local Windows
+
+```bash
+# Cài đặt các phụ thuộc
+npm install
+
+# Khởi động các container Docker
+docker-compose up -d --build
+
+# Chạy migrations cơ sở dữ liệu
+npm run migration:run
+
+# Bắt đầu server phát triển
+npm run start
+
+#chạy production
+npm run start:prod
+
+# Truy cập ứng dụng tại http://localhost:3000
+```
+
+
